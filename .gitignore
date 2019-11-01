@@ -87,3 +87,12 @@ target/
 
 # Mypy cache
 .mypy_cache/
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
