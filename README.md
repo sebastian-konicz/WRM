@@ -1,7 +1,19 @@
-WrocĹ‚awski Rower Miejski
+Wroclaw Bikesharing System Analysis
 ==============================
 
-Analiza danych dot. wypoĹĽyczeĹ„ WrocĹ‚awskiego Rowera Miejskiego
+# Overview
+
+As part of the free transport data service, Wroclaw Bikesharing System (WRM) release data on journeys taken using their cycles. The data goes back to June 2019, showing information on the start and end locations of the journey, along with duration and time of day. By combining this information with the coordinates of each cycle hire point, I predicted the most likely journey taken for each start/end combination.
+
+# The WRM data
+
+Wroclaw host all of the raw cycle data on their [open data website](https://www.wroclaw.pl/open-data/) as a series of CSV files. Furthermore, they also have [data](https://tfl.gov.uk/tfl/syndication/feeds/cycle-hire/livecyclehireupdates.xml) showing the status of each bike point in Wroclaw, yielding information such as its coordinates, total capacity etc.
+
+For those unaware, below is a map of all the cycle hire stations across Wroclaw and surrounding areas.
+
+![All docking stations](images/DockingStationsMapBlack.html)
+
+I've also generated a fancy interactive version of this plot in folium - click [here]() to see it. You can zoom/scroll with this version, and it also tells you the name and capacity of each location.
 
 Project Organization
 ------------

@@ -75,8 +75,9 @@ def main(dir):
                                 color=color,
                                 popup=popup_text,
                                 fill=True).add_to(folium_map)
-        # Saving map to folde
+        # Saving map to folder
         folium_map.save(dir + r"\images\NetArivalDepartures.html")
+        folium_map.save(dir + r'\Images')
         return folium_map
 
     trip_counts = get_trip_counts_by_hour(17)
