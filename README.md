@@ -7,11 +7,11 @@ As part of the free transport data service, Wroclaw Bikesharing System (WRM) rel
 
 # The WRM data
 
-Wroclaw host all of the raw cycle data on their [open data website](https://www.wroclaw.pl/open-data/) as a series of CSV files. Furthermore, they also have [data](https://tfl.gov.uk/tfl/syndication/feeds/cycle-hire/livecyclehireupdates.xml) showing the status of each bike point in Wroclaw, yielding information such as its coordinates, total capacity etc.
+Wroclaw host all of the raw cycle data on their [open data website](https://www.wroclaw.pl/open-data/dataset/wrmprzejazdy_data) as a series of CSV files. Furthermore, they also have [data](https://www.wroclaw.pl/open-data/dataset/nextbikesoap_data) showing the status of each bike point in Wroclaw, yielding information such as its coordinates, total capacity etc.
 
 For those unaware, below is a map of all the cycle hire stations across Wroclaw and surrounding areas.
 
-![All docking stations](images/DockingStationsMapBlack.html)
+![All docking stations](images/final/DockingStationsMapBlack.png)
 
 I've also generated a fancy interactive version of this plot in folium - click [here]() to see it. You can zoom/scroll with this version, and it also tells you the name and capacity of each location.
 

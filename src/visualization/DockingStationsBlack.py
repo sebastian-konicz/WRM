@@ -1,7 +1,5 @@
 import folium
-import selenium.webdriver
 import pandas as pd
-import time
 from pathlib import Path
 
 def main(dir):
@@ -26,15 +24,8 @@ def main(dir):
                             color="#ff3300").add_to(folium_map)
 
     # Saving the map as html
-    path = dir + r"\images\DockingStationsMapBlack.html"
-    folium_map.save(path)
-
-    # # # Saving the mas as png
-    # driver = selenium.webdriver.PhantomJS(executable_path='C:\\Program Files\\Phantomjs-2.1.1-windows\\bin\\phantomjs')
-    # driver.set_window_size(4000, 3000)
-    # driver.get(path)
-    # time.sleep(100)
-    # driver.save_screenshot(dir + r"\images\DockingStationsMapBlack.png")
+    pathHTML = dir + r"\images\DockingStationsMapBlack.html"
+    folium_map.save(pathHTML)
 
 if __name__ == "__main__":
     project_dir = str(Path(__file__).resolve().parents[2])
