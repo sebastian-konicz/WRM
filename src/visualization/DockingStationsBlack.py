@@ -5,11 +5,11 @@ from pathlib import Path
 
 def main(dir):
     # Loading Data Set
-    data = pd.read_csv(dir + r'\data\raw\DockingStations.csv',
+    DockingStations = pd.read_csv(dir + r'\data\raw\DockingStations.csv',
                                   delimiter=",", encoding="utf-8", engine='python', error_bad_lines=False)
-    lat = data['lat']
-    lng = data['lng']
-    name = data['name']
+    lat = DockingStations['lat']
+    lng = DockingStations['lng']
+    name = DockingStations['name']
 
     # Create base map
     map = folium.Map(location=[51.110158, 17.031927], zoom_start = 14)
