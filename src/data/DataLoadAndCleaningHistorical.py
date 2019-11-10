@@ -26,9 +26,9 @@ def main(dir, dataYear):
                              left_on="Stacja zwrotu", right_on="name_old", how='left')
 
     # Renaming columns
-    RentalData.columns = ["Lp", "BikeNumber", "StartDate", "EndDate", "StartStation", "EndStation",
-                          's_number', "s_lat", "s_lng", 's_name', 's_name_old',
-                          'e_number', 'e_lat', 'e_lng', 'e_name', 'e_name_old']
+    RentalData.columns = ["Lp", "BikeNumber", "StartDate", "EndDate", "StartStation_old", "EndStation_old",
+                          's_number', "s_lat", "s_lng", 'StartStation', 's_name_old',
+                          'e_number', 'e_lat', 'e_lng', 'EndStation', 'e_name_old']
 
     # Limiting dataset
     RentalData = RentalData[["BikeNumber", "StartDate", "EndDate",

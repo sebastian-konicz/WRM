@@ -2,8 +2,6 @@ from PIL import Image, ImageDraw
 import numpy as np
 import pandas as pd
 import folium
-import matplotlib.pyplot as plt
-import matplotlib.colors
 from matplotlib.colors import LinearSegmentedColormap, rgb_to_hsv, hsv_to_rgb
 import scipy.ndimage.filters
 from pathlib import Path
@@ -13,8 +11,7 @@ pd.options.display.max_columns = 50
 def main(dir):
     # Loading Data Set
     print("Loading dataset")
-    RentalData = pd.read_csv(dir + r'\data\processed\RentalData.csv',
-                        delimiter=",", encoding="utf-8", engine='python', error_bad_lines=False)
+    RentalData = pd.read_csv(dir + r'\data\processed\RentalData2015.csv', delimiter=",", encoding="utf-8")
 
     # Changind the StartDate and EndDate to datetime format
     RentalData["StartDate"] = pd.to_datetime(RentalData["StartDate"])
@@ -212,9 +209,9 @@ def main(dir):
         folium.LayerControl().add_to(folium_map)
         folium_map.save(dir + r"\images\Paths{}.html".format(time_of_day))
 
-    for time in range(25):
-        print(time)
-        folium_map(time, 1)
+    # for time in range(25):
+    #     print(time)
+    folium_map(16, 1)
 
 if __name__ == "__main__":
     project_dir = str(Path(__file__).resolve().parents[2])
