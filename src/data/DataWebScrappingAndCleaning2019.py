@@ -1,14 +1,40 @@
-import requests
-import os
-import glob
-import pandas as pd
 from urllib.request import urlretrieve
 from bs4 import BeautifulSoup
+import requests
+import glob
+import pandas as pd
 from pathlib import Path
 
-pd.options.display.max_columns = 50
 
 def main(dir):
+    # SCRAPPING DATA FROM THE NET
+    # Downloading rental data from the page
+    pageRental = requests.get("https://www.wroclaw.pl/open-data/dataset/wrmprzejazdy_data/resource_history/65b5015e-070e-41da-8852-802a86442ac5")
+    htmlRental = BeautifulSoup(pageRental.content, 'html.parser')
+    linksRental = htmlRental.find_all("a", class_="heading")
+
+    filenames = []
+    for link in linksRental:
+        href = link.get('href')
+        index = href.index("Historia")
+        filename = href[index:]
+        filenames.append(filename)
+        filepath = dir + r'\data\raw\{}'.format(filename)
+        if Path(filepath).exists() == False:
+            urlretrieve(href, filepath)
+            print("Data updated: " + filename)
+        else:
+            pass
+
+    #Downloading dockingstation data form the page
+    pageStations = requests.get('https://www.wroclaw.pl/open-data/dataset/nextbikesoap_data')
+    htmlStations = BeautifulSoup(pageStations.content, 'html.parser')
+    linksStations = htmlStations.find("a", class_="resource-url-analytics")
+
+    hrefStations = linksStations.get('href')
+    urlretrieve(hrefStations, str(dir) + r'\data\raw\DockingStations.csv')
+    print("Docking station data have been updated")
+
     # LOADING DATA FROM DIRECTORY
     # Rental dataset
     dataPath = dir + r'\data\raw'
@@ -53,7 +79,6 @@ def main(dir):
     # Limiting dataset to rentals from docking stations and to docking staions
     RentalDataset = RentalDataset[RentalDataset['s_lat'] > 0]
     RentalDataset = RentalDataset[RentalDataset['e_lat'] > 0]
-
 
     RentalDataset = RentalDataset.reset_index(drop=True)
 
