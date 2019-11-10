@@ -16,7 +16,6 @@ def main(dir, dataYear):
         RentalData['Date'] = RentalData["StartDate"].map(lambda x: x.date())
         RentalData = RentalData[["Date", "StartDate"]]
         Dates = RentalData.groupby("Date").first()
-        print(Dates)
 
         APIKEY = "3c7e3a27611cb8f6c1812270bcf762b9"
 

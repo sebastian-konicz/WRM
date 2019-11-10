@@ -26,8 +26,19 @@ def main(dir):
     # Changind the StartDate and EndDate to datetime format
     RentalData["StartDate"] = pd.to_datetime(RentalData["StartDate"])
     RentalData["EndDate"] = pd.to_datetime(RentalData["EndDate"])
+
+    # Limiting dataset to weekdays
+    RentalData['WeekDay'] = RentalData["StartDate"].dt.weekday
+    RentalData = RentalData[(RentalData['WeekDay'] >= 0) & (RentalData['WeekDay'] < 5)]
+    RentalData = RentalData.reset_index(drop=True)
+
+    # Extracting hour of the day
     RentalData['hour_start'] = RentalData["StartDate"].map(lambda x: x.hour)
     RentalData['hour_end'] = RentalData["StartDate"].map(lambda x: x.hour)
+
+    # Limiting the dataset to trips made between different stations
+    RentalData = RentalData[RentalData['StartStation'] != RentalData['EndStation']]
+    RentalData = RentalData.reset_index(drop=True)
 
     def interpolate(df1, df2, x):
         """return a weighted average of two dataframes"""
@@ -92,7 +103,7 @@ def main(dir):
         return image
 
     print("Writing pictures for")
-    dir_name = dir + r'\images\final'
+    dir_name = dir + r'\images\final\AIM'
     arrival_times = np.arange(5, 23, .2)
     for i, hour in enumerate(arrival_times):
         print("making image for " + str(i) + " " + str(hour))
