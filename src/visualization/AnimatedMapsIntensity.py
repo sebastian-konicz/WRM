@@ -39,6 +39,7 @@ def main(dir):
     # Limiting the dataset to trips made between different stations
     RentalData = RentalData[RentalData['StartStation'] != RentalData['EndStation']]
     RentalData = RentalData.reset_index(drop=True)
+    # RentalData = RentalData[(RentalData['StartStation'] != "Aleja Bielany") & (RentalData['EndStation'] != 'Aleja Bielany')]
 
     def interpolate(df1, df2, x):
         """return a weighted average of two dataframes"""
@@ -104,7 +105,7 @@ def main(dir):
 
     print("Writing pictures for")
     dir_name = dir + r'\images\final\AIM'
-    arrival_times = np.arange(5, 23, .2)
+    arrival_times = np.arange(0, 24, .1)
     for i, hour in enumerate(arrival_times):
         print("making image for " + str(i) + " " + str(hour))
         go_arrivals_frame(i, hour, dir_name)
