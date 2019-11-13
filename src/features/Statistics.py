@@ -13,7 +13,8 @@ from pathlib import Path
 # Plotly standart impors
 import plotly.graph_objects as go
 import plotly.io as pio
-# import chart_studio.plotly as py
+import cufflinks as cf
+cf.go_offline(connected=True)
 
 # Offline mode
 import plotly.offline
@@ -69,19 +70,20 @@ def main(dir):
     # Plot for total rental by month
     monthAggregated = pd.DataFrame(RentalData.groupby("Month")['Count'].sum()).reset_index()
 
+    monthAggPlotData = [go.Bar(x=monthAggregated['Month'], y=monthAggregated['Count'],
+                                marker={'color': monthAggregated['Count'], "autocolorscale": True})]
+    monthAggPlotLayout = go.Layout(title=go.layout.Title(text="Total rentals by month"),
+                                     xaxis=dict(categoryorder='array', categoryarray=monthOrder))
 
-    monthAggPlot = go.Figure(data=go.Bar(x=monthAggregated['Month'], y=monthAggregated['Count'],
-                                marker={'color': monthAggregated['Count'], "autocolorscale": True}),
-                    layout=go.Layout(title=go.layout.Title(text="Total rentals by month"),
-                                     xaxis=dict(categoryorder='array', categoryarray=monthOrder)))
+    monthAggPlot = dict(data=monthAggPlotData, layout=monthAggPlotLayout)
+    # monthAggPlot = go.Figure(data=monthAggPlotData, layout=monthAggPlotLayout)
 
-    plotly.offline.plot(monthAggPlot, filename=(dir + r'\images\sites\monthAggPlot.html'))
+    # plotly.offline.plot(monthAggPlot, filename=(dir + r'\images\sites\monthAggPlot.html'))
     # monthAggPlot.write_image(dir + r'\images\final\monthAggPlot.png')
 
     # Plot for total rental in particular days by hour of the day
     hourAggregated = pd.DataFrame(RentalData.groupby(["Hour", "Weekday"], sort=True)["Count"].count()).reset_index()
     hourAggPivot = hourAggregated.pivot(index="Hour", columns="Weekday")["Count"]
-    print(hourAggPivot)
 
     # Generating lines for differend day of the week
     hourAggPlotData = []
@@ -90,10 +92,10 @@ def main(dir):
         hourAggPlotData.append(plotLine)
 
     hourAggPlotLayout = go.Layout(title=go.layout.Title(text="Total rentals by hour and weekday"))
-    hourAggPlot = go.Figure(data=hourAggPlotData, layout =hourAggPlotLayout)
+    hourAggPlot = dict(data=hourAggPlotData, layout =hourAggPlotLayout)
+    # hourAggPlot = go.Figure(data=hourAggPlotData, layout =hourAggPlotLayout)
 
-    plotly.offline.plot(hourAggPlot, filename=(dir + r'\images\sites\hourAggPlot.html'))
-
+    # plotly.offline.plot(hourAggPlot, filename=(dir + r'\images\sites\hourAggPlot.html'))
 
     # fig, (ax1, ax2) = plt.subplots(nrows=2)
     # monthAggregated = pd.DataFrame(RentalData.groupby("Month")['Count'].sum()).reset_index()
@@ -111,6 +113,9 @@ def main(dir):
     #         title="Users Count By Hour Of The Day Across Weekdays", label='big')
     #
     # plt.show()
+
+    return monthAggPlot, hourAggPlot, monthAggPlotData
+
 
 if __name__ == "__main__":
     project_dir = str(Path(__file__).resolve().parents[2])
