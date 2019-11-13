@@ -64,7 +64,11 @@ For those unaware, below is a map of all the cycle hire stations across Wroclaw 
 
 ![All docking stations](images/final/DockingStationsMapBlack.png)
 
+![monthAggPlot](images/sites/monthAggPlot.html)
+
 ![Animation](images/final/IntensityMorning.gif)
+
+![monthAggPlot](images/sites/monthAggPlot.html)
 
 I've also generated a fancy interactive version of this plot in folium - click [here](https://sebastian-konicz.github.io/WRM/images/DockingStationsMapBlack.html) to see it. You can zoom/scroll with this version, and it also tells you the name and capacity of each location.
 

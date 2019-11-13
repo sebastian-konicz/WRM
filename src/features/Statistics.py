@@ -9,6 +9,15 @@ from datetime import datetime
 import matplotlib.pyplot as plt
 import warnings
 from pathlib import Path
+
+# Plotly standart impors
+import plotly.graph_objects as go
+import plotly.io as pio
+# import chart_studio.plotly as py
+
+# Offline mode
+import plotly.offline
+
 pd.options.display.max_columns = 50
 
 def main(dir):
@@ -54,25 +63,54 @@ def main(dir):
 
     RentalData = pd.read_csv(dir + r'\data\processed\RentalDataRewised.csv', delimiter=",", encoding="utf-8")
 
-    sortOrder = ["April", "May", "June", "July", "August", "September", "October", "November"]
-    hueOrder = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+    monthOrder = ["April", "May", "June", "July", "August", "September", "October", "November"]
+    dayOrder = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 
-    fig, (ax1, ax2) = plt.subplots(nrows=2)
+    # Plot for total rental by month
     monthAggregated = pd.DataFrame(RentalData.groupby("Month")['Count'].sum()).reset_index()
-    print(monthAggregated)
-    monthSorted = monthAggregated.sort_values(by="Count", ascending=False)
-    sn.barplot(data=monthSorted, x="Month", y="Count", ax=ax1, order=sortOrder)
-    ax1.set(xlabel='Month', ylabel='Count', title="Count of rides By Month")
 
 
+    monthAggPlot = go.Figure(data=go.Bar(x=monthAggregated['Month'], y=monthAggregated['Count'],
+                                marker={'color': monthAggregated['Count'], "autocolorscale": True}),
+                    layout=go.Layout(title=go.layout.Title(text="Total rentals by month"),
+                                     xaxis=dict(categoryorder='array', categoryarray=monthOrder)))
+
+    plotly.offline.plot(monthAggPlot, filename=(dir + r'\images\sites\monthAggPlot.html'))
+    # monthAggPlot.write_image(dir + r'\images\final\monthAggPlot.png')
+
+    # Plot for total rental in particular days by hour of the day
     hourAggregated = pd.DataFrame(RentalData.groupby(["Hour", "Weekday"], sort=True)["Count"].count()).reset_index()
-    print(hourAggregated)
-    sn.pointplot(x=hourAggregated["Hour"], y=hourAggregated["Count"], hue=hourAggregated["Weekday"],
-                 hue_order=hueOrder, data=hourAggregated, join=True, ax=ax2)
-    ax2.set(xlabel='Hour Of The Day', ylabel='Users Count',
-            title="Users Count By Hour Of The Day Across Weekdays", label='big')
+    hourAggPivot = hourAggregated.pivot(index="Hour", columns="Weekday")["Count"]
+    print(hourAggPivot)
 
-    plt.show()
+    # Generating lines for differend day of the week
+    hourAggPlotData = []
+    for day in dayOrder:
+        plotLine = go.Scatter(x=hourAggPivot.index, y=hourAggPivot[day], mode="lines", name=day)
+        hourAggPlotData.append(plotLine)
+
+    hourAggPlotLayout = go.Layout(title=go.layout.Title(text="Total rentals by hour and weekday"))
+    hourAggPlot = go.Figure(data=hourAggPlotData, layout =hourAggPlotLayout)
+
+    plotly.offline.plot(hourAggPlot, filename=(dir + r'\images\sites\hourAggPlot.html'))
+
+
+    # fig, (ax1, ax2) = plt.subplots(nrows=2)
+    # monthAggregated = pd.DataFrame(RentalData.groupby("Month")['Count'].sum()).reset_index()
+    # print(monthAggregated)
+    # monthSorted = monthAggregated.sort_values(by="Count", ascending=False)
+    # sn.barplot(data=monthSorted, x="Month", y="Count", ax=ax1, order=sortOrder)
+    # ax1.set(xlabel='Month', ylabel='Count', title="Count of rides By Month")
+    #
+    #
+    # hourAggregated = pd.DataFrame(RentalData.groupby(["Hour", "Weekday"], sort=True)["Count"].count()).reset_index()
+    # print(hourAggregated)
+    # sn.pointplot(x=hourAggregated["Hour"], y=hourAggregated["Count"], hue=hourAggregated["Weekday"],
+    #              hue_order=hueOrder, data=hourAggregated, join=True, ax=ax2)
+    # ax2.set(xlabel='Hour Of The Day', ylabel='Users Count',
+    #         title="Users Count By Hour Of The Day Across Weekdays", label='big')
+    #
+    # plt.show()
 
 if __name__ == "__main__":
     project_dir = str(Path(__file__).resolve().parents[2])
