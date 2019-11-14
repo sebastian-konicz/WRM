@@ -50,6 +50,7 @@ def main(dir):
     # RentalData["Month"] = RentalData["Month"].map({1: "January", 2: "February", 3: "March", 4: "April",
     #                                                5: "May", 6: "June", 7: "July", 8: "August",
     #                                                9: "September", 10: "October", 11: "November", 12: "December"})
+    # RentalData["WorkingDay"] = RentalData["WorkingDay"].map({0: "DayOff", 1: "WorkingDay"})
     #
     # # Changing values to category type
     # categoryVariableList = ["Hour", "Weekday", "Month", "WorkingDay"]
@@ -62,30 +63,41 @@ def main(dir):
     # print("Saving to Excel")
     # RentalData.to_csv(dir + r'\data\processed\RentalDataRewised.csv', encoding='utf-8', index=False)
 
+    print("Loading data")
     RentalData = pd.read_csv(dir + r'\data\processed\RentalDataRewised.csv', delimiter=",", encoding="utf-8")
 
     monthOrder = ["April", "May", "June", "July", "August", "September", "October", "November"]
     dayOrder = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+    workingDay = ["WorkingDay", "DayOff"]
 
     # Plot for total rental by month
     monthAggregated = pd.DataFrame(RentalData.groupby("Month")['Count'].sum()).reset_index()
-
-    monthAggPlotData = [go.Bar(x=monthAggregated['Month'], y=monthAggregated['Count'],
-                                marker={'color': monthAggregated['Count'], "autocolorscale": True})]
+    monthAggPlotData = go.Bar(x=monthAggregated['Month'], y=monthAggregated['Count'],
+                                marker={'color': monthAggregated['Count'], "autocolorscale": True})
     monthAggPlotLayout = go.Layout(title=go.layout.Title(text="Total rentals by month"),
                                      xaxis=dict(categoryorder='array', categoryarray=monthOrder))
-
     monthAggPlot = dict(data=monthAggPlotData, layout=monthAggPlotLayout)
-    # monthAggPlot = go.Figure(data=monthAggPlotData, layout=monthAggPlotLayout)
 
-    # plotly.offline.plot(monthAggPlot, filename=(dir + r'\images\sites\monthAggPlot.html'))
-    # monthAggPlot.write_image(dir + r'\images\final\monthAggPlot.png')
+    # Plot for average rental by month
+    monthAverage = pd.DataFrame(RentalData.groupby(["Month", "Date"])['Count'].sum()).reset_index()
+    monthAverage = pd.DataFrame(monthAverage.groupby("Month")['Count'].mean()).reset_index()
+    monthAvgPlotData = go.Bar(x=monthAverage['Month'], y=monthAverage['Count'],
+                                marker={'color': monthAggregated['Count'], "autocolorscale": True})
+    monthAvgPlotLayout = go.Layout(title=go.layout.Title(text="Average rentals by month"),
+                                     xaxis=dict(categoryorder='array', categoryarray=monthOrder))
+    monthAvgPlot = dict(data=monthAvgPlotData, layout=monthAvgPlotLayout)
+
+    # Plot for total rentals by day
+    dayAggregated = pd.DataFrame(RentalData.groupby("Date")['Count'].sum()).reset_index()
+    dayAggPlotData = go.Bar(x=dayAggregated['Date'], y=dayAggregated['Count'])
+    dayAggPlotLayout = go.Layout(title=go.layout.Title(text="Total rentals by day"))
+    dayAggPlot = dict(data=dayAggPlotData, layout=dayAggPlotLayout)
 
     # Plot for total rental in particular days by hour of the day
     hourAggregated = pd.DataFrame(RentalData.groupby(["Hour", "Weekday"], sort=True)["Count"].count()).reset_index()
     hourAggPivot = hourAggregated.pivot(index="Hour", columns="Weekday")["Count"]
 
-    # Generating lines for differend day of the week
+    # Generating lines for different day of the week
     hourAggPlotData = []
     for day in dayOrder:
         plotLine = go.Scatter(x=hourAggPivot.index, y=hourAggPivot[day], mode="lines", name=day)
@@ -93,30 +105,64 @@ def main(dir):
 
     hourAggPlotLayout = go.Layout(title=go.layout.Title(text="Total rentals by hour and weekday"))
     hourAggPlot = dict(data=hourAggPlotData, layout =hourAggPlotLayout)
-    # hourAggPlot = go.Figure(data=hourAggPlotData, layout =hourAggPlotLayout)
 
-    # plotly.offline.plot(hourAggPlot, filename=(dir + r'\images\sites\hourAggPlot.html'))
+    # Plot for average rental in particular days by hour of the day
+    hourAverage = pd.DataFrame(RentalData.groupby(["Hour", "Date", "Weekday"], sort=True)["Count"].count()).reset_index()
+    hourAverage = pd.DataFrame(hourAverage.groupby(["Hour", "Weekday"], sort=True)["Count"].mean()).reset_index()
+    hourAvgPivot = hourAverage.pivot(index="Hour", columns="Weekday")["Count"]
 
-    # fig, (ax1, ax2) = plt.subplots(nrows=2)
-    # monthAggregated = pd.DataFrame(RentalData.groupby("Month")['Count'].sum()).reset_index()
-    # print(monthAggregated)
-    # monthSorted = monthAggregated.sort_values(by="Count", ascending=False)
-    # sn.barplot(data=monthSorted, x="Month", y="Count", ax=ax1, order=sortOrder)
-    # ax1.set(xlabel='Month', ylabel='Count', title="Count of rides By Month")
-    #
-    #
-    # hourAggregated = pd.DataFrame(RentalData.groupby(["Hour", "Weekday"], sort=True)["Count"].count()).reset_index()
-    # print(hourAggregated)
-    # sn.pointplot(x=hourAggregated["Hour"], y=hourAggregated["Count"], hue=hourAggregated["Weekday"],
-    #              hue_order=hueOrder, data=hourAggregated, join=True, ax=ax2)
-    # ax2.set(xlabel='Hour Of The Day', ylabel='Users Count',
-    #         title="Users Count By Hour Of The Day Across Weekdays", label='big')
-    #
-    # plt.show()
+    # Generating lines for differend day of the week
+    hourAvgPlotData = []
+    for day in dayOrder:
+        plotLine = go.Scatter(x=hourAvgPivot.index, y=hourAvgPivot[day], mode="lines", name=day)
+        hourAvgPlotData.append(plotLine)
 
-    return monthAggPlot, hourAggPlot, monthAggPlotData
+    hourAvgPlotLayout = go.Layout(title=go.layout.Title(text="Total rentals by hour and weekday"))
+    hourAvgPlot = dict(data=hourAvgPlotData, layout=hourAvgPlotLayout)
 
+    # Plot for average rental in working days or days off by hour of the day
+    hourAverageWD = pd.DataFrame(RentalData.groupby(["Hour", "Date", "WorkingDay"], sort=True)["Count"].count()).reset_index()
+    hourAverageWD = pd.DataFrame(hourAverageWD.groupby(["Hour", "WorkingDay"], sort=True)["Count"].mean()).reset_index()
+    hourAvgPivotWD = hourAverageWD.pivot(index="Hour", columns="WorkingDay")["Count"]
+
+    # Generating lines for differend day of the week
+    hourAvgWDPlotData = []
+    for day in workingDay:
+        plotLine = go.Scatter(x=hourAvgPivotWD.index, y=hourAvgPivotWD[day], mode="lines", name=day)
+        hourAvgWDPlotData.append(plotLine)
+
+    hourAvgWDPlotLayout = go.Layout(title=go.layout.Title(text="Average rentals by hour and kind of day (working day or weekend/holiday)"))
+    hourAvgWDPlot = dict(data=hourAvgWDPlotData, layout=hourAvgWDPlotLayout)
+
+    # Plot for average rental during particular mont by hour of the day
+    hourAverageMonth = pd.DataFrame(RentalData.groupby(["Hour", "Date", "Month"], sort=True)["Count"].count()).reset_index()
+    hourAverageMonth = pd.DataFrame(hourAverageMonth.groupby(["Hour", "Month"], sort=True)["Count"].mean()).reset_index()
+    hourAvgPivotMonth = hourAverageMonth.pivot(index="Hour", columns="Month")["Count"]
+
+    # Generating lines for differend day of the week
+    hourAvgMonthPlotData = []
+    for month in monthOrder:
+        plotLine = go.Scatter(x=hourAvgPivotMonth.index, y=hourAvgPivotMonth[month], mode="lines", name=month)
+        hourAvgMonthPlotData.append(plotLine)
+
+    hourAvgMonthPlotLayout = go.Layout(
+        title=go.layout.Title(text="Average rentals by hour and month"))
+    hourAvgMonthPlot = dict(data=hourAvgMonthPlotData, layout=hourAvgMonthPlotLayout)
+
+    return monthAggPlot, monthAvgPlot, dayAggPlot, hourAggPlot, hourAvgPlot, hourAvgWDPlot, hourAvgMonthPlot
+
+def graphs(dir):
+    monthAggPlot, monthAvgPlot, dayAggPlot, hourAggPlot, hourAvgPlot, hourAvgWDPlot, hourAvgMonthPlot = main(dir)
+    plotly.offline.plot(monthAggPlot, filename=(dir + r'\images\sites\monthAggPlot.html'))
+    plotly.offline.plot(monthAvgPlot, filename=(dir + r'\images\sites\monthAvgPlot.html'))
+    plotly.offline.plot(dayAggPlot, filename=(dir + r'\images\sites\dayAggPlot.html'))
+    plotly.offline.plot(hourAggPlot, filename=(dir + r'\images\sites\hourAggPlot.html'))
+    plotly.offline.plot(hourAvgPlot, filename=(dir + r'\images\sites\hourAvgPlot.html'))
+    plotly.offline.plot(hourAvgWDPlot, filename=(dir + r'\images\sites\hourAvgWDPlot.html'))
+    plotly.offline.plot(hourAvgMonthPlot, filename=(dir + r'\images\sites\hourAvgMonthPlot.html'))
 
 if __name__ == "__main__":
     project_dir = str(Path(__file__).resolve().parents[2])
-    main(project_dir)
+    graphs(project_dir)
+    # main(project_dir)
+

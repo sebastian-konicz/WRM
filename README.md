@@ -21,14 +21,15 @@ Basic Statistics
 
 Basic Usage patterns
 (How does usage change across the year, the week, and the day?)
-- Average count by month
-- Average count by hour of the day
-- Average count bu hour of the day (accros season)
+- Average(by day)/Total count by month
+- Average(by hour)/Total count by day
+- Average/Total count by hour of the day
 - Average count by hour of the day (accrow weekdays)
 	(Are people mostly using Bike Share as a way to commute to work or to explore the city?)
 	- inflow / outflow pictures (with color codes)
 - Count by hour of the day (workdays, weekends and holidays)
-- Histogram of datarental time (comparison between workdays and weekends).
+
+- Histogram of rental time (comparison between workdays and weekends).
 
 
 Source / Inspiration (https://medium.com/analytics-vidhya/how-to-finish-top-10-percentile-in-bike-sharing-demand-competition-in-kaggle-part-1-c816ea9c51e1)
