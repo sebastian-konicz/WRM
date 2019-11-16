@@ -5,12 +5,17 @@
 As part of the free transport data service, Wroclaw Bikesharing System (WRM) release data on journeys taken using their cycles. The data goes back to June 2019, showing information on the start and end locations of the journey along with time of day. By combining this information with the coordinates of each cycle hire point, I predicted the most likely journey taken for each start/end combination.
 
 ## Table of contents
-1. [Basic statistics](#statistics)
-2. [Usage patterns](#usage_patterns)
-3. [Weather conditions usage patterns](#weather)
-4. [Bike stations analysis](#stations)
-5. [Route predictions](#route)
-6. [Project organisation](#route)
+1. [WRM Dataset](#dataset)
+2. [Basic statistics](#statistics)
+3. [Usage patterns](#usage_patterns)
+4. [Weather conditions usage patterns](#weather)
+5. [Bike stations analysis](#stations)
+6. [Route predictions](#route)
+7. [Project organisation](#project)
+
+## WRM Dataset <a id="dataset"></a>
+Wroclaw host all of the raw cycle data on their [open data website](https://www.wroclaw.pl/open-data/dataset/wrmprzejazdy_data) as a series of CSV files. Furthermore, they also have [data](https://www.wroclaw.pl/open-data/dataset/nextbikesoap_data) showing the status of each bike point in Wroclaw, yielding information such as its coordinates, total capacity etc.
+
 
 ## Basic statistics <a id="statistics"></a>
 - number of bikes
@@ -64,8 +69,8 @@ As part of the free transport data service, Wroclaw Bikesharing System (WRM) rel
 - correlation between weather conditions and bike usage (temp, percipity,
 
 [Source / Inspiration](https://towardsdatascience.com/exploring-toronto-bike-share-ridership-using-python-3dc87d35cb62)
-<a id="stations"></a>
-## Bike stations analysis
+
+## Bike stations analysis <a id="stations"></a>
 - analysis of flows
 	- vega map with count of rented bikes by hour
 	- inflow and outflow gifs
@@ -87,14 +92,11 @@ I've also generated a fancy interactive version of this plot in folium - click [
 
 [Source / Inspiration](https://github.com/charlie1347/TfL_bikes)
 
-## The WRM data
-
-Wroclaw host all of the raw cycle data on their [open data website](https://www.wroclaw.pl/open-data/dataset/wrmprzejazdy_data) as a series of CSV files. Furthermore, they also have [data](https://www.wroclaw.pl/open-data/dataset/nextbikesoap_data) showing the status of each bike point in Wroclaw, yielding information such as its coordinates, total capacity etc.
 
 For those unaware, below is a map of all the cycle hire stations across Wroclaw and surrounding areas.
 
-<a id="project"></a>
-## Project Organization
+
+## Project Organization <a id="project"></a>
 ------------
 
     ├── LICENSE
