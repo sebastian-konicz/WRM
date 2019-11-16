@@ -5,9 +5,14 @@
 As part of the free transport data service, Wroclaw Bikesharing System (WRM) release data on journeys taken using their cycles. The data goes back to June 2019, showing information on the start and end locations of the journey along with time of day. By combining this information with the coordinates of each cycle hire point, I predicted the most likely journey taken for each start/end combination.
 
 ## Table of contents
-[TOC]
+1. [Basic Statistics](#statistics)
+2. [Usage patterns](#usage_patterns)
+3. [Weather conditions usage patterns](#weather)
+4. [Bike Stations Analysis](#stations)
+5. [Route predictions](#route)
 
 ## Basic Statistics
+<a id="statistics"></a>
 - number of bikes
 - number of docking stations
 - total number of rentals
@@ -20,6 +25,7 @@ As part of the free transport data service, Wroclaw Bikesharing System (WRM) rel
 - record month
 
 ## Usage patterns
+<a id="usage_patterns"></a>
 (How does usage change across the year, the week, and the day?)
 - Average(by day)/Total count by month
 - Average(by hour)/Total count by day
@@ -32,29 +38,31 @@ As part of the free transport data service, Wroclaw Bikesharing System (WRM) rel
 - Histogram of rental time (comparison between workdays and weekends).
 
 ![monthAggPlot](images/plots/monthAggPlot.png)
-
+[Interactive plot](https://nbviewer.jupyter.org/github/sebastian-konicz/WRM/blob/master/notebooks/reports/RidingPatternsPlots.ipynb)
 ![monthAvgPlot](images/plots/monthAvgPlot.png)
-
+[Interactive plot](https://nbviewer.jupyter.org/github/sebastian-konicz/WRM/blob/master/notebooks/reports/RidingPatternsPlots.ipynb)
 ![dayAggPlot](images/plots/dayAggPlot.png)
-
+[Interactive plot](https://nbviewer.jupyter.org/github/sebastian-konicz/WRM/blob/master/notebooks/reports/RidingPatternsPlots.ipynb)
 ![hourAggPlot](images/plots/hourAggPlot.png)
-
+[Interactive plot](https://nbviewer.jupyter.org/github/sebastian-konicz/WRM/blob/master/notebooks/reports/RidingPatternsPlots.ipynb)
 ![hourAvgPlot](images/plots/hourAvgPlot.png)
-
+[Interactive plot](https://nbviewer.jupyter.org/github/sebastian-konicz/WRM/blob/master/notebooks/reports/RidingPatternsPlots.ipynb)
 ![hourAvgWDPlot](images/plots/hourAvgWDPlot.png)
-
+[Interactive plot](https://nbviewer.jupyter.org/github/sebastian-konicz/WRM/blob/master/notebooks/reports/RidingPatternsPlots.ipynb)
 ![hourAvgMonthPlot](images/plots/hourAvgMonthPlot.png)
-
+[Interactive plot](https://nbviewer.jupyter.org/github/sebastian-konicz/WRM/blob/master/notebooks/reports/RidingPatternsPlots.ipynb)
 
 [Source / Inspiration](https://medium.com/analytics-vidhya/how-to-finish-top-10-percentile-in-bike-sharing-demand-competition-in-kaggle-part-1-c816ea9c51e1)
 
 ## Weather conditions usage patterns
+<a id="weather"></a>
 (How does the weather change the way people use Bike Share?)
 - correlation between weather conditions and bike usage (temp, percipity,
 
 [Source / Inspiration](https://towardsdatascience.com/exploring-toronto-bike-share-ridership-using-python-3dc87d35cb62)
 
 ## Bike Stations Analysis
+<a id="stations"></a>
 - analysis of flows
 	- vega map with count of rented bikes by hour
 	- inflow and outflow gifs
@@ -71,6 +79,7 @@ I've also generated a fancy interactive version of this plot in folium - click [
 [Source / Inspiration](https://github.com/charlie1347/TfL_bikes)
 
 ## Route predictions
+<a id="route"></a>
 - route prediction graph
 
 [Source / Inspiration](https://github.com/charlie1347/TfL_bikes)
