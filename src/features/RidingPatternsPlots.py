@@ -25,7 +25,7 @@ def main(dir):
     monthAggregated = pd.DataFrame(RentalData.groupby("Month")['Count'].sum()).reset_index()
     monthAggPlotData = go.Bar(x=monthAggregated['Month'], y=monthAggregated['Count'],
                                 marker={'color': monthAggregated['Count'], "autocolorscale": True})
-    monthAggPlotLayout = go.Layout(title=go.layout.Title(text="Total rentals by month"),
+    monthAggPlotLayout = go.Layout(title=go.layout.Title(text="Total rentals by month"), template="plotly_dark",
                                      xaxis=dict(categoryorder='array', categoryarray=monthOrder))
     monthAggPlot = dict(data=monthAggPlotData, layout=monthAggPlotLayout)
 
@@ -34,14 +34,14 @@ def main(dir):
     monthAverage = pd.DataFrame(monthAverage.groupby("Month")['Count'].mean()).reset_index()
     monthAvgPlotData = go.Bar(x=monthAverage['Month'], y=monthAverage['Count'],
                                 marker={'color': monthAggregated['Count'], "autocolorscale": True})
-    monthAvgPlotLayout = go.Layout(title=go.layout.Title(text="Average rentals by month"),
+    monthAvgPlotLayout = go.Layout(title=go.layout.Title(text="Average rentals by month"), template="plotly_dark",
                                      xaxis=dict(categoryorder='array', categoryarray=monthOrder))
     monthAvgPlot = dict(data=monthAvgPlotData, layout=monthAvgPlotLayout)
 
     # Plot for total rentals by day
     dayAggregated = pd.DataFrame(RentalData.groupby("Date")['Count'].sum()).reset_index()
     dayAggPlotData = go.Bar(x=dayAggregated['Date'], y=dayAggregated['Count'])
-    dayAggPlotLayout = go.Layout(title=go.layout.Title(text="Total rentals by day"))
+    dayAggPlotLayout = go.Layout(title=go.layout.Title(text="Total rentals by day"), template="plotly_dark")
     dayAggPlot = dict(data=dayAggPlotData, layout=dayAggPlotLayout)
 
     # Plot for total rental in particular days by hour of the day
@@ -54,7 +54,7 @@ def main(dir):
         plotLine = go.Scatter(x=hourAggPivot.index, y=hourAggPivot[day], mode="lines", name=day)
         hourAggPlotData.append(plotLine)
 
-    hourAggPlotLayout = go.Layout(title=go.layout.Title(text="Total rentals by hour and weekday"))
+    hourAggPlotLayout = go.Layout(title=go.layout.Title(text="Total rentals by hour and weekday"), template="plotly_dark")
     hourAggPlot = dict(data=hourAggPlotData, layout =hourAggPlotLayout)
 
     # Plot for average rental in particular days by hour of the day
@@ -68,7 +68,7 @@ def main(dir):
         plotLine = go.Scatter(x=hourAvgPivot.index, y=hourAvgPivot[day], mode="lines", name=day)
         hourAvgPlotData.append(plotLine)
 
-    hourAvgPlotLayout = go.Layout(title=go.layout.Title(text="Average rentals by hour and weekday"))
+    hourAvgPlotLayout = go.Layout(title=go.layout.Title(text="Average rentals by hour and weekday"), template="plotly_dark")
     hourAvgPlot = dict(data=hourAvgPlotData, layout=hourAvgPlotLayout)
 
     # Plot for average rental in working days or days off by hour of the day
@@ -82,7 +82,8 @@ def main(dir):
         plotLine = go.Scatter(x=hourAvgPivotWD.index, y=hourAvgPivotWD[day], mode="lines", name=day)
         hourAvgWDPlotData.append(plotLine)
 
-    hourAvgWDPlotLayout = go.Layout(title=go.layout.Title(text="Average rentals by hour and kind of day (working day or weekend/holiday)"))
+    hourAvgWDPlotLayout = go.Layout(title=go.layout.Title(text="Average rentals by hour and kind of day (working day or weekend/holiday)"),
+                                    template="plotly_dark")
     hourAvgWDPlot = dict(data=hourAvgWDPlotData, layout=hourAvgWDPlotLayout)
 
     # Plot for average rental during particular mont by hour of the day
@@ -97,7 +98,7 @@ def main(dir):
         hourAvgMonthPlotData.append(plotLine)
 
     hourAvgMonthPlotLayout = go.Layout(
-        title=go.layout.Title(text="Average rentals by hour and month"))
+        title=go.layout.Title(text="Average rentals by hour and month"), template="plotly_dark")
     hourAvgMonthPlot = dict(data=hourAvgMonthPlotData, layout=hourAvgMonthPlotLayout)
 
     return monthAggPlot, monthAvgPlot, dayAggPlot, hourAggPlot, hourAvgPlot, hourAvgWDPlot, hourAvgMonthPlot
