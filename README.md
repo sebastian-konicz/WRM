@@ -1,13 +1,13 @@
-#Wroclaw Bikesharing System Analysis
+# Wroclaw Bikesharing System Analysis
 ==============================
 
 ## Overview
-
 As part of the free transport data service, Wroclaw Bikesharing System (WRM) release data on journeys taken using their cycles. The data goes back to June 2019, showing information on the start and end locations of the journey along with time of day. By combining this information with the coordinates of each cycle hire point, I predicted the most likely journey taken for each start/end combination.
 
-## Plan
+## Table of contents
+[TOC]
 
-Basic Statistics
+## Basic Statistics
 - number of bikes
 - number of docking stations
 - total number of rentals
@@ -19,7 +19,7 @@ Basic Statistics
 - record day
 - record month
 
-Basic Usage patterns
+## Usage patterns
 (How does usage change across the year, the week, and the day?)
 - Average(by day)/Total count by month
 - Average(by hour)/Total count by day
@@ -31,16 +31,30 @@ Basic Usage patterns
 
 - Histogram of rental time (comparison between workdays and weekends).
 
+![monthAggPlot](images/plots/monthAggPlot.png)
 
-Source / Inspiration (https://medium.com/analytics-vidhya/how-to-finish-top-10-percentile-in-bike-sharing-demand-competition-in-kaggle-part-1-c816ea9c51e1)
+![monthAvgPlot](images/plots/monthAvgPlot.png)
 
-Weather conditions usage patterns
+![dayAggPlot](images/plots/dayAggPlot.png)
+
+![hourAggPlot](images/plots/hourAggPlot.png)
+
+![hourAvgPlot](images/plots/hourAvgPlot.png)
+
+![hourAvgWDPlot](images/plots/hourAvgWDPlot.png)
+
+![hourAvgMonthPlot](images/plots/hourAvgMonthPlot.png)
+
+
+[Source / Inspiration](https://medium.com/analytics-vidhya/how-to-finish-top-10-percentile-in-bike-sharing-demand-competition-in-kaggle-part-1-c816ea9c51e1)
+
+## Weather conditions usage patterns
 (How does the weather change the way people use Bike Share?)
 - correlation between weather conditions and bike usage (temp, percipity,
 
-Source / Inspiration https://towardsdatascience.com/exploring-toronto-bike-share-ridership-using-python-3dc87d35cb62
+[Source / Inspiration](https://towardsdatascience.com/exploring-toronto-bike-share-ridership-using-python-3dc87d35cb62)
 
-Bike Stations Analysis
+## Bike Stations Analysis
 - analysis of flows
 	- vega map with count of rented bikes by hour
 	- inflow and outflow gifs
@@ -49,12 +63,17 @@ Bike Stations Analysis
 - network analysis
 	- bike paths graph
 
-Source / Inspiration (https://github.com/charlie1347/TfL_bikes)
+![All docking stations](images/final/DockingStationsMapBlack.png)
+I've also generated a fancy interactive version of this plot in folium - click [here](https://sebastian-konicz.github.io/WRM/images/DockingStationsMapBlack.html) to see it. You can zoom/scroll with this version, and it also tells you the name and capacity of each location.
 
-Route predictions
+![Animation](images/final/IntensityMorning.gif)
+
+[Source / Inspiration](https://github.com/charlie1347/TfL_bikes)
+
+## Route predictions
 - route prediction graph
 
-Source / Inspiration (https://github.com/charlie1347/TfL_bikes)
+[Source / Inspiration](https://github.com/charlie1347/TfL_bikes)
 
 
 # The WRM data
@@ -63,15 +82,6 @@ Wroclaw host all of the raw cycle data on their [open data website](https://www.
 
 For those unaware, below is a map of all the cycle hire stations across Wroclaw and surrounding areas.
 
-![All docking stations](images/final/DockingStationsMapBlack.png)
-
-![monthAggPlot](images/sites/monthAggPlot.html)
-
-![Animation](images/final/IntensityMorning.gif)
-
-![monthAggPlot](images/sites/monthAggPlot.html)
-
-I've also generated a fancy interactive version of this plot in folium - click [here](https://sebastian-konicz.github.io/WRM/images/DockingStationsMapBlack.html) to see it. You can zoom/scroll with this version, and it also tells you the name and capacity of each location.
 
 
 

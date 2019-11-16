@@ -1,16 +1,7 @@
-import pylab
-import calendar
-import numpy as np
 import pandas as pd
-import seaborn as sn
-from scipy import stats
-# import missingno as msno
-from datetime import datetime
-import matplotlib.pyplot as plt
-import warnings
 from pathlib import Path
 
-# Plotly standart impors
+# Plotly and cufflings standart impors
 import plotly.graph_objects as go
 import plotly.io as pio
 import cufflinks as cf
@@ -18,6 +9,7 @@ cf.go_offline(connected=True)
 
 # Offline mode
 import plotly.offline
+pio.orca.config
 
 pd.options.display.max_columns = 50
 
@@ -76,7 +68,7 @@ def main(dir):
         plotLine = go.Scatter(x=hourAvgPivot.index, y=hourAvgPivot[day], mode="lines", name=day)
         hourAvgPlotData.append(plotLine)
 
-    hourAvgPlotLayout = go.Layout(title=go.layout.Title(text="Total rentals by hour and weekday"))
+    hourAvgPlotLayout = go.Layout(title=go.layout.Title(text="Average rentals by hour and weekday"))
     hourAvgPlot = dict(data=hourAvgPlotData, layout=hourAvgPlotLayout)
 
     # Plot for average rental in working days or days off by hour of the day
@@ -111,14 +103,17 @@ def main(dir):
     return monthAggPlot, monthAvgPlot, dayAggPlot, hourAggPlot, hourAvgPlot, hourAvgWDPlot, hourAvgMonthPlot
 
 def graphs(dir):
+    # Unpacking return variables from main function
     monthAggPlot, monthAvgPlot, dayAggPlot, hourAggPlot, hourAvgPlot, hourAvgWDPlot, hourAvgMonthPlot = main(dir)
-    plotly.offline.plot(monthAggPlot, filename=(dir + r'\images\sites\monthAggPlot.html'))
-    plotly.offline.plot(monthAvgPlot, filename=(dir + r'\images\sites\monthAvgPlot.html'))
-    plotly.offline.plot(dayAggPlot, filename=(dir + r'\images\sites\dayAggPlot.html'))
-    plotly.offline.plot(hourAggPlot, filename=(dir + r'\images\sites\hourAggPlot.html'))
-    plotly.offline.plot(hourAvgPlot, filename=(dir + r'\images\sites\hourAvgPlot.html'))
-    plotly.offline.plot(hourAvgWDPlot, filename=(dir + r'\images\sites\hourAvgWDPlot.html'))
-    plotly.offline.plot(hourAvgMonthPlot, filename=(dir + r'\images\sites\hourAvgMonthPlot.html'))
+
+    plotsDictionary = {"monthAggPlot": monthAggPlot, "monthAvgPlot": monthAvgPlot, "dayAggPlot": dayAggPlot,
+                       "hourAggPlot": hourAggPlot, "hourAvgPlot": hourAvgPlot, "hourAvgWDPlot": hourAvgWDPlot,
+                       "hourAvgMonthPlot": hourAvgMonthPlot}
+
+    for key, value in plotsDictionary.items():
+        plotly.offline.plot(value, filename=(dir + r'\images\sites\{}.html'.format(key)))
+        go.Figure(value).write_image(dir + r'\images\plots\{}.png'.format(key))
+        # , width = 1200, height =
 
 if __name__ == "__main__":
     project_dir = str(Path(__file__).resolve().parents[2])
