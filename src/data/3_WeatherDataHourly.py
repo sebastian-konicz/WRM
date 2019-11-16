@@ -17,12 +17,21 @@ def main(dir, dataYear):
 
         APIKEY = "3c7e3a27611cb8f6c1812270bcf762b9"
 
+        timechange = "2015-10-26"
+        timechange = pd.to_datetime(timechange).date()
+        print(timechange)
+
         weatherHourly = []
         for index, row in Dates.iterrows():
             # Getting UNIX timestamp
             date = pd.to_datetime(row["StartDate"]).date()
             print(date)
-            unixtime = round(time.mktime(date.timetuple())) + 7200 # Added 10800 to set correct time zone and time to 1 AM
+            if date >= timechange:
+                unixtime = round(time.mktime(date.timetuple())) + 3600  # Added 10800 to set correct time zone and time to 1 AM
+                print("po zmianie czasu")
+            else:
+                unixtime = round(time.mktime(date.timetuple())) + 7200 # Added 10800 to set correct time zone and time to 1 AM
+                print("przed zmianą czasu")
             print(unixtime)
 
             # Getting API response for given date
@@ -33,7 +42,10 @@ def main(dir, dataYear):
             for i in range(0, 24):
                 # Getting relevant data and time and appending the weather list
                 if 'error' not in JSONdata:
-                    timestamp = int(JSONdata['hourly']['data'][i]['time']) + 7200
+                    if date >= timechange:
+                        timestamp = int(JSONdata['hourly']['data'][i]['time']) + 3600
+                    else:
+                        timestamp = int(JSONdata['hourly']['data'][i]['time']) + 7200
                     timeDate = datetime.utcfromtimestamp(timestamp).strftime('%Y-%m-%d %H:%M')
                     weather.append([timeDate,
                                    JSONdata['hourly']['data'][i]['temperature'],
@@ -57,7 +69,8 @@ def main(dir, dataYear):
         grouped = weatherHourlyConditions.groupby('OnlyDate')['temperature'].mean()
         print(grouped)
 
-        weatherHourlyConditions.to_csv(dir + r'\data\processed\WeatherConditionsHourly{}.csv'.format(dataYear))
+        weatherHourlyConditions.to_csv(dir + r'\data\processed\WeatherConditionsHourly{}.csv'.format(dataYear), header=True)
+        grouped.to_csv(dir + r'\data\processed\WeatherConditionsMeanTemperature{}.csv'.format(dataYear), header=True)
 
 if __name__ == "__main__":
     dataYear = input("Please chose year fo analysis (2015 or 2016) \n")
