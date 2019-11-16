@@ -25,8 +25,8 @@ def main(dir):
     monthAggregated = pd.DataFrame(RentalData.groupby("Month")['Count'].sum()).reset_index()
     monthAggPlotData = go.Bar(x=monthAggregated['Month'], y=monthAggregated['Count'],
                                 marker={'color': monthAggregated['Count'], "autocolorscale": True})
-    monthAggPlotLayout = go.Layout(title=go.layout.Title(text="Total rentals by month"), template="plotly_dark",
-                                     xaxis=dict(categoryorder='array', categoryarray=monthOrder))
+    monthAggPlotLayout = go.Layout(title=go.layout.Title(text="Total rentals by month", x=0.5, y=0.9, xanchor='center', yanchor='middle'),
+                                   template="plotly_dark", xaxis=dict(categoryorder='array', categoryarray=monthOrder))
     monthAggPlot = dict(data=monthAggPlotData, layout=monthAggPlotLayout)
 
     # Plot for average rental by month
@@ -34,15 +34,33 @@ def main(dir):
     monthAverage = pd.DataFrame(monthAverage.groupby("Month")['Count'].mean()).reset_index()
     monthAvgPlotData = go.Bar(x=monthAverage['Month'], y=monthAverage['Count'],
                                 marker={'color': monthAggregated['Count'], "autocolorscale": True})
-    monthAvgPlotLayout = go.Layout(title=go.layout.Title(text="Average rentals by month"), template="plotly_dark",
-                                     xaxis=dict(categoryorder='array', categoryarray=monthOrder))
+    monthAvgPlotLayout = go.Layout(title=go.layout.Title(text="Average rentals by month", x=0.5, y=0.9, xanchor='center', yanchor='middle'),
+                                   template="plotly_dark", xaxis=dict(categoryorder='array', categoryarray=monthOrder))
     monthAvgPlot = dict(data=monthAvgPlotData, layout=monthAvgPlotLayout)
 
     # Plot for total rentals by day
     dayAggregated = pd.DataFrame(RentalData.groupby("Date")['Count'].sum()).reset_index()
     dayAggPlotData = go.Bar(x=dayAggregated['Date'], y=dayAggregated['Count'])
-    dayAggPlotLayout = go.Layout(title=go.layout.Title(text="Total rentals by day"), template="plotly_dark")
+    dayAggPlotLayout = go.Layout(title=go.layout.Title(text="Total rentals by day", x=0.5, y=0.9, xanchor='center', yanchor='middle'),
+                                 template="plotly_dark")
     dayAggPlot = dict(data=dayAggPlotData, layout=dayAggPlotLayout)
+
+    # Plot for tota; rentals by day of the week
+    weekdayAggregated = pd.DataFrame(RentalData.groupby("Weekday")['Count'].sum()).reset_index()
+    weekdayAggPlotData = go.Bar(x=weekdayAggregated['Weekday'], y=weekdayAggregated['Count'],
+                                marker={'color': weekdayAggregated['Count'], "autocolorscale": True})
+    weekdayAggPlotLayout = go.Layout(title=go.layout.Title(text="Total rentals by day of the week", x=0.5, y=0.9, xanchor='center', yanchor='middle'),
+                                   template="plotly_dark", xaxis=dict(categoryorder='array', categoryarray=dayOrder))
+    weekdayAggPlot = dict(data=weekdayAggPlotData, layout=weekdayAggPlotLayout)
+
+    # Plot for average rentals by day of the week
+    weekdayAverage = pd.DataFrame(RentalData.groupby(["Date", "Weekday"])['Count'].sum()).reset_index()
+    weekdayAverage = pd.DataFrame(weekdayAverage.groupby("Weekday")['Count'].mean()).reset_index()
+    weekdayAvgPlotData = go.Bar(x=weekdayAverage['Weekday'], y=weekdayAverage['Count'],
+                                marker={'color': weekdayAverage['Count'], "autocolorscale": True})
+    weekdayAvgPlotLayout = go.Layout(title=go.layout.Title(text="Average rentals by day of the week", x=0.5, y=0.9, xanchor='center', yanchor='middle'),
+                                   template="plotly_dark", xaxis=dict(categoryorder='array', categoryarray=dayOrder))
+    weekdayAvgPlot = dict(data=weekdayAvgPlotData, layout=weekdayAvgPlotLayout)
 
     # Plot for total rental in particular days by hour of the day
     hourAggregated = pd.DataFrame(RentalData.groupby(["Hour", "Weekday"], sort=True)["Count"].count()).reset_index()
@@ -54,7 +72,8 @@ def main(dir):
         plotLine = go.Scatter(x=hourAggPivot.index, y=hourAggPivot[day], mode="lines", name=day)
         hourAggPlotData.append(plotLine)
 
-    hourAggPlotLayout = go.Layout(title=go.layout.Title(text="Total rentals by hour and weekday"), template="plotly_dark")
+    hourAggPlotLayout = go.Layout(title=go.layout.Title(text="Total rentals by hour and weekday", x=0.5, y=0.9, xanchor='center', yanchor='middle'),
+                                  template="plotly_dark")
     hourAggPlot = dict(data=hourAggPlotData, layout =hourAggPlotLayout)
 
     # Plot for average rental in particular days by hour of the day
@@ -68,7 +87,8 @@ def main(dir):
         plotLine = go.Scatter(x=hourAvgPivot.index, y=hourAvgPivot[day], mode="lines", name=day)
         hourAvgPlotData.append(plotLine)
 
-    hourAvgPlotLayout = go.Layout(title=go.layout.Title(text="Average rentals by hour and weekday"), template="plotly_dark")
+    hourAvgPlotLayout = go.Layout(title=go.layout.Title(text="Average rentals by hour and weekday", x=0.5, y=0.9, xanchor='center', yanchor='middle'),
+                                  template="plotly_dark")
     hourAvgPlot = dict(data=hourAvgPlotData, layout=hourAvgPlotLayout)
 
     # Plot for average rental in working days or days off by hour of the day
@@ -82,8 +102,8 @@ def main(dir):
         plotLine = go.Scatter(x=hourAvgPivotWD.index, y=hourAvgPivotWD[day], mode="lines", name=day)
         hourAvgWDPlotData.append(plotLine)
 
-    hourAvgWDPlotLayout = go.Layout(title=go.layout.Title(text="Average rentals by hour and kind of day (working day or weekend/holiday)"),
-                                    template="plotly_dark")
+    hourAvgWDPlotLayout = go.Layout(title=go.layout.Title(text="Average rentals by hour and kind of day (working day or weekend/holiday)",
+                                                          x=0.5, y=0.9, xanchor='center', yanchor='middle'), template="plotly_dark")
     hourAvgWDPlot = dict(data=hourAvgWDPlotData, layout=hourAvgWDPlotLayout)
 
     # Plot for average rental during particular mont by hour of the day
@@ -98,17 +118,18 @@ def main(dir):
         hourAvgMonthPlotData.append(plotLine)
 
     hourAvgMonthPlotLayout = go.Layout(
-        title=go.layout.Title(text="Average rentals by hour and month"), template="plotly_dark")
+        title=go.layout.Title(text="Average rentals by hour and month", x=0.5, y=0.9, xanchor='center', yanchor='middle'), template="plotly_dark")
     hourAvgMonthPlot = dict(data=hourAvgMonthPlotData, layout=hourAvgMonthPlotLayout)
 
-    return monthAggPlot, monthAvgPlot, dayAggPlot, hourAggPlot, hourAvgPlot, hourAvgWDPlot, hourAvgMonthPlot
+    return monthAggPlot, monthAvgPlot, dayAggPlot, weekdayAggPlot, weekdayAvgPlot, hourAggPlot, hourAvgPlot, hourAvgWDPlot, hourAvgMonthPlot
 
 def graphs(dir):
     # Unpacking return variables from main function
-    monthAggPlot, monthAvgPlot, dayAggPlot, hourAggPlot, hourAvgPlot, hourAvgWDPlot, hourAvgMonthPlot = main(dir)
+    monthAggPlot, monthAvgPlot, dayAggPlot, weekdayAggPlot, weekdayAvgPlot, hourAggPlot, hourAvgPlot, hourAvgWDPlot, hourAvgMonthPlot = main(dir)
 
     plotsDictionary = {"monthAggPlot": monthAggPlot, "monthAvgPlot": monthAvgPlot, "dayAggPlot": dayAggPlot,
-                       "hourAggPlot": hourAggPlot, "hourAvgPlot": hourAvgPlot, "hourAvgWDPlot": hourAvgWDPlot,
+                       "weekdayAggPlot": weekdayAggPlot, "weekdayAvgPlot": weekdayAvgPlot, "hourAggPlot": hourAggPlot,
+                       "hourAvgPlot": hourAvgPlot, "hourAvgWDPlot": hourAvgWDPlot,
                        "hourAvgMonthPlot": hourAvgMonthPlot}
 
     for key, value in plotsDictionary.items():

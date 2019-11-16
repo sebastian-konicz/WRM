@@ -50,6 +50,12 @@ Wroclaw host all of the raw cycle data on their [open data website](https://www.
 ![dayAggPlot](images/plots/dayAggPlot.png)
 [Interactive plot](https://nbviewer.jupyter.org/github/sebastian-konicz/WRM/blob/master/notebooks/reports/RidingPatternsPlots.ipynb#dayAggPlot)
 
+![weekdayAggPlot](images/plots/weekdayAggPlot.png)
+[Interactive plot](https://nbviewer.jupyter.org/github/sebastian-konicz/WRM/blob/master/notebooks/reports/RidingPatternsPlots.ipynb#weekdayAggPlot)
+
+![weekdayAvgPlot](images/plots/weekdayAvgPlot.png)
+[Interactive plot](https://nbviewer.jupyter.org/github/sebastian-konicz/WRM/blob/master/notebooks/reports/RidingPatternsPlots.ipynb#weekdayAvgPlot)
+
 ![hourAggPlot](images/plots/hourAggPlot.png)
 [Interactive plot](https://nbviewer.jupyter.org/github/sebastian-konicz/WRM/blob/master/notebooks/reports/RidingPatternsPlots.ipynb#hourAggPlot)
 
