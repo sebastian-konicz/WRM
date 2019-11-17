@@ -16,7 +16,6 @@ As part of the free transport data service, Wroclaw Bikesharing System (WRM) rel
 ## WRM Dataset <a id="dataset"></a>
 Wroclaw host all of the raw cycle data on their [open data website](https://www.wroclaw.pl/open-data/dataset/wrmprzejazdy_data) as a series of CSV files. Furthermore, they also have [data](https://www.wroclaw.pl/open-data/dataset/nextbikesoap_data) showing the status of each bike point in Wroclaw, yielding information such as its coordinates, total capacity etc.
 
-
 ## Basic statistics <a id="statistics"></a>
 - number of bikes
 - number of docking stations
@@ -85,16 +84,30 @@ Wroclaw host all of the raw cycle data on their [open data website](https://www.
 - network analysis
 	- bike paths graph
 
+### Net arivals/departures in the morning
 ![All docking stations](images/final/DockingStationsMapBlack.png)
-I've also generated a fancy interactive version of this plot in folium - click [here](https://sebastian-konicz.github.io/WRM/images/DockingStationsMapBlack.html) to see it. You can zoom/scroll with this version, and it also tells you the name and capacity of each location.
+I've also generated an interactive version of this plot in folium - click [here](https://sebastian-konicz.github.io/WRM/images/DockingStationsMapBlack.html) to see it. You can zoom/scroll with this version, and it also tells you the name and capacity of each location.
 
-![Animation](images/final/IntensityMorning.gif)
+### Net arivals/departures in the morning
+![[Net arrivals/departures - morning](images/final/NetArivals-morning.png)
+[Interactive map](images/sites/NetArivalDepartures-morning.html)
+
+### Net arivals/departures in the afternoon
+![Net arrivals/departures - afternoon](images/final/NetArivals-afternoon.png)
+[Interactive map](images/sites/NetArivalDepartures-afternoon.html)
+
+### Intensity of arivals/departures in the morning
+![Intensity - morning](images/final/IntensityMorning.gif)
+
+### Intensity of arivals/departures in the morning
+![Intensity - afternoon](images/final/IntensityMorning.gif)
 
 [Source / Inspiration](https://github.com/charlie1347/TfL_bikes)
 
 <a id="route"></a>
 ## Route predictions
-- route prediction graph
+
+### Route prediction graph
 
 [Source / Inspiration](https://github.com/charlie1347/TfL_bikes)
 

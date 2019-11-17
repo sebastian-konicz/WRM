@@ -1,5 +1,7 @@
 import pandas as pd
 from pathlib import Path
+import re
+from datetime import datetime
 
 # Plotly and cufflings standart impors
 import plotly.graph_objects as go
@@ -121,20 +123,40 @@ def main(dir):
         title=go.layout.Title(text="Average rentals by hour and month", x=0.5, y=0.9, xanchor='center', yanchor='middle'), template="plotly_dark")
     hourAvgMonthPlot = dict(data=hourAvgMonthPlotData, layout=hourAvgMonthPlotLayout)
 
-    return monthAggPlot, monthAvgPlot, dayAggPlot, weekdayAggPlot, weekdayAvgPlot, hourAggPlot, hourAvgPlot, hourAvgWDPlot, hourAvgMonthPlot
+    # Histogram for rentals duration
+    RentalData["StartDate"] = pd.to_datetime(RentalData["StartDate"])
+    RentalData["EndDate"] = pd.to_datetime(RentalData["EndDate"])
+    RentalData['Duration1'] = RentalData.apply(lambda RentalData: RentalData['EndDate'] - RentalData['StartDate'], axis=1)
+    RentalData['Duration1'] = RentalData.apply(lambda RentalData: int((RentalData['Duration1'].total_seconds()) / 60), axis=1)
+    LongRentals = RentalData[RentalData['Duration1'] > 120]
+    ShortRentals = RentalData[RentalData['Duration1'] < 120]
+    LongRentals = LongRentals.reset_index(drop=True)
+    ShortRentals = ShortRentals.reset_index(drop=True)
+    print(ShortRentals['Duration1'])
+    print(LongRentals['Duration1'])
+    durationAggregated = pd.DataFrame(RentalData.groupby(["Duration1"])['Count'].sum()).reset_index()
+    durationAggregated = durationAggregated[(durationAggregated['Duration1'] <= 120) & (durationAggregated['Duration1'] > 0)]
+    durationAggregated.to_csv(dir + r'\data\processed\durationAggregated1.csv', encoding='utf-8', index=False)
+    durationAggPlotData = go.Histogram(x=durationAggregated['Duration1'], y=durationAggregated['Count'])
+    durationAggPlotLayout = go.Layout(title=go.layout.Title(text="Rental Time", x=0.5, y=0.9, xanchor='center', yanchor='middle'),
+                                   template="plotly_dark")
+    durationAggPlot = dict(data=durationAggPlotData, layout=durationAggPlotLayout)
+
+    return monthAggPlot, monthAvgPlot, dayAggPlot, weekdayAggPlot, weekdayAvgPlot, hourAggPlot, hourAvgPlot, hourAvgWDPlot, hourAvgMonthPlot, durationAggPlot
 
 def graphs(dir):
     # Unpacking return variables from main function
-    monthAggPlot, monthAvgPlot, dayAggPlot, weekdayAggPlot, weekdayAvgPlot, hourAggPlot, hourAvgPlot, hourAvgWDPlot, hourAvgMonthPlot = main(dir)
+    monthAggPlot, monthAvgPlot, dayAggPlot, weekdayAggPlot, weekdayAvgPlot, hourAggPlot, hourAvgPlot, hourAvgWDPlot, hourAvgMonthPlot, durationAggPlot = main(dir)
 
     plotsDictionary = {"monthAggPlot": monthAggPlot, "monthAvgPlot": monthAvgPlot, "dayAggPlot": dayAggPlot,
                        "weekdayAggPlot": weekdayAggPlot, "weekdayAvgPlot": weekdayAvgPlot, "hourAggPlot": hourAggPlot,
                        "hourAvgPlot": hourAvgPlot, "hourAvgWDPlot": hourAvgWDPlot,
                        "hourAvgMonthPlot": hourAvgMonthPlot}
 
-    for key, value in plotsDictionary.items():
-        plotly.offline.plot(value, filename=(dir + r'\images\sites\{}.html'.format(key)))
-        go.Figure(value).write_image(dir + r'\images\plots\{}.png'.format(key), width=1280, height=640)
+    # for key, value in plotsDictionary.items():
+    #     plotly.offline.plot(value, filename=(dir + r'\images\sites\{}.html'.format(key)))
+    #     go.Figure(value).write_image(dir + r'\images\plots\{}.png'.format(key), width=1280, height=640)
+    plotly.offline.plot(durationAggPlot, filename=(dir + r'\images\sites\durationAggPlot.html'))
 
 if __name__ == "__main__":
     project_dir = str(Path(__file__).resolve().parents[2])

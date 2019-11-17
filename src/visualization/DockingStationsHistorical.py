@@ -11,6 +11,7 @@ def main(dir):
     DockingStations = DockingStations.reset_index(drop=True)
     print(DockingStations.columns)
 
+
     lat = DockingStations['s_lat']
     lng = DockingStations['s_lng']
     name = DockingStations['StartStation']
@@ -31,6 +32,9 @@ def main(dir):
     # Saving the map as html
     pathHTML = dir + r"\images\DockingStationsMapBlack2015.html"
     folium_map.save(pathHTML)
+
+    return folium_map
+
 
 if __name__ == "__main__":
     # dataYear = input("Please chose year fo analysis (2015 or 2016) \n")

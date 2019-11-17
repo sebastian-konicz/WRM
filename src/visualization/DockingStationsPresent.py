@@ -12,7 +12,7 @@ def main(dir):
     capacity = DockingStations['bikes']
 
     # Create base map
-    folium_map = folium.Map(location=[51.110158, 17.031927], zoom_start=12, tiles="CartoDB dark_matter")
+    folium_map = folium.Map(location=[51.099783, 17.03082], zoom_start=12, tiles="CartoDB dark_matter")
 
     # Plot Markers
     for lat, lng, name, capacity in zip(lat, lng, name, capacity):
