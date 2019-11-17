@@ -1,0 +1,1469 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.5.1/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.5.1/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://rawcdn.githack.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/>
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_fb30ffe564da456f9e2b9028371c8ad8 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_fb30ffe564da456f9e2b9028371c8ad8" ></div>
+        
+</body>
+<script>    
+    
+            var map_fb30ffe564da456f9e2b9028371c8ad8 = L.map(
+                "map_fb30ffe564da456f9e2b9028371c8ad8",
+                {
+                    center: [51.099783, 17.03082],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 13,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_eaa0a1e70b624146a20fa0141e210082 = L.tileLayer(
+                "https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"http://cartodb.com/attributions\"\u003eCartoDB\u003c/a\u003e, CartoDB \u003ca href =\"http://cartodb.com/attributions\"\u003eattributions\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+            var circle_marker_4caed7d8c3a644f0b9da0c0999a0dba3 = L.circleMarker(
+                [51.11956, 17.0514],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_27c928d4a9874a4c9f83f574781b2200 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_dfdeec364e964b2ebc1ac503c24959af = $(`<div id="html_dfdeec364e964b2ebc1ac503c24959af" style="width: 100.0%; height: 100.0%;">Wyszyńskiego - Prusa</div>`)[0];
+            popup_27c928d4a9874a4c9f83f574781b2200.setContent(html_dfdeec364e964b2ebc1ac503c24959af);
+        
+
+        circle_marker_4caed7d8c3a644f0b9da0c0999a0dba3.bindPopup(popup_27c928d4a9874a4c9f83f574781b2200)
+        ;
+
+        
+    
+    
+            var circle_marker_ee1acb4304c7493cbe16d8f738b841be = L.circleMarker(
+                [51.097108064432, 17.036109566689],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_f70a7a0c15e34c78b2f6867dcc506868 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_01d41b53b7e94b8480108ab9942010f1 = $(`<div id="html_01d41b53b7e94b8480108ab9942010f1" style="width: 100.0%; height: 100.0%;">Dworzec Główny, południe</div>`)[0];
+            popup_f70a7a0c15e34c78b2f6867dcc506868.setContent(html_01d41b53b7e94b8480108ab9942010f1);
+        
+
+        circle_marker_ee1acb4304c7493cbe16d8f738b841be.bindPopup(popup_f70a7a0c15e34c78b2f6867dcc506868)
+        ;
+
+        
+    
+    
+            var circle_marker_9b291856e2ae439993596df1f126229a = L.circleMarker(
+                [51.109782, 17.030175],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_35380d0464e84d4bab07b74f24f05932 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_95f1e6e108a848af98e6d240b46b982a = $(`<div id="html_95f1e6e108a848af98e6d240b46b982a" style="width: 100.0%; height: 100.0%;">Rynek</div>`)[0];
+            popup_35380d0464e84d4bab07b74f24f05932.setContent(html_95f1e6e108a848af98e6d240b46b982a);
+        
+
+        circle_marker_9b291856e2ae439993596df1f126229a.bindPopup(popup_35380d0464e84d4bab07b74f24f05932)
+        ;
+
+        
+    
+    
+            var circle_marker_70d92942bff54a429dc0763a6ed6f83b = L.circleMarker(
+                [51.09975, 17.036228],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_e60d9c2bbcca4051967877fc1f599844 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_e31c217666a04dedad6eddedb353b790 = $(`<div id="html_e31c217666a04dedad6eddedb353b790" style="width: 100.0%; height: 100.0%;">Dworzec Główny </div>`)[0];
+            popup_e60d9c2bbcca4051967877fc1f599844.setContent(html_e31c217666a04dedad6eddedb353b790);
+        
+
+        circle_marker_70d92942bff54a429dc0763a6ed6f83b.bindPopup(popup_e60d9c2bbcca4051967877fc1f599844)
+        ;
+
+        
+    
+    
+            var circle_marker_e3f2a77a15e846098eaf1ab409567e1c = L.circleMarker(
+                [51.124879, 17.045844],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_8e52375b3cf4410a9fa392d82ab643ae = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_7a245c7ec8dc4e35b095c61c6ab4f1ed = $(`<div id="html_7a245c7ec8dc4e35b095c61c6ab4f1ed" style="width: 100.0%; height: 100.0%;">Nowowiejska / Jedności Narodowej</div>`)[0];
+            popup_8e52375b3cf4410a9fa392d82ab643ae.setContent(html_7a245c7ec8dc4e35b095c61c6ab4f1ed);
+        
+
+        circle_marker_e3f2a77a15e846098eaf1ab409567e1c.bindPopup(popup_8e52375b3cf4410a9fa392d82ab643ae)
+        ;
+
+        
+    
+    
+            var circle_marker_f7ae589b36174c219a5b19a648a6bc8d = L.circleMarker(
+                [51.125276, 16.984447],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_93334348fbf94c4f9de122f0d8ab3078 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_35213023615e4290b682eb55e87edb8f = $(`<div id="html_35213023615e4290b682eb55e87edb8f" style="width: 100.0%; height: 100.0%;">Legnicka / Wejherowska</div>`)[0];
+            popup_93334348fbf94c4f9de122f0d8ab3078.setContent(html_35213023615e4290b682eb55e87edb8f);
+        
+
+        circle_marker_f7ae589b36174c219a5b19a648a6bc8d.bindPopup(popup_93334348fbf94c4f9de122f0d8ab3078)
+        ;
+
+        
+    
+    
+            var circle_marker_d037c7ee4b0045c9852a5d5c7d0386f8 = L.circleMarker(
+                [51.112154, 17.060451],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_b0670a0cf0e64ca7b0b910dc259dfa06 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_c97a83460ae94141a9960f6ebdbd3a8c = $(`<div id="html_c97a83460ae94141a9960f6ebdbd3a8c" style="width: 100.0%; height: 100.0%;">Rondo Reagana</div>`)[0];
+            popup_b0670a0cf0e64ca7b0b910dc259dfa06.setContent(html_c97a83460ae94141a9960f6ebdbd3a8c);
+        
+
+        circle_marker_d037c7ee4b0045c9852a5d5c7d0386f8.bindPopup(popup_b0670a0cf0e64ca7b0b910dc259dfa06)
+        ;
+
+        
+    
+    
+            var circle_marker_308fa6481f1748d989a8f5e1e7184e08 = L.circleMarker(
+                [51.100862, 17.008224],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_6f01ee61c99540f3b07903c26748653a = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_0df779b902224dd191041a62f539663b = $(`<div id="html_0df779b902224dd191041a62f539663b" style="width: 100.0%; height: 100.0%;">Pereca / Grabiszyńska</div>`)[0];
+            popup_6f01ee61c99540f3b07903c26748653a.setContent(html_0df779b902224dd191041a62f539663b);
+        
+
+        circle_marker_308fa6481f1748d989a8f5e1e7184e08.bindPopup(popup_6f01ee61c99540f3b07903c26748653a)
+        ;
+
+        
+    
+    
+            var circle_marker_2b66c1dfd9da455e98e1d2d8c3615e4c = L.circleMarker(
+                [51.086689, 17.01248],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_8cdc4c9e6c25428a926a1f7e4def2ef5 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_d0e2fce76f69495a97473cf0b25536e8 = $(`<div id="html_d0e2fce76f69495a97473cf0b25536e8" style="width: 100.0%; height: 100.0%;">Powstańcow Śląskich / Aleja Hallera</div>`)[0];
+            popup_8cdc4c9e6c25428a926a1f7e4def2ef5.setContent(html_d0e2fce76f69495a97473cf0b25536e8);
+        
+
+        circle_marker_2b66c1dfd9da455e98e1d2d8c3615e4c.bindPopup(popup_8cdc4c9e6c25428a926a1f7e4def2ef5)
+        ;
+
+        
+    
+    
+            var circle_marker_279ad094f889427a86e7d13b0448389f = L.circleMarker(
+                [51.094413, 16.980911],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_312ed6485c104db6b7585a25df025cfe = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_188f59fbd8bf45cd93e7f30eeda23ad0 = $(`<div id="html_188f59fbd8bf45cd93e7f30eeda23ad0" style="width: 100.0%; height: 100.0%;">Grabiszyńska / Aleja Hallera</div>`)[0];
+            popup_312ed6485c104db6b7585a25df025cfe.setContent(html_188f59fbd8bf45cd93e7f30eeda23ad0);
+        
+
+        circle_marker_279ad094f889427a86e7d13b0448389f.bindPopup(popup_312ed6485c104db6b7585a25df025cfe)
+        ;
+
+        
+    
+    
+            var circle_marker_ab384af2ebe146b491fce36e61197283 = L.circleMarker(
+                [51.094521, 17.020876],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_7a544485b9a2497fa1357b157bccdad8 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_d75f75fc9a344649bc07b17a40ad0f20 = $(`<div id="html_d75f75fc9a344649bc07b17a40ad0f20" style="width: 100.0%; height: 100.0%;">Szczęśliwa (Sky Tower)</div>`)[0];
+            popup_7a544485b9a2497fa1357b157bccdad8.setContent(html_d75f75fc9a344649bc07b17a40ad0f20);
+        
+
+        circle_marker_ab384af2ebe146b491fce36e61197283.bindPopup(popup_7a544485b9a2497fa1357b157bccdad8)
+        ;
+
+        
+    
+    
+            var circle_marker_5d7258e16126443ab59edbab9aad2ea6 = L.circleMarker(
+                [51.107234999999996, 17.060715],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_07188e05a12c4ab38ffbc29b93dad872 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_86148bb958894e36b2df8ab2fd20979e = $(`<div id="html_86148bb958894e36b2df8ab2fd20979e" style="width: 100.0%; height: 100.0%;">Norwida / Wyspiańskiego (PWr)</div>`)[0];
+            popup_07188e05a12c4ab38ffbc29b93dad872.setContent(html_86148bb958894e36b2df8ab2fd20979e);
+        
+
+        circle_marker_5d7258e16126443ab59edbab9aad2ea6.bindPopup(popup_07188e05a12c4ab38ffbc29b93dad872)
+        ;
+
+        
+    
+    
+            var circle_marker_f11c4f0ae488421fbbcf857d352e0fc0 = L.circleMarker(
+                [51.110274, 17.034912],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_995a079be80a4c588830be69da83b08b = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_0a12b5ce0ecd444fa127ebe14224fd24 = $(`<div id="html_0a12b5ce0ecd444fa127ebe14224fd24" style="width: 100.0%; height: 100.0%;">Wita Stwosza / Szewska</div>`)[0];
+            popup_995a079be80a4c588830be69da83b08b.setContent(html_0a12b5ce0ecd444fa127ebe14224fd24);
+        
+
+        circle_marker_f11c4f0ae488421fbbcf857d352e0fc0.bindPopup(popup_995a079be80a4c588830be69da83b08b)
+        ;
+
+        
+    
+    
+            var circle_marker_55bf19e8e6e545e08ab612e0a0292295 = L.circleMarker(
+                [51.111489, 17.020981],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_dcd4d492dd3b45f3a1d7878ec5c02eec = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_ddac0e1c162d432a9dfc5a54d65fb668 = $(`<div id="html_ddac0e1c162d432a9dfc5a54d65fb668" style="width: 100.0%; height: 100.0%;">Plac Jana Pawła II (Akademia Muzyczna)</div>`)[0];
+            popup_dcd4d492dd3b45f3a1d7878ec5c02eec.setContent(html_ddac0e1c162d432a9dfc5a54d65fb668);
+        
+
+        circle_marker_55bf19e8e6e545e08ab612e0a0292295.bindPopup(popup_dcd4d492dd3b45f3a1d7878ec5c02eec)
+        ;
+
+        
+    
+    
+            var circle_marker_d729dd3d07e24409a10940c0e370b572 = L.circleMarker(
+                [51.113871, 17.034484],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_57bd61b6fce94477bdd9aedab82ac1ac = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_4f7ae892fb8b471aaf15044b4d90d2c8 = $(`<div id="html_4f7ae892fb8b471aaf15044b4d90d2c8" style="width: 100.0%; height: 100.0%;">Plac Uniwersytecki (UWr)</div>`)[0];
+            popup_57bd61b6fce94477bdd9aedab82ac1ac.setContent(html_4f7ae892fb8b471aaf15044b4d90d2c8);
+        
+
+        circle_marker_d729dd3d07e24409a10940c0e370b572.bindPopup(popup_57bd61b6fce94477bdd9aedab82ac1ac)
+        ;
+
+        
+    
+    
+            var circle_marker_17d8c853d09c4680b895722726ddeddd = L.circleMarker(
+                [51.104413, 17.022536],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_21006fed2f844d0d9a4956cccab646f9 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_a03de9318f964f32b66b6fb91941f5c2 = $(`<div id="html_a03de9318f964f32b66b6fb91941f5c2" style="width: 100.0%; height: 100.0%;">Plac Legionów</div>`)[0];
+            popup_21006fed2f844d0d9a4956cccab646f9.setContent(html_a03de9318f964f32b66b6fb91941f5c2);
+        
+
+        circle_marker_17d8c853d09c4680b895722726ddeddd.bindPopup(popup_21006fed2f844d0d9a4956cccab646f9)
+        ;
+
+        
+    
+    
+            var circle_marker_89984dac492b48a0b33ae26f55a3cda6 = L.circleMarker(
+                [51.101321999999996, 17.028528],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_0a882aed0a0247448325d53639a4222d = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_6f42f037c28346f6999e373e7cf8ec45 = $(`<div id="html_6f42f037c28346f6999e373e7cf8ec45" style="width: 100.0%; height: 100.0%;">Świdnicka / Piłsudskiego (Hotel Scandic)</div>`)[0];
+            popup_0a882aed0a0247448325d53639a4222d.setContent(html_6f42f037c28346f6999e373e7cf8ec45);
+        
+
+        circle_marker_89984dac492b48a0b33ae26f55a3cda6.bindPopup(popup_0a882aed0a0247448325d53639a4222d)
+        ;
+
+        
+    
+    
+            var circle_marker_3a87b2fe743f457a8d89409b5d82a053 = L.circleMarker(
+                [51.1004, 17.045082999999998],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_3002199d762046138089548f32b485f5 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_5b12beb5585e4342a44cc6506f6b0326 = $(`<div id="html_5b12beb5585e4342a44cc6506f6b0326" style="width: 100.0%; height: 100.0%;">Kościuszki / Pułaskiego</div>`)[0];
+            popup_3002199d762046138089548f32b485f5.setContent(html_5b12beb5585e4342a44cc6506f6b0326);
+        
+
+        circle_marker_3a87b2fe743f457a8d89409b5d82a053.bindPopup(popup_3002199d762046138089548f32b485f5)
+        ;
+
+        
+    
+    
+            var circle_marker_670e64a83bfb4c0fb0e338f60753cfa8 = L.circleMarker(
+                [51.110001000000004, 17.047735999999997],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_510b239bacd7413683c38f14f865e19a = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_22a716912b6849af87bec824f0e8e2ff = $(`<div id="html_22a716912b6849af87bec824f0e8e2ff" style="width: 100.0%; height: 100.0%;">Plac Powstańców Warszawy (Muzeum Narodowe)</div>`)[0];
+            popup_510b239bacd7413683c38f14f865e19a.setContent(html_22a716912b6849af87bec824f0e8e2ff);
+        
+
+        circle_marker_670e64a83bfb4c0fb0e338f60753cfa8.bindPopup(popup_510b239bacd7413683c38f14f865e19a)
+        ;
+
+        
+    
+    
+            var circle_marker_e30fcb4889904c40a00889716440df71 = L.circleMarker(
+                [51.098959, 17.051519],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_661c774363c84588ab102e76ee97a750 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_cfcc351d9bf7429d8e5e439269cd2180 = $(`<div id="html_cfcc351d9bf7429d8e5e439269cd2180" style="width: 100.0%; height: 100.0%;">Kościuszki / Komuny Paryskiej / Zgodna</div>`)[0];
+            popup_661c774363c84588ab102e76ee97a750.setContent(html_cfcc351d9bf7429d8e5e439269cd2180);
+        
+
+        circle_marker_e30fcb4889904c40a00889716440df71.bindPopup(popup_661c774363c84588ab102e76ee97a750)
+        ;
+
+        
+    
+    
+            var circle_marker_e3752d94e269498b9c28540f686bed3f = L.circleMarker(
+                [51.104571, 17.048102],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_73a58c799fc4484485c99ba2ae5c28fc = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_86f4e228b83547f99db7af92e544bdc8 = $(`<div id="html_86f4e228b83547f99db7af92e544bdc8" style="width: 100.0%; height: 100.0%;">Traugutta / Pułaskiego</div>`)[0];
+            popup_73a58c799fc4484485c99ba2ae5c28fc.setContent(html_86f4e228b83547f99db7af92e544bdc8);
+        
+
+        circle_marker_e3752d94e269498b9c28540f686bed3f.bindPopup(popup_73a58c799fc4484485c99ba2ae5c28fc)
+        ;
+
+        
+    
+    
+            var circle_marker_9464c955b6234bf9b2237c2e5bc75bec = L.circleMarker(
+                [51.115353999999996, 16.998732],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_8d2182d790bd4a83bac63a46bf750ff4 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_bf5aaf62cc274bac8141f7ae85c578a3 = $(`<div id="html_bf5aaf62cc274bac8141f7ae85c578a3" style="width: 100.0%; height: 100.0%;">Stacyjna (Dworzec Mikołajów)</div>`)[0];
+            popup_8d2182d790bd4a83bac63a46bf750ff4.setContent(html_bf5aaf62cc274bac8141f7ae85c578a3);
+        
+
+        circle_marker_9464c955b6234bf9b2237c2e5bc75bec.bindPopup(popup_8d2182d790bd4a83bac63a46bf750ff4)
+        ;
+
+        
+    
+    
+            var circle_marker_f7ea62f288c04172bfd1d95af562e84d = L.circleMarker(
+                [51.113703, 17.006287],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_15d8ecdf970f4dddab0cf50482c545fa = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_71d75e1844c64978a1c3efe8d8de941b = $(`<div id="html_71d75e1844c64978a1c3efe8d8de941b" style="width: 100.0%; height: 100.0%;">Plac Strzegomski / Poznańska</div>`)[0];
+            popup_15d8ecdf970f4dddab0cf50482c545fa.setContent(html_71d75e1844c64978a1c3efe8d8de941b);
+        
+
+        circle_marker_f7ea62f288c04172bfd1d95af562e84d.bindPopup(popup_15d8ecdf970f4dddab0cf50482c545fa)
+        ;
+
+        
+    
+    
+            var circle_marker_5e812ae8f8684a24bdcb19064d3571f0 = L.circleMarker(
+                [51.117668, 17.007137],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_f76a24b61e9147a5b275cf05411c84f7 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_848c3b05f7bc4293a9a7e41dcea448e8 = $(`<div id="html_848c3b05f7bc4293a9a7e41dcea448e8" style="width: 100.0%; height: 100.0%;">Zachodnia / Poznańska</div>`)[0];
+            popup_f76a24b61e9147a5b275cf05411c84f7.setContent(html_848c3b05f7bc4293a9a7e41dcea448e8);
+        
+
+        circle_marker_5e812ae8f8684a24bdcb19064d3571f0.bindPopup(popup_f76a24b61e9147a5b275cf05411c84f7)
+        ;
+
+        
+    
+    
+            var circle_marker_9a77772bb9b9487e8983a7af47222043 = L.circleMarker(
+                [51.117032, 17.033499],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_6b486581a14a4e088db60641e07356ce = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_2b4e3ee1fe7745e8b69c25667db23b93 = $(`<div id="html_2b4e3ee1fe7745e8b69c25667db23b93" style="width: 100.0%; height: 100.0%;">Drobnera / Dubois</div>`)[0];
+            popup_6b486581a14a4e088db60641e07356ce.setContent(html_2b4e3ee1fe7745e8b69c25667db23b93);
+        
+
+        circle_marker_9a77772bb9b9487e8983a7af47222043.bindPopup(popup_6b486581a14a4e088db60641e07356ce)
+        ;
+
+        
+    
+    
+            var circle_marker_067848614ac84a758b02cbbb701febf7 = L.circleMarker(
+                [51.121308, 17.043077],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_1fc3c539458d4ac4953b9dc4f224b574 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_02c291b7c14b438a848372e7985d944e = $(`<div id="html_02c291b7c14b438a848372e7985d944e" style="width: 100.0%; height: 100.0%;">Poniatowskiego / Oleśnicka</div>`)[0];
+            popup_1fc3c539458d4ac4953b9dc4f224b574.setContent(html_02c291b7c14b438a848372e7985d944e);
+        
+
+        circle_marker_067848614ac84a758b02cbbb701febf7.bindPopup(popup_1fc3c539458d4ac4953b9dc4f224b574)
+        ;
+
+        
+    
+    
+            var circle_marker_8ef6c392b2674230adbb15a0616891f4 = L.circleMarker(
+                [51.122424, 17.052013],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_6fd6643534c5447396524010b46dc9c7 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_7ec36e91dacc4c68abd2eafa82d294dd = $(`<div id="html_7ec36e91dacc4c68abd2eafa82d294dd" style="width: 100.0%; height: 100.0%;">Nowowiejska / Wyszyńskiego</div>`)[0];
+            popup_6fd6643534c5447396524010b46dc9c7.setContent(html_7ec36e91dacc4c68abd2eafa82d294dd);
+        
+
+        circle_marker_8ef6c392b2674230adbb15a0616891f4.bindPopup(popup_6fd6643534c5447396524010b46dc9c7)
+        ;
+
+        
+    
+    
+            var circle_marker_97a3e3bae6594a2cac8ecee3708bdba6 = L.circleMarker(
+                [51.125659999999996, 17.050463],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_27064a7340dd4114a3beb4c3b9b3c4d0 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_a3e5e24a333e4c8bba8b90c45bcc8111 = $(`<div id="html_a3e5e24a333e4c8bba8b90c45bcc8111" style="width: 100.0%; height: 100.0%;">Żeromskiego / Daszyńskiego</div>`)[0];
+            popup_27064a7340dd4114a3beb4c3b9b3c4d0.setContent(html_a3e5e24a333e4c8bba8b90c45bcc8111);
+        
+
+        circle_marker_97a3e3bae6594a2cac8ecee3708bdba6.bindPopup(popup_27064a7340dd4114a3beb4c3b9b3c4d0)
+        ;
+
+        
+    
+    
+            var circle_marker_6719a23ed57e46959662b662fe1a7e31 = L.circleMarker(
+                [51.122313, 17.047515],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_f61f50be2e9a46729eb52e0b03e855a4 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_7e06671cc118430ab2468494f36f900a = $(`<div id="html_7e06671cc118430ab2468494f36f900a" style="width: 100.0%; height: 100.0%;">Żeromskiego / Kluczborska</div>`)[0];
+            popup_f61f50be2e9a46729eb52e0b03e855a4.setContent(html_7e06671cc118430ab2468494f36f900a);
+        
+
+        circle_marker_6719a23ed57e46959662b662fe1a7e31.bindPopup(popup_f61f50be2e9a46729eb52e0b03e855a4)
+        ;
+
+        
+    
+    
+            var circle_marker_dbb9167b84114e60addc13e4097a377c = L.circleMarker(
+                [51.110662, 17.052712],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_4b64dad884904f598bc0f9259bcde561 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_26c7cf99bc5f47619ad8e8d5485980ea = $(`<div id="html_26c7cf99bc5f47619ad8e8d5485980ea" style="width: 100.0%; height: 100.0%;">Joliot-Curie (Uwr)</div>`)[0];
+            popup_4b64dad884904f598bc0f9259bcde561.setContent(html_26c7cf99bc5f47619ad8e8d5485980ea);
+        
+
+        circle_marker_dbb9167b84114e60addc13e4097a377c.bindPopup(popup_4b64dad884904f598bc0f9259bcde561)
+        ;
+
+        
+    
+    
+            var circle_marker_3f5e6fdd2ef84ab79b9e056331d186ea = L.circleMarker(
+                [51.115564, 17.060704],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_01ffed7687644dbebd00a12cd63f44fc = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_d10aedb6675b425ea20eabdeb248ef32 = $(`<div id="html_d10aedb6675b425ea20eabdeb248ef32" style="width: 100.0%; height: 100.0%;">Sienkiewicza / Piastowska</div>`)[0];
+            popup_01ffed7687644dbebd00a12cd63f44fc.setContent(html_d10aedb6675b425ea20eabdeb248ef32);
+        
+
+        circle_marker_3f5e6fdd2ef84ab79b9e056331d186ea.bindPopup(popup_01ffed7687644dbebd00a12cd63f44fc)
+        ;
+
+        
+    
+    
+            var circle_marker_c9b9cdd22c0342a48cd66d359de587db = L.circleMarker(
+                [51.116822, 17.051845],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_3a75ab3435dd48cebc6e13629e2da3a5 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_bed51f28faaf427db649bf30cd976902 = $(`<div id="html_bed51f28faaf427db649bf30cd976902" style="width: 100.0%; height: 100.0%;">Sienkiewicza / Wyszyńskiego</div>`)[0];
+            popup_3a75ab3435dd48cebc6e13629e2da3a5.setContent(html_bed51f28faaf427db649bf30cd976902);
+        
+
+        circle_marker_c9b9cdd22c0342a48cd66d359de587db.bindPopup(popup_3a75ab3435dd48cebc6e13629e2da3a5)
+        ;
+
+        
+    
+    
+            var circle_marker_c99f1730b9cc4ab8a45767bf6f7da25b = L.circleMarker(
+                [51.110415, 17.055591],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_d3e769159e944c73b845864f361e505b = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_798f17c8aaf2457b94fd365828e2879b = $(`<div id="html_798f17c8aaf2457b94fd365828e2879b" style="width: 100.0%; height: 100.0%;">Plac Grunwaldzki / Polaka</div>`)[0];
+            popup_d3e769159e944c73b845864f361e505b.setContent(html_798f17c8aaf2457b94fd365828e2879b);
+        
+
+        circle_marker_c99f1730b9cc4ab8a45767bf6f7da25b.bindPopup(popup_d3e769159e944c73b845864f361e505b)
+        ;
+
+        
+    
+    
+            var circle_marker_44deb4ba903d4f9c8aa611060d7e2090 = L.circleMarker(
+                [51.10411, 17.084711],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_8daf5fcf31114c2fb31beeeb6a77806e = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_43870e4bba5244a8aa4e441e7a4af639 = $(`<div id="html_43870e4bba5244a8aa4e441e7a4af639" style="width: 100.0%; height: 100.0%;">Wróblewskiego (Teki)</div>`)[0];
+            popup_8daf5fcf31114c2fb31beeeb6a77806e.setContent(html_43870e4bba5244a8aa4e441e7a4af639);
+        
+
+        circle_marker_44deb4ba903d4f9c8aa611060d7e2090.bindPopup(popup_8daf5fcf31114c2fb31beeeb6a77806e)
+        ;
+
+        
+    
+    
+            var circle_marker_4cb114d6ad0741a5acfbb72aa5b28211 = L.circleMarker(
+                [51.094653, 17.026775],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_d9869606ea2040beaef871ec51cea0f4 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_fd47d978d3184e8a907760aa4624d12c = $(`<div id="html_fd47d978d3184e8a907760aa4624d12c" style="width: 100.0%; height: 100.0%;">Komandorska / Sanocka</div>`)[0];
+            popup_d9869606ea2040beaef871ec51cea0f4.setContent(html_fd47d978d3184e8a907760aa4624d12c);
+        
+
+        circle_marker_4cb114d6ad0741a5acfbb72aa5b28211.bindPopup(popup_d9869606ea2040beaef871ec51cea0f4)
+        ;
+
+        
+    
+    
+            var circle_marker_8f62ff296d40408eadcc5e2dd2d32833 = L.circleMarker(
+                [51.089842, 17.028225],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_60bc5d8cf4a7477daa5c94493d3a0e8f = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_23098b464c2f42799301784f978d9842 = $(`<div id="html_23098b464c2f42799301784f978d9842" style="width: 100.0%; height: 100.0%;">Ślężna / Kamienna (Uniw. Ekonomiczny)</div>`)[0];
+            popup_60bc5d8cf4a7477daa5c94493d3a0e8f.setContent(html_23098b464c2f42799301784f978d9842);
+        
+
+        circle_marker_8f62ff296d40408eadcc5e2dd2d32833.bindPopup(popup_60bc5d8cf4a7477daa5c94493d3a0e8f)
+        ;
+
+        
+    
+    
+            var circle_marker_267d74290fb5404486e949cf41a45b5f = L.circleMarker(
+                [51.097209, 17.013967],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_19ebd2ef20de46fd8011bdfc8202e74c = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_6e928a7769124b3f82871a14de0ce36f = $(`<div id="html_6e928a7769124b3f82871a14de0ce36f" style="width: 100.0%; height: 100.0%;">Zaporoska / Gajowicka</div>`)[0];
+            popup_19ebd2ef20de46fd8011bdfc8202e74c.setContent(html_6e928a7769124b3f82871a14de0ce36f);
+        
+
+        circle_marker_267d74290fb5404486e949cf41a45b5f.bindPopup(popup_19ebd2ef20de46fd8011bdfc8202e74c)
+        ;
+
+        
+    
+    
+            var circle_marker_893296a293b741f8ba9040fb5e2c2d52 = L.circleMarker(
+                [51.097147, 17.056251],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_9fd70169619b4f369e0ea3eaacdd4e8a = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_c7d1d30aa5aa44b1b3a8261ac72640c5 = $(`<div id="html_c7d1d30aa5aa44b1b3a8261ac72640c5" style="width: 100.0%; height: 100.0%;">Traugutta / Kościuszki</div>`)[0];
+            popup_9fd70169619b4f369e0ea3eaacdd4e8a.setContent(html_c7d1d30aa5aa44b1b3a8261ac72640c5);
+        
+
+        circle_marker_893296a293b741f8ba9040fb5e2c2d52.bindPopup(popup_9fd70169619b4f369e0ea3eaacdd4e8a)
+        ;
+
+        
+    
+    
+            var circle_marker_ca51cb99fbea4a46a51e9237ec227c17 = L.circleMarker(
+                [51.119310999999996, 17.056784],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_ad08a2d8c46e493ebe99e8c167a620f0 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_df4db5b25a7c4149b17ac8891f12197f = $(`<div id="html_df4db5b25a7c4149b17ac8891f12197f" style="width: 100.0%; height: 100.0%;">Nowowiejska / Górnickiego</div>`)[0];
+            popup_ad08a2d8c46e493ebe99e8c167a620f0.setContent(html_df4db5b25a7c4149b17ac8891f12197f);
+        
+
+        circle_marker_ca51cb99fbea4a46a51e9237ec227c17.bindPopup(popup_ad08a2d8c46e493ebe99e8c167a620f0)
+        ;
+
+        
+    
+    
+            var circle_marker_d959fad1b5384252a011d5a170b4655d = L.circleMarker(
+                [51.113912, 17.067207],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_e4d13be9a0b44cf79f968454ddaa90ef = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_d9c73d77c7e84bcf9b4891d23582bb4e = $(`<div id="html_d9c73d77c7e84bcf9b4891d23582bb4e" style="width: 100.0%; height: 100.0%;">Plac Grunwaldzki (DS Ołówek)</div>`)[0];
+            popup_e4d13be9a0b44cf79f968454ddaa90ef.setContent(html_d9c73d77c7e84bcf9b4891d23582bb4e);
+        
+
+        circle_marker_d959fad1b5384252a011d5a170b4655d.bindPopup(popup_e4d13be9a0b44cf79f968454ddaa90ef)
+        ;
+
+        
+    
+    
+            var circle_marker_916c8014a4f9474aafaa1201f6a04552 = L.circleMarker(
+                [51.102117, 17.013683],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_92eebed43fb44bdab772220e8a885eed = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_5190a7847ade4a7a8053d0ea6e4c9411 = $(`<div id="html_5190a7847ade4a7a8053d0ea6e4c9411" style="width: 100.0%; height: 100.0%;">Zaporoska / Grabiszyńska</div>`)[0];
+            popup_92eebed43fb44bdab772220e8a885eed.setContent(html_5190a7847ade4a7a8053d0ea6e4c9411);
+        
+
+        circle_marker_916c8014a4f9474aafaa1201f6a04552.bindPopup(popup_92eebed43fb44bdab772220e8a885eed)
+        ;
+
+        
+    
+    
+            var circle_marker_1bac7880e12a4e2aa4d26320385b1464 = L.circleMarker(
+                [51.099354, 17.000697],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_a5f6059d9cd647db98f55226503cf7a7 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_21c5b4dd57c74167a789df733c47156c = $(`<div id="html_21c5b4dd57c74167a789df733c47156c" style="width: 100.0%; height: 100.0%;">Grabiszyńska / Stalowa</div>`)[0];
+            popup_a5f6059d9cd647db98f55226503cf7a7.setContent(html_21c5b4dd57c74167a789df733c47156c);
+        
+
+        circle_marker_1bac7880e12a4e2aa4d26320385b1464.bindPopup(popup_a5f6059d9cd647db98f55226503cf7a7)
+        ;
+
+        
+    
+    
+            var circle_marker_ea63cd13a9dd488e95f52df24b644843 = L.circleMarker(
+                [51.093426, 17.002893],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_4917628d1b19484fa55e4ea8da397706 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_c61ebf137bc04012b4075b4eeac6e076 = $(`<div id="html_c61ebf137bc04012b4075b4eeac6e076" style="width: 100.0%; height: 100.0%;">Krucza / Mielecka / Stalowa</div>`)[0];
+            popup_4917628d1b19484fa55e4ea8da397706.setContent(html_c61ebf137bc04012b4075b4eeac6e076);
+        
+
+        circle_marker_ea63cd13a9dd488e95f52df24b644843.bindPopup(popup_4917628d1b19484fa55e4ea8da397706)
+        ;
+
+        
+    
+    
+            var circle_marker_2013ffdcd83e422596809543c10954ab = L.circleMarker(
+                [51.089315, 17.001501],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_866f43f80e974cbbb2c7f3dde1949f8c = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_491bc7599baa436486aa1a12f144870a = $(`<div id="html_491bc7599baa436486aa1a12f144870a" style="width: 100.0%; height: 100.0%;">Aleja Hallera / Mielecka</div>`)[0];
+            popup_866f43f80e974cbbb2c7f3dde1949f8c.setContent(html_491bc7599baa436486aa1a12f144870a);
+        
+
+        circle_marker_2013ffdcd83e422596809543c10954ab.bindPopup(popup_866f43f80e974cbbb2c7f3dde1949f8c)
+        ;
+
+        
+    
+    
+            var circle_marker_da51ddd5c7614d56aa02be8fdc0c4872 = L.circleMarker(
+                [51.095597, 17.008045000000003],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_327ae3e36cf647ebba1f2d0859c042b0 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_831d93ab08da46a9ac5b19c18314ad67 = $(`<div id="html_831d93ab08da46a9ac5b19c18314ad67" style="width: 100.0%; height: 100.0%;">Grochowa / Jemiołowa,</div>`)[0];
+            popup_327ae3e36cf647ebba1f2d0859c042b0.setContent(html_831d93ab08da46a9ac5b19c18314ad67);
+        
+
+        circle_marker_da51ddd5c7614d56aa02be8fdc0c4872.bindPopup(popup_327ae3e36cf647ebba1f2d0859c042b0)
+        ;
+
+        
+    
+    
+            var circle_marker_9885799bba6948949f0ee16143c76bc1 = L.circleMarker(
+                [51.099713, 17.027905],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_f6f2b31f0ab245b88b9c31b94ebc3223 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_55fc1afedfdf471ebb707ec05a7f61bd = $(`<div id="html_55fc1afedfdf471ebb707ec05a7f61bd" style="width: 100.0%; height: 100.0%;">Powstańców Śląskich (Arkady Wrocławskie)</div>`)[0];
+            popup_f6f2b31f0ab245b88b9c31b94ebc3223.setContent(html_55fc1afedfdf471ebb707ec05a7f61bd);
+        
+
+        circle_marker_9885799bba6948949f0ee16143c76bc1.bindPopup(popup_f6f2b31f0ab245b88b9c31b94ebc3223)
+        ;
+
+        
+    
+    
+            var circle_marker_7851da63bb7f478eb6598bb13cdf36cb = L.circleMarker(
+                [51.113141, 17.012175],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_a63661ab6b9f432e97a78ffa21b29992 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_a19d8aef08694f52bc14ebcebe017b98 = $(`<div id="html_a19d8aef08694f52bc14ebcebe017b98" style="width: 100.0%; height: 100.0%;">Legnicka / Młodych Techników</div>`)[0];
+            popup_a63661ab6b9f432e97a78ffa21b29992.setContent(html_a19d8aef08694f52bc14ebcebe017b98);
+        
+
+        circle_marker_7851da63bb7f478eb6598bb13cdf36cb.bindPopup(popup_a63661ab6b9f432e97a78ffa21b29992)
+        ;
+
+        
+    
+    
+            var circle_marker_458a1511b4fd4a018cbb0292d5f1b645 = L.circleMarker(
+                [51.098027, 17.006977],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_81e3c71332fc46f5b3259e72469b0b2f = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_1332295d993547879801163c46bc41c4 = $(`<div id="html_1332295d993547879801163c46bc41c4" style="width: 100.0%; height: 100.0%;">Żelazna / Pereca</div>`)[0];
+            popup_81e3c71332fc46f5b3259e72469b0b2f.setContent(html_1332295d993547879801163c46bc41c4);
+        
+
+        circle_marker_458a1511b4fd4a018cbb0292d5f1b645.bindPopup(popup_81e3c71332fc46f5b3259e72469b0b2f)
+        ;
+
+        
+    
+    
+            var circle_marker_3d814f4dff0547c49bd7084bc6cdefd3 = L.circleMarker(
+                [51.104163, 17.031115],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_f844f1f81ac749548c517afa7a137ab7 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_7c62f19b23904ce1ac925ebc519490bf = $(`<div id="html_7c62f19b23904ce1ac925ebc519490bf" style="width: 100.0%; height: 100.0%;">Fosa Miejska </div>`)[0];
+            popup_f844f1f81ac749548c517afa7a137ab7.setContent(html_7c62f19b23904ce1ac925ebc519490bf);
+        
+
+        circle_marker_3d814f4dff0547c49bd7084bc6cdefd3.bindPopup(popup_f844f1f81ac749548c517afa7a137ab7)
+        ;
+
+        
+    
+    
+            var circle_marker_8377729e498a41da97c41bbf820a0458 = L.circleMarker(
+                [51.108288, 17.064884],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_3fdf7f2fe8d8496baec040496c7dc860 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_254c23d7fb1d4d9abe82417fb18f32f6 = $(`<div id="html_254c23d7fb1d4d9abe82417fb18f32f6" style="width: 100.0%; height: 100.0%;">Łukasiewicza / Smoluchowskiego (PWr)</div>`)[0];
+            popup_3fdf7f2fe8d8496baec040496c7dc860.setContent(html_254c23d7fb1d4d9abe82417fb18f32f6);
+        
+
+        circle_marker_8377729e498a41da97c41bbf820a0458.bindPopup(popup_3fdf7f2fe8d8496baec040496c7dc860)
+        ;
+
+        
+    
+    
+            var circle_marker_d20d18203af74ff682e3a348af22c430 = L.circleMarker(
+                [51.117557, 17.040967000000002],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_af205481b05d4b8da3026d9e6ada093f = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_646b1b010b254553a032523bd1cfd917 = $(`<div id="html_646b1b010b254553a032523bd1cfd917" style="width: 100.0%; height: 100.0%;">Drobnera / Plac Bema</div>`)[0];
+            popup_af205481b05d4b8da3026d9e6ada093f.setContent(html_646b1b010b254553a032523bd1cfd917);
+        
+
+        circle_marker_d20d18203af74ff682e3a348af22c430.bindPopup(popup_af205481b05d4b8da3026d9e6ada093f)
+        ;
+
+        
+    
+    
+            var circle_marker_b6a5b4cac9714741956faf389439c5fa = L.circleMarker(
+                [51.132259000000005, 17.065453],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_d5f469406a224e15acee895e85191e8b = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_02736c3faff84d1dbac31af89ad55c52 = $(`<div id="html_02736c3faff84d1dbac31af89ad55c52" style="width: 100.0%; height: 100.0%;">Aleja Kromera</div>`)[0];
+            popup_d5f469406a224e15acee895e85191e8b.setContent(html_02736c3faff84d1dbac31af89ad55c52);
+        
+
+        circle_marker_b6a5b4cac9714741956faf389439c5fa.bindPopup(popup_d5f469406a224e15acee895e85191e8b)
+        ;
+
+        
+    
+    
+            var circle_marker_3e8add368d974b3d8761940d04a281db = L.circleMarker(
+                [51.074992, 17.007057999999997],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_3d7b71d3ee5f4ff191bb664f32b62ee8 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_5b2d15306ae149de84914a65dc8a3e44 = $(`<div id="html_5b2d15306ae149de84914a65dc8a3e44" style="width: 100.0%; height: 100.0%;">Krzycka / Aleja Karkonoska (Park Południowy)</div>`)[0];
+            popup_3d7b71d3ee5f4ff191bb664f32b62ee8.setContent(html_5b2d15306ae149de84914a65dc8a3e44);
+        
+
+        circle_marker_3e8add368d974b3d8761940d04a281db.bindPopup(popup_3d7b71d3ee5f4ff191bb664f32b62ee8)
+        ;
+
+        
+    
+    
+            var circle_marker_d860b647ee1d4cfd8fe7199849757536 = L.circleMarker(
+                [51.111874, 16.960692],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_360dd5d165f24c0b9313584a6bb06028 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_593950e42bbc4940bd74726534027938 = $(`<div id="html_593950e42bbc4940bd74726534027938" style="width: 100.0%; height: 100.0%;">Strzegomska / Estońska</div>`)[0];
+            popup_360dd5d165f24c0b9313584a6bb06028.setContent(html_593950e42bbc4940bd74726534027938);
+        
+
+        circle_marker_d860b647ee1d4cfd8fe7199849757536.bindPopup(popup_360dd5d165f24c0b9313584a6bb06028)
+        ;
+
+        
+    
+    
+            var circle_marker_d9cb0acd17a744e8af46061419209585 = L.circleMarker(
+                [51.077147, 17.046785],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_1c18118fb9534ea7a6b53a2dda878d59 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_68f88783b96e4795baa71ad58b272d8f = $(`<div id="html_68f88783b96e4795baa71ad58b272d8f" style="width: 100.0%; height: 100.0%;">Świeradowska / Krynicka</div>`)[0];
+            popup_1c18118fb9534ea7a6b53a2dda878d59.setContent(html_68f88783b96e4795baa71ad58b272d8f);
+        
+
+        circle_marker_d9cb0acd17a744e8af46061419209585.bindPopup(popup_1c18118fb9534ea7a6b53a2dda878d59)
+        ;
+
+        
+    
+    
+            var circle_marker_266424726cc148bb93896eb71d6f9290 = L.circleMarker(
+                [51.09431, 17.014789999999998],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_8d4debe9015a45b2bc901fbe49a40b7c = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_94529646e91b4c4d9d7bdfe25cb2ac6e = $(`<div id="html_94529646e91b4c4d9d7bdfe25cb2ac6e" style="width: 100.0%; height: 100.0%;">Zaporoska / Wielka / Krucza</div>`)[0];
+            popup_8d4debe9015a45b2bc901fbe49a40b7c.setContent(html_94529646e91b4c4d9d7bdfe25cb2ac6e);
+        
+
+        circle_marker_266424726cc148bb93896eb71d6f9290.bindPopup(popup_8d4debe9015a45b2bc901fbe49a40b7c)
+        ;
+
+        
+    
+    
+            var circle_marker_8cd21f57e5d243b3a44e360acac745ac = L.circleMarker(
+                [51.102090000000004, 17.101679999999998],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_6c6c82dcac22434db658efcc0bee7803 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_5d3948afdfcb4e28b0191a7094991845 = $(`<div id="html_5d3948afdfcb4e28b0191a7094991845" style="width: 100.0%; height: 100.0%;">Olszewskiego / Spółdzielcza</div>`)[0];
+            popup_6c6c82dcac22434db658efcc0bee7803.setContent(html_5d3948afdfcb4e28b0191a7094991845);
+        
+
+        circle_marker_8cd21f57e5d243b3a44e360acac745ac.bindPopup(popup_6c6c82dcac22434db658efcc0bee7803)
+        ;
+
+        
+    
+    
+            var circle_marker_0d6a6d3987be42cd8696946091199e14 = L.circleMarker(
+                [51.12469, 17.034879999999998],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_cb0adb9bfe2a4dfea11763fea1658788 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_68111a4988cd45b8ab5970e8df761093 = $(`<div id="html_68111a4988cd45b8ab5970e8df761093" style="width: 100.0%; height: 100.0%;">pl. Powstańców Wielkopolskich</div>`)[0];
+            popup_cb0adb9bfe2a4dfea11763fea1658788.setContent(html_68111a4988cd45b8ab5970e8df761093);
+        
+
+        circle_marker_0d6a6d3987be42cd8696946091199e14.bindPopup(popup_cb0adb9bfe2a4dfea11763fea1658788)
+        ;
+
+        
+    
+    
+            var circle_marker_246605e0e73044efa3d66a9fecb59423 = L.circleMarker(
+                [51.12274, 17.03061],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_b921da783fec4885bfdba05981f2da6c = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_1adb900c91994deca412ec00d89a7029 = $(`<div id="html_1adb900c91994deca412ec00d89a7029" style="width: 100.0%; height: 100.0%;">Plac Staszica</div>`)[0];
+            popup_b921da783fec4885bfdba05981f2da6c.setContent(html_1adb900c91994deca412ec00d89a7029);
+        
+
+        circle_marker_246605e0e73044efa3d66a9fecb59423.bindPopup(popup_b921da783fec4885bfdba05981f2da6c)
+        ;
+
+        
+    
+    
+            var circle_marker_8e411220b79a4de891711419e168778f = L.circleMarker(
+                [51.12814, 17.05477],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_6a1b6475d74f43e7a42e3491f4298433 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_ba5a7114ae624de5a1d39134e3a372fd = $(`<div id="html_ba5a7114ae624de5a1d39134e3a372fd" style="width: 100.0%; height: 100.0%;">Jedności Narodowej / Wyszyńskiego</div>`)[0];
+            popup_6a1b6475d74f43e7a42e3491f4298433.setContent(html_ba5a7114ae624de5a1d39134e3a372fd);
+        
+
+        circle_marker_8e411220b79a4de891711419e168778f.bindPopup(popup_6a1b6475d74f43e7a42e3491f4298433)
+        ;
+
+        
+    
+    
+            var circle_marker_3cebef095a7a40d7ae6f835161f8eccf = L.circleMarker(
+                [51.11397, 17.10395],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_d5c08fa758744a789d4400934e573dd4 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_00014cb883034418be6d53156ac07c2b = $(`<div id="html_00014cb883034418be6d53156ac07c2b" style="width: 100.0%; height: 100.0%;">Mickiewicza / pętla tramwajowa</div>`)[0];
+            popup_d5c08fa758744a789d4400934e573dd4.setContent(html_00014cb883034418be6d53156ac07c2b);
+        
+
+        circle_marker_3cebef095a7a40d7ae6f835161f8eccf.bindPopup(popup_d5c08fa758744a789d4400934e573dd4)
+        ;
+
+        
+    
+    
+            var circle_marker_0391d43f15e24c549b25558d5f91f689 = L.circleMarker(
+                [51.08361, 17.03523],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_4b310a36e21c4373b889d3e550cc5473 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_a78647824fc9460e9fc70d762d699299 = $(`<div id="html_a78647824fc9460e9fc70d762d699299" style="width: 100.0%; height: 100.0%;">al. Armii Krajowej / Borowska</div>`)[0];
+            popup_4b310a36e21c4373b889d3e550cc5473.setContent(html_a78647824fc9460e9fc70d762d699299);
+        
+
+        circle_marker_0391d43f15e24c549b25558d5f91f689.bindPopup(popup_4b310a36e21c4373b889d3e550cc5473)
+        ;
+
+        
+    
+    
+            var circle_marker_92eedacd8fa04bc399ce68cb65b14777 = L.circleMarker(
+                [51.09152, 17.040329999999997],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_4ee977a326314c61b133a55b05291ff4 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_33454a3162c747b58adf954f15ddd610 = $(`<div id="html_33454a3162c747b58adf954f15ddd610" style="width: 100.0%; height: 100.0%;">Gliniana / Gajowa</div>`)[0];
+            popup_4ee977a326314c61b133a55b05291ff4.setContent(html_33454a3162c747b58adf954f15ddd610);
+        
+
+        circle_marker_92eedacd8fa04bc399ce68cb65b14777.bindPopup(popup_4ee977a326314c61b133a55b05291ff4)
+        ;
+
+        
+    
+    
+            var circle_marker_f3528bdc0a4642da9c6bbd0899377c64 = L.circleMarker(
+                [51.087764, 17.039317999999998],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_c9c862428e9a4191950773b1384c245d = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_a25195ae55d946e8bb93f08b46a17619 = $(`<div id="html_a25195ae55d946e8bb93f08b46a17619" style="width: 100.0%; height: 100.0%;">Kamienna / Tomaszowska</div>`)[0];
+            popup_c9c862428e9a4191950773b1384c245d.setContent(html_a25195ae55d946e8bb93f08b46a17619);
+        
+
+        circle_marker_f3528bdc0a4642da9c6bbd0899377c64.bindPopup(popup_c9c862428e9a4191950773b1384c245d)
+        ;
+
+        
+    
+    
+            var circle_marker_645be2747c214884aded39a9e8b1a483 = L.circleMarker(
+                [51.09126, 16.98581],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_cba4e28f2f1f4b9a918ed95d87e1789f = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_a34f615bcdbf473283e159a3dce8a0c0 = $(`<div id="html_a34f615bcdbf473283e159a3dce8a0c0" style="width: 100.0%; height: 100.0%;">Hallera / Odkrywców</div>`)[0];
+            popup_cba4e28f2f1f4b9a918ed95d87e1789f.setContent(html_a34f615bcdbf473283e159a3dce8a0c0);
+        
+
+        circle_marker_645be2747c214884aded39a9e8b1a483.bindPopup(popup_cba4e28f2f1f4b9a918ed95d87e1789f)
+        ;
+
+        
+    
+    
+            var circle_marker_c4225ed6bfee4da69a3e0816a86a8408 = L.circleMarker(
+                [51.07329, 16.99485],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_8bfc422ec74443cf82f2b34049733bb9 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_af9e02cbe7da4254a24b989c75920ce7 = $(`<div id="html_af9e02cbe7da4254a24b989c75920ce7" style="width: 100.0%; height: 100.0%;">Skarbowców / Wietrzna</div>`)[0];
+            popup_8bfc422ec74443cf82f2b34049733bb9.setContent(html_af9e02cbe7da4254a24b989c75920ce7);
+        
+
+        circle_marker_c4225ed6bfee4da69a3e0816a86a8408.bindPopup(popup_8bfc422ec74443cf82f2b34049733bb9)
+        ;
+
+        
+    
+    
+            var circle_marker_47203d83d48c4a95b890dbc34a7ad65e = L.circleMarker(
+                [51.080220000000004, 16.994670000000003],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_064f9806d1354f498073b41761ad7ba0 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_a8cc4bb0e1ba4b58a36053e5fd41f85f = $(`<div id="html_a8cc4bb0e1ba4b58a36053e5fd41f85f" style="width: 100.0%; height: 100.0%;">Racławicka / Rymarska</div>`)[0];
+            popup_064f9806d1354f498073b41761ad7ba0.setContent(html_a8cc4bb0e1ba4b58a36053e5fd41f85f);
+        
+
+        circle_marker_47203d83d48c4a95b890dbc34a7ad65e.bindPopup(popup_064f9806d1354f498073b41761ad7ba0)
+        ;
+
+        
+    
+    
+            var circle_marker_cc763fad00124a79bea7f0bae54c12a4 = L.circleMarker(
+                [51.13004, 16.96605],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_83aeb0430ee948a682c5b4ada7cb87d9 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_2647605694f74bbcb6e9b3c4aa9f2170 = $(`<div id="html_2647605694f74bbcb6e9b3c4aa9f2170" style="width: 100.0%; height: 100.0%;">Lotnicza / Bajana</div>`)[0];
+            popup_83aeb0430ee948a682c5b4ada7cb87d9.setContent(html_2647605694f74bbcb6e9b3c4aa9f2170);
+        
+
+        circle_marker_cc763fad00124a79bea7f0bae54c12a4.bindPopup(popup_83aeb0430ee948a682c5b4ada7cb87d9)
+        ;
+
+        
+    
+    
+            var circle_marker_6249247e60cd484784fc5c09812031db = L.circleMarker(
+                [51.11289, 17.03971],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_a33435894bf649b2b6dd908ab3b6e5fd = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_24abc136f95c45659578565e9f9ecc2d = $(`<div id="html_24abc136f95c45659578565e9f9ecc2d" style="width: 100.0%; height: 100.0%;">Piaskowa / św. Ducha</div>`)[0];
+            popup_a33435894bf649b2b6dd908ab3b6e5fd.setContent(html_24abc136f95c45659578565e9f9ecc2d);
+        
+
+        circle_marker_6249247e60cd484784fc5c09812031db.bindPopup(popup_a33435894bf649b2b6dd908ab3b6e5fd)
+        ;
+
+        
+    
+    
+            var circle_marker_28f2dc42de554b32a757a0eca73c459a = L.circleMarker(
+                [51.090090000000004, 17.0235],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_6a2b5a879de34cc184381f9256bf2933 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_0daa283104714efd9035be5a2f99fc7c = $(`<div id="html_0daa283104714efd9035be5a2f99fc7c" style="width: 100.0%; height: 100.0%;">Komandorska / Kamienna</div>`)[0];
+            popup_6a2b5a879de34cc184381f9256bf2933.setContent(html_0daa283104714efd9035be5a2f99fc7c);
+        
+
+        circle_marker_28f2dc42de554b32a757a0eca73c459a.bindPopup(popup_6a2b5a879de34cc184381f9256bf2933)
+        ;
+
+        
+    
+    
+            var circle_marker_b6097555e09c48f0b307de7112708693 = L.circleMarker(
+                [51.12887567, 17.04499841],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_40e98603d93b4cea99f23b042c4191d5 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_3cb105c39820478faca00096a8e99b23 = $(`<div id="html_3cb105c39820478faca00096a8e99b23" style="width: 100.0%; height: 100.0%;">Promenady Wrocławskie</div>`)[0];
+            popup_40e98603d93b4cea99f23b042c4191d5.setContent(html_3cb105c39820478faca00096a8e99b23);
+        
+
+        circle_marker_b6097555e09c48f0b307de7112708693.bindPopup(popup_40e98603d93b4cea99f23b042c4191d5)
+        ;
+
+        
+    
+    
+            var circle_marker_b3130082e9b140d491f93fed29a9b5b0 = L.circleMarker(
+                [51.048390999999995, 16.961699],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_984ca4d64e9140a2b9f2dfe7cf65b731 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_fce963e2c1164154bfbd17d597169759 = $(`<div id="html_fce963e2c1164154bfbd17d597169759" style="width: 100.0%; height: 100.0%;">Aleja Bielany</div>`)[0];
+            popup_984ca4d64e9140a2b9f2dfe7cf65b731.setContent(html_fce963e2c1164154bfbd17d597169759);
+        
+
+        circle_marker_b3130082e9b140d491f93fed29a9b5b0.bindPopup(popup_984ca4d64e9140a2b9f2dfe7cf65b731)
+        ;
+
+        
+    
+    
+            var circle_marker_b3d73d900a214b949e6507d23ed95d9c = L.circleMarker(
+                [51.105059999999995, 17.03751],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_92b1199490a947cea4122da611dbe939 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_dc470529cb0d48e7a96501785edb8e2e = $(`<div id="html_dc470529cb0d48e7a96501785edb8e2e" style="width: 100.0%; height: 100.0%;">Teatralna - Piotra Skargi</div>`)[0];
+            popup_92b1199490a947cea4122da611dbe939.setContent(html_dc470529cb0d48e7a96501785edb8e2e);
+        
+
+        circle_marker_b3d73d900a214b949e6507d23ed95d9c.bindPopup(popup_92b1199490a947cea4122da611dbe939)
+        ;
+
+        
+    
+    
+            var circle_marker_a789add6f8ed4bfa858b1f0f08fc44e0 = L.circleMarker(
+                [51.110822, 17.038439999999998],
+                {"bubblingMouseEvents": true, "color": "#ff3300", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff3300", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_fb30ffe564da456f9e2b9028371c8ad8);
+        
+    
+        var popup_d00b514514b745c3a12929ace89ee754 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_e939a4279c8648debc58d7586472910b = $(`<div id="html_e939a4279c8648debc58d7586472910b" style="width: 100.0%; height: 100.0%;">Plac Nowy Targ</div>`)[0];
+            popup_d00b514514b745c3a12929ace89ee754.setContent(html_e939a4279c8648debc58d7586472910b);
+        
+
+        circle_marker_a789add6f8ed4bfa858b1f0f08fc44e0.bindPopup(popup_d00b514514b745c3a12929ace89ee754)
+        ;
+
+        
+    
+</script>

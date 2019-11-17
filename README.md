@@ -76,8 +76,8 @@ Wroclaw host all of the raw cycle data on their [open data website](https://www.
 ## Bike stations analysis <a id="stations"></a>
 ### Map of all docking stations
 Below I present to you a map of all the cycle hire stations across Wroclaw and surrounding areas.
-![All docking stations](images/final/sites/DockingStationsMapBlack.png)
-I've also generated an interactive version of this plot in folium - click [here](https://sebastian-konicz.github.io/WRM/images/sites/DockingStationsMapBlack.html) to see it. You can zoom/scroll with this version, and it also tells you the name and capacity of each location.
+![All docking stations](images/final/DockingStationsMap.png)
+I've also generated an interactive version of this plot in folium - click [here](https://sebastian-konicz.github.io/WRM/images/sites/DockingStationsMap.html) to see it. You can zoom/scroll with this version, and it also tells you the name of each location.
 
 ### Analysis of flows between stations
 #### Net arivals/departures in the morning
@@ -102,7 +102,7 @@ I've also generated an interactive version of this plot in folium - click [here]
 ### Page rank algorithm
 
 ### Network analysis of bike stations
-	- bike paths graph
+- bike paths graph
 
 ## Route predictions <a id="route"></a>
 #### Route prediction graph

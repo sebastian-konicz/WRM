@@ -47,7 +47,6 @@ def main(dir):
         # Merging with locations to get latitude and longitude of station
         trip_counts = pd.merge(trip_counts, locations, on="StartStation")
 
-        # trip_counts.to_csv(dir + r'\data\processed\TripCounts.csv', encoding='utf-8', index=False)
         return trip_counts
 
     def plot_station_counts(trip_counts, time_of_day, zoom_start=13):
