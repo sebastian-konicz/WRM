@@ -77,16 +77,16 @@ Wroclaw host all of the raw cycle data on their [open data website](https://www.
 ### Map of all docking stations
 Below I present to you a map of all the cycle hire stations across Wroclaw and surrounding areas.
 ![All docking stations](images/final/sites/DockingStationsMapBlack.png)
-I've also generated an interactive version of this plot in folium - click [here](https://sebastian-konicz.github.io/WRM/images/DockingStationsMapBlack.html) to see it. You can zoom/scroll with this version, and it also tells you the name and capacity of each location.
+I've also generated an interactive version of this plot in folium - click [here](https://sebastian-konicz.github.io/WRM/images/sites/DockingStationsMapBlack.html) to see it. You can zoom/scroll with this version, and it also tells you the name and capacity of each location.
 
 ### Analysis of flows between stations
 #### Net arivals/departures in the morning
-![Net arrivals/departures - morning](images/final/NetArivals-morning.png)
-[Interactive map](https://sebastian-konicz.github.io/WRM/images/sites/NetArivals-morning.html)
+![Net arrivals/departures - morning](images/final/NetArivalsDepartures-morning.png)
+[Interactive map](https://sebastian-konicz.github.io/WRM/images/sites/NetArivalsDepartures-morning.html)
 
 #### Net arivals/departures in the afternoon
-![Net arrivals/departures - afternoon](images/final/NetArivals-afternoon.png)
-[Interactive map](https://sebastian-konicz.github.io/WRM/images/sites/NetArivals-afternoon.html)
+![Net arrivals/departures - afternoon](images/final/NetArivalsDepartures-afternoon.png)
+[Interactive map](https://sebastian-konicz.github.io/WRM/images/sites/NetArivalsDepartures-afternoon.html)
 
 #### Intensity of arivals/departures in the morning
 ![Intensity - morning](images/final/IntensityMorning.gif)

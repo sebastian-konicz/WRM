@@ -108,7 +108,7 @@ def main(dir):
         #           font=font)
 
         # write to a png file
-        filename = save_path + r"\NetArivals-{}.png".format(time_of_day)
+        filename = save_path + r"\NetArivalsDepartures-{}.png".format(time_of_day)
         image.save(filename, "PNG")
         return image
 
