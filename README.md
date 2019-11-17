@@ -11,7 +11,8 @@ As part of the free transport data service, Wroclaw Bikesharing System (WRM) rel
 4. [Weather conditions usage patterns](#weather)
 5. [Bike stations analysis](#stations)
 6. [Route predictions](#route)
-7. [Project organisation](#project)
+7. [Conclusions](#conclusions")
+8. [Project organisation](#project)
 
 ## WRM Dataset <a id="dataset"></a>
 Wroclaw host all of the raw cycle data on their [open data website](https://www.wroclaw.pl/open-data/dataset/wrmprzejazdy_data) as a series of CSV files. Furthermore, they also have [data](https://www.wroclaw.pl/open-data/dataset/nextbikesoap_data) showing the status of each bike point in Wroclaw, yielding information such as its coordinates, total capacity etc.
@@ -30,31 +31,27 @@ Wroclaw host all of the raw cycle data on their [open data website](https://www.
 
 ## Usage patterns <a id="usage_patterns"></a>
 (How does usage change across the year, the week, and the day?)
-- Average(by day)/Total count by month
-- Average(by hour)/Total count by day
-- Average/Total count by hour of the day
-- Average count by hour of the day (accrow weekdays)
-	(Are people mostly using Bike Share as a way to commute to work or to explore the city?)
-	- inflow / outflow pictures (with color codes)
-- Count by hour of the day (workdays, weekends and holidays)
+(Are people mostly using Bike Share as a way to commute to work or to explore the city?)
 
-- Histogram of rental time (comparison between workdays and weekends).
-
+### Total and average bike rides by month
 ![monthAggPlot](images/plots/monthAggPlot.png)
 [Interactive plot](https://nbviewer.jupyter.org/github/sebastian-konicz/WRM/blob/master/notebooks/reports/RidingPatternsPlots.ipynb#monthAggPlot)
 
 ![monthAvgPlot](images/plots/monthAvgPlot.png)
 [Interactive plot](https://nbviewer.jupyter.org/github/sebastian-konicz/WRM/blob/master/notebooks/reports/RidingPatternsPlots.ipynb#monthAvgPlot)
 
+### Total bike rides by day
 ![dayAggPlot](images/plots/dayAggPlot.png)
 [Interactive plot](https://nbviewer.jupyter.org/github/sebastian-konicz/WRM/blob/master/notebooks/reports/RidingPatternsPlots.ipynb#dayAggPlot)
 
+### Total and average bike rides by day of the week
 ![weekdayAggPlot](images/plots/weekdayAggPlot.png)
 [Interactive plot](https://nbviewer.jupyter.org/github/sebastian-konicz/WRM/blob/master/notebooks/reports/RidingPatternsPlots.ipynb#weekdayAggPlot)
 
 ![weekdayAvgPlot](images/plots/weekdayAvgPlot.png)
 [Interactive plot](https://nbviewer.jupyter.org/github/sebastian-konicz/WRM/blob/master/notebooks/reports/RidingPatternsPlots.ipynb#weekdayAvgPlot)
 
+### Bike rides across time of the day
 ![hourAggPlot](images/plots/hourAggPlot.png)
 [Interactive plot](https://nbviewer.jupyter.org/github/sebastian-konicz/WRM/blob/master/notebooks/reports/RidingPatternsPlots.ipynb#hourAggPlot)
 
@@ -67,53 +64,53 @@ Wroclaw host all of the raw cycle data on their [open data website](https://www.
 ![hourAvgMonthPlot](images/plots/hourAvgMonthPlot.png)
 [Interactive plot](https://nbviewer.jupyter.org/github/sebastian-konicz/WRM/blob/master/notebooks/reports/RidingPatternsPlots.ipynb#hourAvgMonthPlot)
 
+###Histogram of rental time (comparison between workdays and weekends).
+
 [Source / Inspiration](https://medium.com/analytics-vidhya/how-to-finish-top-10-percentile-in-bike-sharing-demand-competition-in-kaggle-part-1-c816ea9c51e1)
 
 ## Weather conditions usage patterns <a id="weather"></a>
 (How does the weather change the way people use Bike Share?)
-- correlation between weather conditions and bike usage (temp, percipity,
-
+- correlation between weather conditions and bike usage (temp, percipitation, wind and humidity)
 [Source / Inspiration](https://towardsdatascience.com/exploring-toronto-bike-share-ridership-using-python-3dc87d35cb62)
 
 ## Bike stations analysis <a id="stations"></a>
-- analysis of flows
-	- vega map with count of rented bikes by hour
-	- inflow and outflow gifs
-- page rank algorithm
-- redistribution mismatch (outflow - inflow)
-- network analysis
-	- bike paths graph
-
-### Net arivals/departures in the morning
-![All docking stations](images/final/DockingStationsMapBlack.png)
+### Map of all docking stations
+Below I present to you a map of all the cycle hire stations across Wroclaw and surrounding areas.
+![All docking stations](images/final/sites/DockingStationsMapBlack.png)
 I've also generated an interactive version of this plot in folium - click [here](https://sebastian-konicz.github.io/WRM/images/DockingStationsMapBlack.html) to see it. You can zoom/scroll with this version, and it also tells you the name and capacity of each location.
 
-### Net arivals/departures in the morning
-![[Net arrivals/departures - morning](images/final/NetArivals-morning.png)
-[Interactive map](images/sites/NetArivalDepartures-morning.html)
+### Analysis of flows between stations
+#### Net arivals/departures in the morning
+![Net arrivals/departures - morning](images/final/NetArivals-morning.png)
+[Interactive map](https://sebastian-konicz.github.io/WRM/images/sites/NetArivals-morning.html)
 
-### Net arivals/departures in the afternoon
+#### Net arivals/departures in the afternoon
 ![Net arrivals/departures - afternoon](images/final/NetArivals-afternoon.png)
-[Interactive map](images/sites/NetArivalDepartures-afternoon.html)
+[Interactive map](https://sebastian-konicz.github.io/WRM/images/sites/NetArivals-afternoon.html)
 
-### Intensity of arivals/departures in the morning
+#### Intensity of arivals/departures in the morning
 ![Intensity - morning](images/final/IntensityMorning.gif)
 
-### Intensity of arivals/departures in the morning
+#### Intensity of arivals/departures in the morning
 ![Intensity - afternoon](images/final/IntensityMorning.gif)
-
 [Source / Inspiration](https://github.com/charlie1347/TfL_bikes)
 
-<a id="route"></a>
-## Route predictions
+### Ranking of bike stations
+#### Most and least popular bike stations
+#### Redistribution mismatch (outflow - inflow)
 
-### Route prediction graph
+### Page rank algorithm
 
+### Network analysis of bike stations
+	- bike paths graph
+
+## Route predictions <a id="route"></a>
+#### Route prediction graph
+( to be added in the future)
 [Source / Inspiration](https://github.com/charlie1347/TfL_bikes)
 
-
-For those unaware, below is a map of all the cycle hire stations across Wroclaw and surrounding areas.
-
+## Conclusions <a id="conclusions"></a>
+( to be added in the future)
 
 ## Project Organization <a id="project"></a>
 ------------
