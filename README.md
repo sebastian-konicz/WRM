@@ -86,7 +86,7 @@ I've also generated an interactive version of this plot in folium - click [here]
 
 #### Net arivals/departures in the afternoon
 ![Net arrivals/departures - afternoon](images/final/NetArivalsDepartures-afternoon.png)
-[Interactive map](https://sebastian-konicz.github.io/WRM/images/sites/NetArivalsDepartures-afternoon.html)
+[Interactive map](https://sebastian-konicz.github.io/WRM/images/sites/NetArivaslDepartures-afternoon.html)
 
 #### Intensity of arivals/departures in the morning
 ![Intensity - morning](images/final/IntensityMorning.gif)
