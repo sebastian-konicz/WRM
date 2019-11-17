@@ -80,18 +80,19 @@ Below I present to you a map of all the cycle hire stations across Wroclaw and s
 I've also generated an interactive version of this plot in folium - click [here](https://sebastian-konicz.github.io/WRM/images/sites/DockingStationsMap.html) to see it. You can zoom/scroll with this version, and it also tells you the name of each location.
 
 ### Analysis of flows between stations
-#### Net arivals/departures in the morning
+
+#### Net arivals/departures in the morning (working days)
 ![Net arrivals/departures - morning](images/final/NetArivalsDepartures-morning.png)
 [Interactive map](https://sebastian-konicz.github.io/WRM/images/sites/NetArivalsDepartures-morning.html)
 
-#### Net arivals/departures in the afternoon
+#### Net arivals/departures in the afternoon (working days)
 ![Net arrivals/departures - afternoon](images/final/NetArivalsDepartures-afternoon.png)
 [Interactive map](https://sebastian-konicz.github.io/WRM/images/sites/NetArivaslDepartures-afternoon.html)
 
-#### Intensity of arivals/departures in the morning
+#### Intensity of arivals/departures in the morning (working days)
 ![Intensity - morning](images/final/IntensityMorning.gif)
 
-#### Intensity of arivals/departures in the morning
+#### Intensity of arivals/departures in the morning (during weekdays)
 ![Intensity - afternoon](images/final/IntensityMorning.gif)
 [Source / Inspiration](https://github.com/charlie1347/TfL_bikes)
 
@@ -102,7 +103,9 @@ I've also generated an interactive version of this plot in folium - click [here]
 ### Page rank algorithm
 
 ### Network analysis of bike stations
-- bike paths graph
+#### Bike path in Wroclaw
+![BikePaths](images/final/BikePaths.png)
+[Interactive map](https://sebastian-konicz.github.io/WRM/images/sites/BikePathsMapTreshold.html)
 
 ## Route predictions <a id="route"></a>
 #### Route prediction graph

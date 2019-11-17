@@ -46,7 +46,7 @@ def main(dir, dataYear):
     RentalData['Count'] = 1
 
     print("Saving to Excel")
-    RentalData.to_csv(dir + r'\data\processed\RentalData{}Rewised.csv'.format(dataYear), encoding='utf-8', index=False)
+    RentalData.to_csv(dir + r'\data\processed\RentalData{}Enriched.csv'.format(dataYear), encoding='utf-8', index=False)
 
 if __name__ == "__main__":
     dataYear = input("Please chose year fo analysis (2015 or 2016) \n")

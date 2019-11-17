@@ -1,4 +1,5 @@
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageFont
+import io
 import numpy as np
 import pandas as pd
 import folium
@@ -147,7 +148,7 @@ def main(dir):
         image_data = add_lines(image_data, xys, weights=None, width=1)
         return image_data
 
-    def unique_paths(time_of_day, trip_count):
+    def unique_paths(trip_count):
         # make a list of locations (latitude longitude) for each station id
         locations = RentalData.groupby("s_number").mean()
         locations = locations.loc[:, ["s_lat", "s_lng"]]
@@ -155,7 +156,7 @@ def main(dir):
         # group by each unique pair of (start-station, end-station) and count the number of trips
         RentalData["path_id"] = [(id1, id2) for id1, id2 in zip(RentalData["s_number"], RentalData["e_number"])]
 
-        paths = RentalData[RentalData["hour_start"] == time_of_day].groupby("path_id").count().iloc[:, [1]]
+        paths = RentalData.groupby("path_id").count().iloc[:, [1]]
         paths.columns = ["Trip Count"]
 
         # select only paths with more than X trips
@@ -186,13 +187,14 @@ def main(dir):
         return image_data
 
     # create the map
-    def folium_map(time_of_day, trip_count):
-        folium_map = folium.Map(location=[51.110158, 17.031927],
+    def folium_map(trip_count):
+        folium_map = folium.Map(location=[51.099783, 17.03082],
                                 zoom_start=13,
                                 tiles="CartoDB dark_matter")
 
         # create the overlay
-        map_overlay = add_alpha(to_image(get_image_data(unique_paths(time_of_day, trip_count)) * 10))
+        map_overlay = add_alpha(to_image(get_image_data(unique_paths(trip_count)) * 10))
+        # map_overlay = add_alpha(to_image(get_image_data(unique_paths(time_of_day, trip_count)) * 10))
         # map_overlay = add_alpha(to_image(get_image_data_trips_day() * 10))
 
         # compute extent of image in lat/lon
@@ -207,11 +209,23 @@ def main(dir):
 
         img.add_to(folium_map)
         folium.LayerControl().add_to(folium_map)
-        folium_map.save(dir + r"\images\Paths{}.html".format(time_of_day))
+        folium_map.save(dir + r"\images\sites\BikePaths.html")
+        return folium_map
 
-    # for time in range(25):
-    #     print(time)
-    folium_map(16, 1)
+    def image_save(map):
+        # generate the png file as a byte array
+        png = map._to_png()
+
+        # create a PIL image object
+        image = Image.open(io.BytesIO(png))
+
+        # write to a png file
+        pathImage = dir + r"\images\final\BikePaths.png"
+        image.save(pathImage, "PNG")
+        return image
+
+    map = folium_map(1)
+    image_save(map)
 
 if __name__ == "__main__":
     project_dir = str(Path(__file__).resolve().parents[2])

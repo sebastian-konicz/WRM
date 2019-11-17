@@ -47,7 +47,7 @@ def main(dir, dataYear):
         weatherConditions.columns = ['Date', 'temperatureMin', 'temperatureMax', 'apparentTemperatureMin',
                                      'apparentTemperatureMax', 'precipIntensity', 'humidity', 'windSpeed', 'visibility']
 
-        weatherConditions.to_csv(dir + r'\data\processed\WeatherConditions{}.csv'.format(dataYear))
+        weatherConditions.to_csv(dir + r'\data\processed\WeatherConditionsDaily{}.csv'.format(dataYear))
 
 if __name__ == "__main__":
     dataYear = input("Please chose year fo analysis (2015 or 2016) \n")
