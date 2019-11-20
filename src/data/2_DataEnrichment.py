@@ -1,5 +1,4 @@
 import pandas as pd
-import datetime
 from pathlib import Path
 
 pd.options.display.max_columns = 50
@@ -36,6 +35,7 @@ def main(dir, dataYear):
                                                    5: "May", 6: "June", 7: "July", 8: "August",
                                                    9: "September", 10: "October", 11: "November", 12: "December"})
     RentalData["WorkingDay"] = RentalData["WorkingDay"].map({0: "DayOff", 1: "WorkingDay"})
+
 
     # Changing values to category type
     categoryVariableList = ["Hour", "Weekday", "Month", "WorkingDay"]

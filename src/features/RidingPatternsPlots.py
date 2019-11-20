@@ -1,5 +1,6 @@
 import pandas as pd
 from pathlib import Path
+import geopy.distance as gd
 import re
 from datetime import datetime
 
@@ -17,7 +18,7 @@ pd.options.display.max_columns = 50
 
 def main(dir):
     print("Loading data")
-    RentalData = pd.read_csv(dir + r'\data\processed\RentalData2015Rewised.csv', delimiter=",", encoding="utf-8")
+    RentalData = pd.read_csv(dir + r'\data\processed\RentalData2015Enriched.csv', delimiter=",", encoding="utf-8")
 
     monthOrder = ["April", "May", "June", "July", "August", "September", "October", "November"]
     dayOrder = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
@@ -46,14 +47,6 @@ def main(dir):
     dayAggPlotLayout = go.Layout(title=go.layout.Title(text="Total rentals by day", x=0.5, y=0.9, xanchor='center', yanchor='middle'),
                                  template="plotly_dark")
     dayAggPlot = dict(data=dayAggPlotData, layout=dayAggPlotLayout)
-
-    # Plot for tota; rentals by day of the week
-    weekdayAggregated = pd.DataFrame(RentalData.groupby("Weekday")['Count'].sum()).reset_index()
-    weekdayAggPlotData = go.Bar(x=weekdayAggregated['Weekday'], y=weekdayAggregated['Count'],
-                                marker={'color': weekdayAggregated['Count'], "autocolorscale": True})
-    weekdayAggPlotLayout = go.Layout(title=go.layout.Title(text="Total rentals by day of the week", x=0.5, y=0.9, xanchor='center', yanchor='middle'),
-                                   template="plotly_dark", xaxis=dict(categoryorder='array', categoryarray=dayOrder))
-    weekdayAggPlot = dict(data=weekdayAggPlotData, layout=weekdayAggPlotLayout)
 
     # Plot for average rentals by day of the week
     weekdayAverage = pd.DataFrame(RentalData.groupby(["Date", "Weekday"])['Count'].sum()).reset_index()
@@ -124,34 +117,40 @@ def main(dir):
     hourAvgMonthPlot = dict(data=hourAvgMonthPlotData, layout=hourAvgMonthPlotLayout)
 
     # Histogram for rentals duration
-    RentalData["StartDate"] = pd.to_datetime(RentalData["StartDate"])
-    RentalData["EndDate"] = pd.to_datetime(RentalData["EndDate"])
-    RentalData['Duration1'] = RentalData.apply(lambda RentalData: RentalData['EndDate'] - RentalData['StartDate'], axis=1)
-    RentalData['Duration1'] = RentalData.apply(lambda RentalData: int((RentalData['Duration1'].total_seconds()) / 60), axis=1)
-    LongRentals = RentalData[RentalData['Duration1'] > 120]
-    ShortRentals = RentalData[RentalData['Duration1'] < 120]
+    LongRentals = RentalData[RentalData['Duration'] > 4000]
+    ShortRentals = RentalData[RentalData['Duration'] < 4000]
     LongRentals = LongRentals.reset_index(drop=True)
     ShortRentals = ShortRentals.reset_index(drop=True)
-    print(ShortRentals['Duration1'])
-    print(LongRentals['Duration1'])
-    durationAggregated = pd.DataFrame(RentalData.groupby(["Duration1"])['Count'].sum()).reset_index()
-    durationAggregated = durationAggregated[(durationAggregated['Duration1'] <= 120) & (durationAggregated['Duration1'] > 0)]
-    durationAggregated.to_csv(dir + r'\data\processed\durationAggregated1.csv', encoding='utf-8', index=False)
-    durationAggPlotData = go.Histogram(x=durationAggregated['Duration1'], y=durationAggregated['Count'])
-    durationAggPlotLayout = go.Layout(title=go.layout.Title(text="Rental Time", x=0.5, y=0.9, xanchor='center', yanchor='middle'),
-                                   template="plotly_dark")
+    print(ShortRentals['Duration'])
+    print(LongRentals['Duration'])
+    durationAggregated = pd.DataFrame(RentalData.groupby(["Duration"])['Count'].sum()).reset_index()
+    durationAggregated = durationAggregated[(durationAggregated['Duration'] <= 4000)]
+    print(durationAggregated)
+    durationAggregated.to_csv(dir + r'\data\processed\durationAggregated.csv')
+    print("Calculating distance")
+    RentalData['Distance'] = RentalData.apply(lambda RentalData: gd.distance(
+        (RentalData['s_lat'], RentalData['s_lng']), (RentalData['e_lat'], RentalData['e_lng'])).km, axis=1)
+    print(RentalData['Distance'])
+
+    durationAggPlotData = go.Scatter(x=durationAggregated['Duration'], y=durationAggregated['Count'], mode="lines")
+    durationAggPlotLayout = go.Layout(
+        title=go.layout.Title(text="Rental time", x=0.5, y=0.9, xanchor='center', yanchor='middle'), template="plotly_dark")
+
+    # durationAggPlotData = go.Histogram(x=durationAggregated['Duration'],
+    #                                    xbins=dict(size=300), histfunc="count")
+    # durationAggPlotLayout = go.Layout(title=go.layout.Title(text="Rental Time", x=0.5, y=0.9, xanchor='center', yanchor='middle'),
+    #                                template="plotly_dark", yaxis={"range": [0, 10000]})
     durationAggPlot = dict(data=durationAggPlotData, layout=durationAggPlotLayout)
 
-    return monthAggPlot, monthAvgPlot, dayAggPlot, weekdayAggPlot, weekdayAvgPlot, hourAggPlot, hourAvgPlot, hourAvgWDPlot, hourAvgMonthPlot, durationAggPlot
+    return monthAggPlot, monthAvgPlot, dayAggPlot, weekdayAvgPlot, hourAggPlot, hourAvgPlot, hourAvgWDPlot, hourAvgMonthPlot, durationAggPlot
 
 def graphs(dir):
     # Unpacking return variables from main function
-    monthAggPlot, monthAvgPlot, dayAggPlot, weekdayAggPlot, weekdayAvgPlot, hourAggPlot, hourAvgPlot, hourAvgWDPlot, hourAvgMonthPlot, durationAggPlot = main(dir)
+    monthAggPlot, monthAvgPlot, dayAggPlot, weekdayAvgPlot, hourAggPlot, hourAvgPlot, hourAvgWDPlot, hourAvgMonthPlot, durationAggPlot = main(dir)
 
     plotsDictionary = {"monthAggPlot": monthAggPlot, "monthAvgPlot": monthAvgPlot, "dayAggPlot": dayAggPlot,
-                       "weekdayAggPlot": weekdayAggPlot, "weekdayAvgPlot": weekdayAvgPlot, "hourAggPlot": hourAggPlot,
-                       "hourAvgPlot": hourAvgPlot, "hourAvgWDPlot": hourAvgWDPlot,
-                       "hourAvgMonthPlot": hourAvgMonthPlot}
+                       "weekdayAvgPlot": weekdayAvgPlot, "hourAggPlot": hourAggPlot,
+                       "hourAvgPlot": hourAvgPlot, "hourAvgWDPlot": hourAvgWDPlot, "hourAvgMonthPlot": hourAvgMonthPlot}
 
     # for key, value in plotsDictionary.items():
     #     plotly.offline.plot(value, filename=(dir + r'\images\sites\{}.html'.format(key)))

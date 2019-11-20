@@ -84,7 +84,7 @@ def main(dir):
 
     print(RentalDataset.tail())
     print("Saving to Excel")
-    RentalDataset.to_csv(dir + r'\data\processed\RentalData.csv', encoding='utf-8', index=False)
+    RentalDataset.to_csv(dir + r'\data\processed\RentalData2019.csv', encoding='utf-8', index=False)
 
 if __name__ == "__main__":
     project_dir = str(Path(__file__).resolve().parents[2])

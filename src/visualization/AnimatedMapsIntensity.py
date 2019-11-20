@@ -105,7 +105,7 @@ def main(dir):
 
     print("Writing pictures for")
     dir_name = dir + r'\images\final\AIM'
-    arrival_times = np.arange(0, 24, .1)
+    arrival_times = np.arange(15, 20, .1)
     for i, hour in enumerate(arrival_times):
         print("making image for " + str(i) + " " + str(hour))
         go_arrivals_frame(i, hour, dir_name)

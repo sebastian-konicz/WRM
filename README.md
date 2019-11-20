@@ -5,7 +5,7 @@
 As part of the free transport data service, Wroclaw Bikesharing System (WRM) release data on journeys taken using their cycles. The data goes back to June 2019, showing information on the start and end locations of the journey along with time of day. By combining this information with the coordinates of each cycle hire point, I predicted the most likely journey taken for each start/end combination.
 
 ## Table of contents
-1. [WRM Dataset](#dataset)
+1. [WRM Dataset overview](#dataset)
 2. [Basic statistics](#statistics)
 3. [Usage patterns](#usage_patterns)
 4. [Weather conditions usage patterns](#weather)
@@ -14,8 +14,16 @@ As part of the free transport data service, Wroclaw Bikesharing System (WRM) rel
 7. [Conclusions](#conclusions")
 8. [Project organisation](#project)
 
-## WRM Dataset <a id="dataset"></a>
-Wroclaw host all of the raw cycle data on their [open data website](https://www.wroclaw.pl/open-data/dataset/wrmprzejazdy_data) as a series of CSV files. Furthermore, they also have [data](https://www.wroclaw.pl/open-data/dataset/nextbikesoap_data) showing the status of each bike point in Wroclaw, yielding information such as its coordinates, total capacity etc.
+## WRM Dataset overview <a id="dataset"></a>
+Wroclaw host all of the raw cycle data on their [open data website](https://www.wroclaw.pl/open-data/dataset). There are two types of data availavle on the site
+ 1) [Actual data for bike rentals in 2019](https://www.wroclaw.pl/open-data/dataset/wrmprzejazdy_data/resource_history/65b5015e-070e-41da-8852-802a86442ac5)
+ 2) [Historical data for years 2015 - 2016](https://www.wroclaw.pl/open-data/dataset/przejazdy-wroclawskiego-roweru-miejskiego-archiwalne)
+ Furthermore, they also have [data](https://www.wroclaw.pl/open-data/dataset/nextbikesoap_data) showing the status of each bike point in Wroclaw, yielding information such as its coordinates, total capacity etc.
+
+ I've looked in both sets of data (actual and historical). First data set can be easily scraped from the internet (it is a series of CSV files), nevertheless a cursory review of the data reveals gaps in their continuity,  e.g. there are separate files for pierod from 2019-06-26 to 2019-07-14 but all the files have data only for 2019-06-26. Huge gaps in continuity of data prevent proper analysis of rental trends.0
+ Second set of data seems to be more consistent in terms of continuity, but the 2016 dataset has one crucial error ie. from the first period to the end of October 2016 the starting station is the same as the end station.
+ Therefor my analysis will concentrate only on 2015 dataset.
+
 
 ## Basic statistics <a id="statistics"></a>
 - number of bikes
