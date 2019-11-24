@@ -93,7 +93,10 @@ As a result some portion of bike rentals is "invalid" ie. user returns the bike 
 ![hourAvgMonthPlot](images/plots/hourAvgMonthPlot.png)
 [Interactive plot](https://nbviewer.jupyter.org/github/sebastian-konicz/WRM/blob/master/notebooks/reports/RidingPatternsPlots.ipynb#hourAvgMonthPlot)
 
-###Histogram of rental time (comparison between workdays and weekends).
+### Bike rides duration
+![durationAggPlot](images/plots/durationAggPlot.png)
+[Interactive plot](https://nbviewer.jupyter.org/github/sebastian-konicz/WRM/blob/master/notebooks/reports/RidingPatternsPlots.ipynb#durationAggPlot)
+
 
 [Source / Inspiration](https://medium.com/analytics-vidhya/how-to-finish-top-10-percentile-in-bike-sharing-demand-competition-in-kaggle-part-1-c816ea9c51e1)
 
@@ -122,7 +125,9 @@ I've also generated an interactive version of this plot in folium - click [here]
 ![Intensity - morning](images/final/IntensityMorning.gif)
 
 #### Intensity of arivals/departures in the morning (during weekdays)
-![Intensity - afternoon](images/final/IntensityMorning.gif)
+![Intensity - afternoon](images/final/IntensityAfternoon.gif)
+
+
 [Source / Inspiration](https://github.com/charlie1347/TfL_bikes)
 
 ### Ranking of bike stations
