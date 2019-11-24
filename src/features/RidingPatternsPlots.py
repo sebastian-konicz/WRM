@@ -170,7 +170,7 @@ def main(dir):
 
     return monthAggPlot, monthAvgPlot, dayAggPlot, weekdayAvgPlot, hourAggPlot, hourAvgPlot, hourAvgWDPlot, hourAvgMonthPlot, durationAggPlot
 
-def graphs(dir):
+def plots(dir):
     # Unpacking return variables from main function
     monthAggPlot, monthAvgPlot, dayAggPlot, weekdayAvgPlot, hourAggPlot, hourAvgPlot, hourAvgWDPlot, hourAvgMonthPlot, durationAggPlot = main(dir)
 
@@ -185,6 +185,6 @@ def graphs(dir):
 
 if __name__ == "__main__":
     project_dir = str(Path(__file__).resolve().parents[2])
-    graphs(project_dir)
+    plots(project_dir)
     # main(project_dir)
 

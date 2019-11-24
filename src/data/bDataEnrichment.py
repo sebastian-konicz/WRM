@@ -49,6 +49,7 @@ def main(dir, dataYear):
     RentalData.to_csv(dir + r'\data\processed\RentalData{}Enriched.csv'.format(dataYear), encoding='utf-8', index=False)
 
 if __name__ == "__main__":
-    dataYear = input("Please chose year fo analysis (2015 or 2016) \n")
+    # dataYear = input("Please chose year fo analysis (2015 or 2016) \n")
+    dataYear = 2015
     project_dir = str(Path(__file__).resolve().parents[2])
     main(project_dir, dataYear)
