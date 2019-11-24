@@ -43,7 +43,8 @@ def main(dir):
     monthAggPlotData = go.Bar(x=monthAggregated['Month'], y=monthAggregated['Count'],
                                 marker={'color': monthAggregated['Count'], "autocolorscale": True})
     monthAggPlotLayout = go.Layout(title=go.layout.Title(text="Total rentals by month", x=0.5, y=0.9, xanchor='center', yanchor='middle'),
-                                   template="plotly_dark", xaxis=dict(categoryorder='array', categoryarray=monthOrder))
+                                   template="plotly_dark", xaxis=dict(categoryorder='array', categoryarray=monthOrder),
+                                   xaxis_title="month", yaxis_title="no. of rentals")
     monthAggPlot = dict(data=monthAggPlotData, layout=monthAggPlotLayout)
 
     # Plot for average rental by month
@@ -52,14 +53,15 @@ def main(dir):
     monthAvgPlotData = go.Bar(x=monthAverage['Month'], y=monthAverage['Count'],
                                 marker={'color': monthAggregated['Count'], "autocolorscale": True})
     monthAvgPlotLayout = go.Layout(title=go.layout.Title(text="Average rentals by month", x=0.5, y=0.9, xanchor='center', yanchor='middle'),
-                                   template="plotly_dark", xaxis=dict(categoryorder='array', categoryarray=monthOrder))
+                                   template="plotly_dark", xaxis=dict(categoryorder='array', categoryarray=monthOrder),
+                                   xaxis_title="month", yaxis_title="no. of rentals")
     monthAvgPlot = dict(data=monthAvgPlotData, layout=monthAvgPlotLayout)
 
     # Plot for total rentals by day
     dayAggregated = pd.DataFrame(RentalData.groupby("Date")['Count'].sum()).reset_index()
     dayAggPlotData = go.Bar(x=dayAggregated['Date'], y=dayAggregated['Count'])
     dayAggPlotLayout = go.Layout(title=go.layout.Title(text="Total rentals by day", x=0.5, y=0.9, xanchor='center', yanchor='middle'),
-                                 template="plotly_dark")
+                                 template="plotly_dark", xaxis_title="day", yaxis_title="no. of rentals")
     dayAggPlot = dict(data=dayAggPlotData, layout=dayAggPlotLayout)
 
     # Plot for average rentals by day of the week
@@ -68,7 +70,8 @@ def main(dir):
     weekdayAvgPlotData = go.Bar(x=weekdayAverage['Weekday'], y=weekdayAverage['Count'],
                                 marker={'color': weekdayAverage['Count'], "autocolorscale": True})
     weekdayAvgPlotLayout = go.Layout(title=go.layout.Title(text="Average rentals by day of the week", x=0.5, y=0.9, xanchor='center', yanchor='middle'),
-                                   template="plotly_dark", xaxis=dict(categoryorder='array', categoryarray=dayOrder))
+                                     template="plotly_dark", xaxis=dict(categoryorder='array', categoryarray=dayOrder),
+                                     xaxis_title="month", yaxis_title="no. of rentals")
     weekdayAvgPlot = dict(data=weekdayAvgPlotData, layout=weekdayAvgPlotLayout)
 
     # Plot for total rental in particular days by hour of the day
@@ -143,10 +146,6 @@ def main(dir):
     durationAggregated = durationAggregated[(durationAggregated['Duration'] <= 5400)]
     durationAggregated['Total Duration'] = durationAggregated.apply(lambda durationAggregated: time.strftime("%H:%M:%S", time.gmtime(durationAggregated['Duration'])), axis=1)
 
-    # datetime.timedelta(seconds=int(durationAggregated['Duration']))
-    print(durationAggregated['Total Duration'])
-    print(type(durationAggregated['Total Duration']))
-
     durationAggPlotData = go.Scatter(x=durationAggregated['Total Duration'], y=durationAggregated['Count'], mode="lines")
     durationAggPlotLayout = go.Layout(
         title=go.layout.Title(text="Rental time", x=0.5, y=0.9, xanchor='center', yanchor='middle'),
@@ -154,6 +153,20 @@ def main(dir):
         xaxis=dict(tickmode="array", tickvals=timeVals, ticktext=timeVals))
 
     durationAggPlot = dict(data=durationAggPlotData, layout=durationAggPlotLayout)
+
+    # # Rental duration average
+    # durationAggregated = pd.DataFrame(RentalData.groupby(["Duration"])['Count'].sum()).reset_index()
+    # durationAggregated = durationAggregated[(durationAggregated['Duration'] <= 5400)]
+    # durationAggregated['Total Duration'] = durationAggregated.apply(lambda durationAggregated: time.strftime("%H:%M:%S", time.gmtime(durationAggregated['Duration'])), axis=1)
+    #
+    # durationAggPlotData = go.Scatter(x=durationAggregated['Total Duration'], y=durationAggregated['Count'], mode="lines")
+    # durationAggPlotLayout = go.Layout(
+    #     title=go.layout.Title(text="Rental time", x=0.5, y=0.9, xanchor='center', yanchor='middle'),
+    #     template="plotly_dark", xaxis_title="time (hh:mm:ss)", yaxis_title="no. of rentals",
+    #     xaxis=dict(tickmode="array", tickvals=timeVals, ticktext=timeVals))
+    #
+    # durationAggPlot = dict(data=durationAggPlotData, layout=durationAggPlotLayout)
+
 
     return monthAggPlot, monthAvgPlot, dayAggPlot, weekdayAvgPlot, hourAggPlot, hourAvgPlot, hourAvgWDPlot, hourAvgMonthPlot, durationAggPlot
 
