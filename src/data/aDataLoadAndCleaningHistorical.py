@@ -15,7 +15,7 @@ def main(dir, dataYear):
     # Docking station dataset
     DockingStations = pd.read_excel(dataPath + r'\DockingStationsHistorical.xlsx')
 
-    # Merging Rental dataset with Dockin Stations dataset to get geocoordinates of stations
+    # Merging Rental dataset with docking stations dataset to get geocoordinates of stations
     print("Merging datasets")
     # Adding geolocation to start station
     RentalData = pd.merge(left=RentalData, right=DockingStations[['number', 'lat', 'lng', 'name', 'name_old']],
@@ -63,13 +63,12 @@ def main(dir, dataYear):
     print(RentalData.index.max())
 
     # Calculating distance and speed
-    print("Calculating distance and speed")
-    RentalData['Distance'] = RentalData.apply(lambda RentalData: int(gd.distance((RentalData['s_lat'], RentalData['s_lng']), (RentalData['e_lat'], RentalData['e_lng'])).km), axis=1)
-    RentalData['Speed'] = RentalData.apply(lambda RentalData: int((RentalData['Distance']/RentalData['Duration']) * 3600), axis=1)
-    # Rounding values
-    print("Rounding values")
-    RentalData['Distance'] = RentalData.applymap(lambda RentalData: round(RentalData['Distance'], 3))
-    RentalData['Speed'] = RentalData.applymap(lambda RentalData: round(RentalData['Speed'], 2))
+    print("Calculating distance")
+    RentalData['Distance'] = RentalData.apply(lambda RentalData: round((gd.distance((RentalData['s_lat'], RentalData['s_lng']), (RentalData['e_lat'], RentalData['e_lng'])).km), 3), axis=1)
+    print("Calculating speed")
+    RentalData['Speed'] = RentalData.apply(lambda RentalData: round((RentalData['Distance']/RentalData['Duration']) * 3600, 2), axis=1)
+    print(RentalData['Speed'])
+    print(RentalData['Distance'] )
 
     # Limiting dataset to rentals with speed less than 25
     print("Limiting dataset to rentals with speed less than 25")

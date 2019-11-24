@@ -118,7 +118,7 @@ Below I present to you a map of all the cycle hire stations across Wroclaw and s
 I've also generated an interactive version of this plot in folium - click [here](https://sebastian-konicz.github.io/WRM/images/sites/DockingStationsMap.html) to see it. You can zoom/scroll with this version, and it also tells you the name of each location.
 
 ### Analysis of flows between stations
-In the images below, orange represents a station with more bikes leaving than coming in (outflows > inflows), whilst blue represents the opposite. As expected, in the morning people commute in to the centre from the suburbs, whilst the opposite occurs in the evening. Canary Wharf is also quite noticeable in the east.
+In the images below, orange represents a station with more bikes leaving than coming in (outflows > inflows), whilst blue represents the opposite. As expected, in the morning people commute in to the centre from the suburbs, whilst the opposite occurs in the evening.
 #### Net arivals/departures in the morning (working days)
 ![Net arrivals/departures - morning](images/final/NetArivalsDepartures-morning.png)
 [Interactive map](https://sebastian-konicz.github.io/WRM/images/sites/NetArivalsDepartures-morning.html)

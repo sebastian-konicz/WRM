@@ -1,7 +1,9 @@
 from pathlib import Path
 import data.aDataLoadAndCleaningHistorical as DataLoad
 import data.bDataEnrichment as DataEnrichment
-import data.RidingPatternsPlots as Plots
+import features.RidingPatternsPlots as Plots
+import visualization.NetArivalsDepartures
+
 
 def main(dir, year):
     DataLoad.main(dir, year)
