@@ -73,10 +73,7 @@ As a result some portion of bike rentals is "invalid" ie. user returns the bike 
 ![dayAggPlot](images/plots/dayAggPlot.png)
 [Interactive plot](https://nbviewer.jupyter.org/github/sebastian-konicz/WRM/blob/master/notebooks/reports/RidingPatternsPlots.ipynb#dayAggPlot)
 
-### Total and average bike rides by day of the week
-![weekdayAggPlot](images/plots/weekdayAggPlot.png)
-[Interactive plot](https://nbviewer.jupyter.org/github/sebastian-konicz/WRM/blob/master/notebooks/reports/RidingPatternsPlots.ipynb#weekdayAggPlot)
-
+### Average bike rides by day of the week
 ![weekdayAvgPlot](images/plots/weekdayAvgPlot.png)
 [Interactive plot](https://nbviewer.jupyter.org/github/sebastian-konicz/WRM/blob/master/notebooks/reports/RidingPatternsPlots.ipynb#weekdayAvgPlot)
 
@@ -124,7 +121,7 @@ I've also generated an interactive version of this plot in folium - click [here]
 #### Intensity of arivals/departures in the morning (working days)
 ![Intensity - morning](images/final/IntensityMorning.gif)
 
-#### Intensity of arivals/departures in the morning (during weekdays)
+#### Intensity of arivals/departures in the afternoon (during weekdays)
 ![Intensity - afternoon](images/final/IntensityAfternoon.gif)
 
 
