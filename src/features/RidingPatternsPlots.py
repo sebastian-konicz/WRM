@@ -2,7 +2,10 @@ import pandas as pd
 from pathlib import Path
 import geopy.distance as gd
 import re
+import numpy as np
 from datetime import datetime
+import datetime
+import time
 
 # Plotly and cufflings standart impors
 import plotly.graph_objects as go
@@ -23,6 +26,17 @@ def main(dir):
     monthOrder = ["April", "May", "June", "July", "August", "September", "October", "November"]
     dayOrder = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
     workingDay = ["WorkingDay", "DayOff"]
+    hourVals = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+    hourText = ["00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00",
+                "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00",
+                "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00"]
+
+    timeVals = []
+    for i in range(0, 19):
+        minutes = (i * 5) % 60
+        hour = int((i * 5) / 60)
+        timeValue = str(datetime.time(hour=hour, minute=minutes, second=0))
+        timeVals.append(timeValue)
 
     # Plot for total rental by month
     monthAggregated = pd.DataFrame(RentalData.groupby("Month")['Count'].sum()).reset_index()
@@ -67,8 +81,10 @@ def main(dir):
         plotLine = go.Scatter(x=hourAggPivot.index, y=hourAggPivot[day], mode="lines", name=day)
         hourAggPlotData.append(plotLine)
 
-    hourAggPlotLayout = go.Layout(title=go.layout.Title(text="Total rentals by hour and weekday", x=0.5, y=0.9, xanchor='center', yanchor='middle'),
-                                  template="plotly_dark")
+    hourAggPlotLayout = go.Layout(
+        title=go.layout.Title(text="Total rentals by hour and weekday", x=0.5, y=0.9, xanchor='center', yanchor='middle'),
+        template="plotly_dark", xaxis_title="hour of day", yaxis_title="no. of rentals",
+        xaxis=dict(tickmode="array", tickvals=hourVals, ticktext=hourText))
     hourAggPlot = dict(data=hourAggPlotData, layout =hourAggPlotLayout)
 
     # Plot for average rental in particular days by hour of the day
@@ -82,8 +98,10 @@ def main(dir):
         plotLine = go.Scatter(x=hourAvgPivot.index, y=hourAvgPivot[day], mode="lines", name=day)
         hourAvgPlotData.append(plotLine)
 
-    hourAvgPlotLayout = go.Layout(title=go.layout.Title(text="Average rentals by hour and weekday", x=0.5, y=0.9, xanchor='center', yanchor='middle'),
-                                  template="plotly_dark")
+    hourAvgPlotLayout = go.Layout(
+        title=go.layout.Title(text="Average rentals by hour and weekday", x=0.5, y=0.9, xanchor='center', yanchor='middle'),
+        template="plotly_dark", xaxis_title="hour of day", yaxis_title="no. of rentals",
+        xaxis=dict(tickmode="array", tickvals=hourVals, ticktext=hourText))
     hourAvgPlot = dict(data=hourAvgPlotData, layout=hourAvgPlotLayout)
 
     # Plot for average rental in working days or days off by hour of the day
@@ -97,8 +115,10 @@ def main(dir):
         plotLine = go.Scatter(x=hourAvgPivotWD.index, y=hourAvgPivotWD[day], mode="lines", name=day)
         hourAvgWDPlotData.append(plotLine)
 
-    hourAvgWDPlotLayout = go.Layout(title=go.layout.Title(text="Average rentals by hour and kind of day (working day or weekend/holiday)",
-                                                          x=0.5, y=0.9, xanchor='center', yanchor='middle'), template="plotly_dark")
+    hourAvgWDPlotLayout = go.Layout(
+        title=go.layout.Title(text="Average rentals by hour and kind of day (working day or weekend/holiday)", x=0.5, y=0.9, xanchor='center', yanchor='middle'),
+        template="plotly_dark", xaxis_title="hour of day", yaxis_title="no. of rentals",
+        xaxis=dict(tickmode="array", tickvals=hourVals, ticktext=hourText))
     hourAvgWDPlot = dict(data=hourAvgWDPlotData, layout=hourAvgWDPlotLayout)
 
     # Plot for average rental during particular mont by hour of the day
@@ -113,33 +133,26 @@ def main(dir):
         hourAvgMonthPlotData.append(plotLine)
 
     hourAvgMonthPlotLayout = go.Layout(
-        title=go.layout.Title(text="Average rentals by hour and month", x=0.5, y=0.9, xanchor='center', yanchor='middle'), template="plotly_dark")
+        title=go.layout.Title(text="Average rentals by hour and month", x=0.5, y=0.9, xanchor='center', yanchor='middle'),
+        template="plotly_dark", xaxis_title="hour of day", yaxis_title="no. of rentals",
+        xaxis=dict(tickmode="array", tickvals=hourVals, ticktext=hourText))
     hourAvgMonthPlot = dict(data=hourAvgMonthPlotData, layout=hourAvgMonthPlotLayout)
 
-    # Histogram for rentals duration
-    LongRentals = RentalData[RentalData['Duration'] > 4000]
-    ShortRentals = RentalData[RentalData['Duration'] < 4000]
-    LongRentals = LongRentals.reset_index(drop=True)
-    ShortRentals = ShortRentals.reset_index(drop=True)
-    print(ShortRentals['Duration'])
-    print(LongRentals['Duration'])
+    # Rental duration
     durationAggregated = pd.DataFrame(RentalData.groupby(["Duration"])['Count'].sum()).reset_index()
-    durationAggregated = durationAggregated[(durationAggregated['Duration'] <= 4000)]
-    print(durationAggregated)
-    durationAggregated.to_csv(dir + r'\data\processed\durationAggregated.csv')
-    print("Calculating distance")
-    RentalData['Distance'] = RentalData.apply(lambda RentalData: gd.distance(
-        (RentalData['s_lat'], RentalData['s_lng']), (RentalData['e_lat'], RentalData['e_lng'])).km, axis=1)
-    print(RentalData['Distance'])
+    durationAggregated = durationAggregated[(durationAggregated['Duration'] <= 5400)]
+    durationAggregated['Total Duration'] = durationAggregated.apply(lambda durationAggregated: time.strftime("%H:%M:%S", time.gmtime(durationAggregated['Duration'])), axis=1)
 
-    durationAggPlotData = go.Scatter(x=durationAggregated['Duration'], y=durationAggregated['Count'], mode="lines")
+    # datetime.timedelta(seconds=int(durationAggregated['Duration']))
+    print(durationAggregated['Total Duration'])
+    print(type(durationAggregated['Total Duration']))
+
+    durationAggPlotData = go.Scatter(x=durationAggregated['Total Duration'], y=durationAggregated['Count'], mode="lines")
     durationAggPlotLayout = go.Layout(
-        title=go.layout.Title(text="Rental time", x=0.5, y=0.9, xanchor='center', yanchor='middle'), template="plotly_dark")
+        title=go.layout.Title(text="Rental time", x=0.5, y=0.9, xanchor='center', yanchor='middle'),
+        template="plotly_dark", xaxis_title="time (hh:mm:ss)", yaxis_title="no. of rentals",
+        xaxis=dict(tickmode="array", tickvals=timeVals, ticktext=timeVals))
 
-    # durationAggPlotData = go.Histogram(x=durationAggregated['Duration'],
-    #                                    xbins=dict(size=300), histfunc="count")
-    # durationAggPlotLayout = go.Layout(title=go.layout.Title(text="Rental Time", x=0.5, y=0.9, xanchor='center', yanchor='middle'),
-    #                                template="plotly_dark", yaxis={"range": [0, 10000]})
     durationAggPlot = dict(data=durationAggPlotData, layout=durationAggPlotLayout)
 
     return monthAggPlot, monthAvgPlot, dayAggPlot, weekdayAvgPlot, hourAggPlot, hourAvgPlot, hourAvgWDPlot, hourAvgMonthPlot, durationAggPlot
@@ -152,9 +165,9 @@ def graphs(dir):
                        "weekdayAvgPlot": weekdayAvgPlot, "hourAggPlot": hourAggPlot,
                        "hourAvgPlot": hourAvgPlot, "hourAvgWDPlot": hourAvgWDPlot, "hourAvgMonthPlot": hourAvgMonthPlot}
 
-    # for key, value in plotsDictionary.items():
-    #     plotly.offline.plot(value, filename=(dir + r'\images\sites\{}.html'.format(key)))
-    #     go.Figure(value).write_image(dir + r'\images\plots\{}.png'.format(key), width=1280, height=640)
+    for key, value in plotsDictionary.items():
+        plotly.offline.plot(value, filename=(dir + r'\images\sites\{}.html'.format(key)))
+        go.Figure(value).write_image(dir + r'\images\plots\{}.png'.format(key), width=1280, height=640)
     plotly.offline.plot(durationAggPlot, filename=(dir + r'\images\sites\durationAggPlot.html'))
 
 if __name__ == "__main__":

@@ -19,13 +19,31 @@ Wroclaw host all of the raw cycle data on their [open data website](https://www.
  1) [Actual data for bike rentals in 2019](https://www.wroclaw.pl/open-data/dataset/wrmprzejazdy_data/resource_history/65b5015e-070e-41da-8852-802a86442ac5)
  2) [Historical data for years 2015 - 2016](https://www.wroclaw.pl/open-data/dataset/przejazdy-wroclawskiego-roweru-miejskiego-archiwalne)
 
- Furthermore, they also have [data](https://www.wroclaw.pl/open-data/dataset/nextbikesoap_data) showing the status of each bike point in Wroclaw, yielding information such as its coordinates, total capacity etc.
+Furthermore, they also have [data](https://www.wroclaw.pl/open-data/dataset/nextbikesoap_data) showing the status of each bike point in Wroclaw, yielding information such as its coordinates, total capacity etc.
 
- I've looked in both sets of data (actual and historical). First data set can be easily scraped from the internet (it is a series of CSV files), nevertheless a cursory review of the data reveals gaps in their continuity, e.g. there are separate files for periods from 2019-06-26 to 2019-07-14 but all those files have rental data only for 2019-06-26. Therefore, huge gaps in continuity of data prevent proper analysis of rental trends.
+I've looked in both sets of data (actual and historical). First data set can be easily scraped from the internet (it is a series of CSV files), nevertheless a cursory review of the data reveals gaps in their continuity, e.g. there are separate files for periods from 2019-06-26 to 2019-07-14 but all those files have rental data only for 2019-06-26. Therefore, huge gaps in continuity of data prevent proper analysis of rental trends.
 
- Second set of data seems to be more consistent in terms of continuity, but the 2016 data set has one crucial error ie. from the first period to the end of October 2016 the starting station is the same as the end station.
+Second set of data seems to be more consistent in terms of continuity, but the 2016 data set has one crucial error ie. from the first period to the end of October 2016 the starting station is the same as the end station.
 
- Given the above my analysis will concentrate only on the 2015 data set.
+Given the above my analysis will concentrate only on the 2015 data set with total number of rows equal to 843 951.
+
+### 2015 Data set
+On the first glance the 2015 data set is complete and consistent (no NaN values or missing data). Nevertheless after closer look there are few issues concernig 2015 data.
+
+#### Rental data vs docking stations data
+First issue with the 2015 data set is connected with docking stations data i.e. the names of docking stations in rental data set does not match the name in docking stations data set. Given the above, before merging two data sets, I had to manually add new column in docking station data set and match the old names with the new ones. As a result of the above I have discovered that there are 3 docking stations that were present in the 2015 but are not present today. These are:
+1. Wyszyńskiego - Prusa
+2. Teatralna - Piotra Skargi
+3. Plac Nowy Targ
+I have added them to the docking station data set, gave them arbitrary ids and set respective gps coordinates using google maps.data
+Furthermore, I have discovered that there were 8 docking stations which were present in 2015 (but are not present today) and had only 1 or 2 rides.  These are: Dworzec Głowny PKP, Grunwaldzka / Grochowska, Most Teatralny, Ogrody, Pętla Autobusowa - Dambonia, Plac Wolnosci, Poznań Główny, Wiejska / Pogodna.
+Above station were excluded from the data set thus reducing the number of records from 843 951 to ______
+
+#### Valid rentals based on location and duration
+As a user of similar bike sharing system in my hometown (Warsaw) I know that often (especially when there are few bikes in the docking station) rented bikes do not work properly. Usually user is able to spot defected bike right away (flat tire), but many times bike defects are apparent only after brief ride.
+As a result some portion of bike rentals is "invalid" ie. user returns the bike to docking station after spotting the defect. Given the above i have dropped from the data set the rides that were made between the same docking station and shorter than 5 minutes. Obviously the time value is arbitrary and can be changed in other analyzes, but in my opinion it is hard to believe that many users rent a bike for such small amount of time only to return it in the same docking station.
+
+
 
 
 ## Basic statistics <a id="statistics"></a>

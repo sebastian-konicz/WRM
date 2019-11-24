@@ -10,7 +10,10 @@ def main(dir, dataYear):
     print("Loading Datasets")
     # Rental dataset
     RentalData = pd.read_excel(dataPath + r'\RentalData{}.xlsx'.format(dataYear))
+
+    # Getting the number of rows
     print(RentalData.index.max())
+    datasetBeforeCleaning = RentalData.index.max()
 
     # Docking station dataset
     DockingStations = pd.read_excel(dataPath + r'\DockingStationsHistorical.xlsx')
@@ -23,8 +26,11 @@ def main(dir, dataYear):
     # Adding geolocation to endstation station
     RentalData = pd.merge(left=RentalData, right=DockingStations[['number', 'lat', 'lng', 'name', 'name_old']], suffixes=("", "_e"),
                              left_on="Stacja zwrotu", right_on="name_old", how='left')
+
+    # Getting the number of rows
     RentalData = RentalData.reset_index(drop=True)
     print(RentalData.index.max())
+    datasetAfterMerging = RentalData.index.max()
 
     # Renaming columns
     RentalData.columns = ["Lp", "BikeNumber", "StartDate", "EndDate", "StartStation_old", "EndStation_old",
@@ -40,7 +46,45 @@ def main(dir, dataYear):
     RentalData["EndDate"] = pd.to_datetime(RentalData["EndDate"])
     RentalData['Duration'] = RentalData.apply(lambda RentalData: RentalData['EndDate'] - RentalData['StartDate'], axis=1)
     RentalData['Duration'] = RentalData.apply(lambda RentalData: int(RentalData['Duration'].total_seconds()), axis=1)
+    RentalData['Date'] = RentalData["StartDate"].map(lambda x: x.date())
+
+    # All rentals analysys
+    AllRental = pd.DataFrame(RentalData.groupby(["Date", "BikeNumber"], sort=True)["Count"].count()).reset_index()
+    AllRental = pd.DataFrame(AllRental.groupby(["BikeNumber"], sort=True)["Count"].mean()).reset_index()
+    AllRental["Count"] = AllRental.apply(lambda AllRental: round(int(AllRental["Count"]), 2), axis=1)
+    AllRental.to_csv(dir + r'\data\interim\AllRental{}.csv'.format(dataYear), encoding='utf-8', index=False)
+
+    ShortRental = RentalData[(RentalData['StartStation'] == RentalData['EndStation']) & (RentalData['Duration'] < 300)]
     RentalData = RentalData.drop(RentalData[(RentalData['StartStation'] == RentalData['EndStation']) & (RentalData['Duration'] < 300)].index)
+
+    # Getting the number of rows
+    RentalData = RentalData.reset_index(drop=True)
+    print(RentalData.index.max())
+    datasetAfterMerging = RentalData.index.max()
+
+    # Long rental analysys
+    LongRental = pd.DataFrame(RentalData.groupby(["Date", "BikeNumber"], sort=True)["Count"].count()).reset_index()
+    LongRental = pd.DataFrame(LongRental.groupby(["BikeNumber"], sort=True)["Count"].mean()).reset_index()
+    LongRental["Count"] = LongRental.apply(lambda LongRental: round(int(LongRental["Count"]), 2), axis=1)
+    LongRental.to_csv(dir + r'\data\interim\LongRental{}.csv'.format(dataYear), encoding='utf-8', index=False)
+
+    # Short rental analysys
+    ShortRental = pd.DataFrame(ShortRental.groupby(["Date", "BikeNumber"], sort=True)["Count"].count()).reset_index()
+    print("Saving to Excel")
+    ShortRental.to_csv(dir + r'\data\interim\ShortRental1{}.csv'.format(dataYear), encoding='utf-8', index=False)
+    ShortRental = pd.DataFrame(ShortRental.groupby(["BikeNumber"], sort=True)["Count"].mean()).reset_index()
+    ShortRental["Count"] = ShortRental.apply(lambda ShortRental: round(int(ShortRental["Count"]), 2), axis=1)
+    print(ShortRental.tail())
+    print("Saving to Excel")
+    ShortRental.to_csv(dir + r'\data\interim\ShortRental2{}.csv'.format(dataYear), encoding='utf-8', index=False)
+
+    # Mean rental number
+    MeanRentalNumbeLAll = AllRental["Count"].mean()
+    MeanRentalNumbeLong = LongRental["Count"].mean()
+    MeanRentalNumbeShort = ShortRental["Count"].mean()
+    print("MeanRentalNumberAll = " + str(MeanRentalNumbeLAll))
+    print("MeanRentalNumbeLong = " + str(MeanRentalNumbeLong))
+    print("MeanRentalNumbeShort = " + str(MeanRentalNumbeShort))
 
     RentalData = RentalData.reset_index(drop=True)
     print(RentalData.index.max())
@@ -78,8 +122,8 @@ def main(dir, dataYear):
     # Reseting index
     RentalData = RentalData.reset_index(drop=True)
 
-    print("Saving to Excel")
-    RentalData.to_csv(dir + r'\data\processed\RentalData{}.csv'.format(dataYear), encoding='utf-8', index=False)
+    # print("Saving to Excel")
+    # RentalData.to_csv(dir + r'\data\processed\RentalData{}.csv'.format(dataYear), encoding='utf-8', index=False)
 
 if __name__ == "__main__":
     dataYear = input("Please chose year fo analysis (2015 or 2016) \n")
