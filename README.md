@@ -2,12 +2,12 @@
 ==============================
 
 ## Overview
-As part of the free transport data service, Wroclaw Bikesharing System (WRM) release data on journeys taken using their cycles. The data goes back to June 2019, showing information on the start and end locations of the journey along with time of day. By combining this information with the coordinates of each cycle hire point, I predicted the most likely journey taken for each start/end combination.
+As part of the free transport data service, Wroclaw Bikesharing System (WRM) release data on journeys taken using their cycles. The data goes back to April 2015, showing information on the start and end locations of the journey along with time of day. By combining this information with the coordinates of each cycle hire point, I analyzed rental patterns among users (i.a. most popular destinations and paths), popularity of certain docking stations and corelation of rentals with weather conditions.
 
 ## Table of contents
 1. [WRM Dataset overview](#dataset)
 2. [Basic statistics](#statistics)
-3. [Usage patterns](#usage_patterns)
+3. [Rental patterns](#rental_patterns)
 4. [Weather conditions usage patterns](#weather)
 5. [Bike stations analysis](#stations)
 6. [Route predictions](#route)
@@ -16,8 +16,8 @@ As part of the free transport data service, Wroclaw Bikesharing System (WRM) rel
 
 ## WRM datasets overview <a id="dataset"></a>
 Wroclaw host all of the raw cycle data on their [open data website](https://www.wroclaw.pl/open-data/dataset). There are two types of data availavle on the site
- 1) [Actual data for bike rentals in 2019](https://www.wroclaw.pl/open-data/dataset/wrmprzejazdy_data/resource_history/65b5015e-070e-41da-8852-802a86442ac5)
- 2) [Historical data for years 2015 - 2016](https://www.wroclaw.pl/open-data/dataset/przejazdy-wroclawskiego-roweru-miejskiego-archiwalne)
+1. [Actual data for bike rentals in 2019](https://www.wroclaw.pl/open-data/dataset/wrmprzejazdy_data/resource_history/65b5015e-070e-41da-8852-802a86442ac5)
+2. [Historical data for years 2015 - 2016](https://www.wroclaw.pl/open-data/dataset/przejazdy-wroclawskiego-roweru-miejskiego-archiwalne)
 
 Furthermore, they also have [data](https://www.wroclaw.pl/open-data/dataset/nextbikesoap_data) showing the status of each bike point in Wroclaw, yielding information such as its coordinates, total capacity etc.
 
@@ -56,6 +56,11 @@ This procedure not only eliminates obvious errors in the bike sharing system , b
 As a result, the dataset has been reduced from 735 439 to 733 939 (difference = 1500).
 
 ## Basic statistics <a id="statistics"></a>
+Based on the cleaned up dataset i have prepared a table with basic statistics concerning bike sharing system in Wroclaw.
+Readers can confront the data presented below with the official statistics available (in polish) on this [site](https://www.wroclaw.pl/wroclawski-rower-miejski-podsumowanie-sezonu-2015).
+Of course the numbers differ because bike sharing operator overstates statistics for marketing purposes by including all rentals (even invalid ones).
+
+
 - number of bikes
 - number of docking stations
 - total number of valid rentals
@@ -67,11 +72,24 @@ As a result, the dataset has been reduced from 735 439 to 733 939 (difference = 
 - record day
 - record month
 
-## Usage patterns <a id="usage_patterns"></a>
-(How does usage change across the year, the week, and the day?)
-(Are people mostly using Bike Share as a way to commute to work or to explore the city?)
+## Rental patterns <a id="rental_patterns"></a>
+In this chapter i will analyze the rental patterns of users in order to answer such questions as:
+- how does usage change across the year, the week, and the day;
+- are people mostly using bike sharing system as a way to commute to work or to explore the city.
+
+The following analysis was performed using charts prepared using the plotly python library. Under each chart there is a link to an interactive version of the chart.
 
 ### Total and average bike rides by month
+First of all, the subject of the analysis is the total number of bicycle rentals per month and its average value.
+
+As you can see in the charts below, the most popular months (both in terms of total and average loans) were May and June. The next in order were the months during the holiday period (July and August). And the following months have seen a gradual decline in the popularity of the system (most likely due to worsening weather conditions).
+
+In the case of April, the analysis is difficult because the system was launched on the 28th of this month, so it's difficult to draw conclusions as to how the system will be used by users.
+
+From the analyst's point of view, the difference in the popularity of the system between typically summer months (July, August) and spring months (May, June) may be interesting. In my opinion, the fewer users in the summer months can be reduced to two main reasons:
+1. Summer months are holiday season in Poland, therefore some of the system's users are on holiday away from home.
+2. Wroclaw is one of the main academic cities in Poland. During the summer months, most students stay outside Wroclaw (in their hometowns), reducing the number of active system users. The correctness of the above statement is confirmed after analyzing the most popular user routes (see the chapter [Bike statnions analysis]((#stations)). The top ten most popular routes included, among others those leading from the dormitory (docking station: Wróblewskiego (Teki)) to the main building of the Wroclaw University of Technology (docking station: Norwid / Wyspiański (PWr) or to the station near the main campus (Łukasiewicza / Smoluchowski (PWr), Rondo Regana)
+
 ![monthAggPlot](images/plots/monthAggPlot.png)
 [Interactive plot](https://nbviewer.jupyter.org/github/sebastian-konicz/WRM/blob/master/notebooks/reports/RidingPatternsPlots.ipynb#monthAggPlot)
 
