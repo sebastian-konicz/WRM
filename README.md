@@ -88,7 +88,9 @@ In the case of April, the analysis is difficult because the system was launched 
 
 From the analyst's point of view, the difference in the popularity of the system between typically summer months (July, August) and spring months (May, June) may be interesting. In my opinion, the fewer users in the summer months can be reduced to two main reasons:
 1. Summer months are holiday season in Poland, therefore some of the system's users (employees commuting to work) are on holiday away from home.
-2. Wroclaw is one of the main academic cities in Poland. During the summer months, most students stay outside Wroclaw (in their hometowns), reducing the number of active system users. The correctness of the above statement is confirmed after analyzing the most popular user routes (see the chapter [Bike statnions analysis](#stations)). The top ten most popular routes included, among others, those leading from the dormitory (docking station: Wróblewskiego (Teki)) to the main building of the Wroclaw University of Technology (docking station: Norwid / Wyspiański (PWr) or to the stations near the main campus (Łukasiewicza / Smoluchowski (PWr), Rondo Regana).
+2. Wroclaw is one of the main academic cities in Poland. During the summer months, most students stay outside Wroclaw (in their hometowns), reducing the number of active system users.
+
+The correctness of the second statement is confirmed after analyzing the most popular user routes (see the chapter [Bike statnions analysis](#stations)). The top ten most popular routes included, among others, those leading from the dormitory (docking station: Wróblewskiego (Teki)) to the main building of the Wroclaw University of Technology (docking station: Norwid / Wyspiański (PWr) or to the stations near the main campus (Łukasiewicza / Smoluchowski (PWr), Rondo Regana).
 
 ![monthAggPlot](images/plots/monthAggPlot.png)
 [Interactive plot](https://nbviewer.jupyter.org/github/sebastian-konicz/WRM/blob/master/notebooks/reports/RidingPatternsPlots.ipynb#monthAggPlot)
@@ -97,6 +99,17 @@ From the analyst's point of view, the difference in the popularity of the system
 [Interactive plot](https://nbviewer.jupyter.org/github/sebastian-konicz/WRM/blob/master/notebooks/reports/RidingPatternsPlots.ipynb#monthAvgPlot)
 
 ### Total bike rides by day
+Secondly, the subject of the analysis is the total number of bike rentals on a given day and the average number of rentals per day of the week.
+
+In the case of the total daily number of rentals, the trend described in the previous paragraph can be clearly seen. The peak of the system's popularity falls on May and June, while in the following months a gradual decrease in the number of bicycle rentals is visible.
+In addition, the graph showing the average number of rentals per weekday shows that bicycles are more popular on business days than on weekends, which may suggest that residents use bicycles mainly as a means of communication on the way to work.
+
+In addition, the daily chart clearly shows 3 days in which the number of rentals clearly deviated from the norm. These are:
+a) May 20 (Wednesday);
+b) September 6 (Sunday);
+c) November 15 (Sunday).
+It can be assumed that a clear deviation from the standard in terms of loans (2-3 times smaller than on neighboring days) may be due to a faulty data set for these days i.e. the system saved only a part of the loans that took place on those days.
+
 ![dayAggPlot](images/plots/dayAggPlot.png)
 [Interactive plot](https://nbviewer.jupyter.org/github/sebastian-konicz/WRM/blob/master/notebooks/reports/RidingPatternsPlots.ipynb#dayAggPlot)
 
