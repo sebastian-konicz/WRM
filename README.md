@@ -23,7 +23,7 @@ Furthermore, they also have [data](https://www.wroclaw.pl/open-data/dataset/next
 
 I've looked in both sets of data (actual and historical). First dataset can be easily scraped from the internet (it is a series of CSV files), nevertheless a cursory review of the data reveals gaps in their continuity, e.g. there are separate files for periods from 2019-06-26 to 2019-07-14 but all those files have rental data only for 2019-06-26. Therefore, huge gaps in continuity of data prevent proper analysis of rental trends.
 
-Second set of data seems to be more consistent in terms of continuity, but the 2016 dataset has one crucial error ie. from the first period to the end of October 2016 the starting station is the same as the end station.
+Second set of data seems to be more consistent in terms of continuity, but the 2016 dataset has one crucial error i.e. from the first period to the end of October 2016 the starting station is the same as the end station.
 
 Given the above my analysis will concentrate only on the 2015 dataset with total number of rows equal to 843 951.
 
@@ -31,34 +31,34 @@ Given the above my analysis will concentrate only on the 2015 dataset with total
 On the first glance the 2015 dataset is complete and consistent (no NaN values or missing data). Nevertheless after closer look there are few issues concernig 2015 data.
 
 #### Rental data vs docking stations data
-First issue with the 2015 dataset is connected with docking stations data i.e. the names of docking stations in rental dataset does not match the name in docking stations dataset. Given the above, before merging two datasets, I had to manually add new column in docking station dataset and match the old names with the new ones. As a result of the above I have discovered that there are 3 docking stations that were present in the 2015 but are not present today. These are:
+First issue with the 2015 dataset is connected with docking stations data i.e. the names of docking stations in rental dataset do not match the names in docking stations dataset. Given the above, before merging two datasets, I had to manually add new column in docking station dataset and match the old names with the new ones. As a result of the above I have discovered that there are 3 docking stations that were present in the 2015 but are not present today. These are:
 1. Wyszyńskiego - Prusa
 2. Teatralna - Piotra Skargi
 3. Plac Nowy Targ
 
-I have added them to the docking station dataset, gave them arbitrary ids and set respective gps coordinates using google maps.data
+I have added them to the docking station dataset, gave them arbitrary ids and set respective gps coordinates using google maps.
 Furthermore, I have discovered that there were 8 docking stations which were present in 2015 (but are not present today) and had only 1 or 2 rides.  These are: Dworzec Głowny PKP, Grunwaldzka / Grochowska, Most Teatralny, Ogrody, Pętla Autobusowa - Dambonia, Plac Wolnosci, Poznań Główny, Wiejska / Pogodna.
-Above station were excluded from the dataset thus reducing the number of records from 843 951 to 843 937 (difference = 14).
+Above stations were excluded from the dataset thus reducing the number of records from 843 951 to 843 937 (difference = 14).
 
 #### Valid rentals based on location and duration
 As a user of similar bike sharing system in my hometown (Warsaw) I know that often (especially when there are few bikes in the docking station) rented bikes do not work properly. Usually user is able to spot defected bike right away (flat tire), but many times bike defects are apparent only after brief ride.
-As a result some portion of bike rentals is "invalid" ie. user returns the bike to docking station after spotting the defect. Given the above i have dropped from the dataset the rides that were made between the same docking station and shorter than 5 minutes. Obviously the time value is arbitrary and can be changed in other analyzes, but in my opinion it is hard to believe that many users rent a bike for such small amount of time only to return it in the same docking station.
+As a result some portion of bike rentals is "invalid" i.e. user returns the bike to docking station after discovering the defect. Given the above i have dropped from the dataset the rides that were made between the same docking station and shorter than 5 minutes. Obviously the time value is arbitrary and can be changed in other analyzes, but in my opinion it is hard to believe that many users rent a bike for such small amount of time only to return it in the same docking station.
 Given the above constraints, dataset was reduced from 843 937 to 735 444 records (difference = 108 493).
 
 Note: As the estimated number of invalid rentals is significant (12,8% of initial records) this issue will be the subject of a separate analysis in one of the chapters in the future.
 
 #### Daylight saving time and negative duration
-Due to change from summer time to winter time on 25 October 2015 ie. retarding clocks by one hour at 3:00 am, some of the bike rentals had negative values. Obviously these values had to be removed from the dataset for further analysis, hence reducing number of records form 735 444 to 735 439 (difference = 5).
+Due to change from summer time to winter time on 25 October 2015 i.e. retarding clocks by one hour at 3:00 am, some of the bike rentals had negative values. Obviously these values had to be removed from the dataset for further analysis, hence reducing number of records form 735 444 to 735 439 (difference = 5).
 
 #### Speed
-Usually the bike sharing system uses heavy and robust bikes which are not susceptible to mechanical failure and therefore therefore they do not reach dizzying speeds. As an avid road cycling enthusiast with fairly good physical form, I am not able to accelerate such bike to a speed exceeding 25 km/h ipso facto I have limited the dataset to rides which on average do not exceed 25 km/h.
-This procedure not only eliminates obvious errors in the bike sharing system , but also excludes rides that could have been done using other means of public transport (transporting a bicycle by bus or tram).
-As a result, the dataset has been reduced from 735 439 to 733 939 (difference = 1500).
+Usually the bike sharing system uses heavy and robust bikes which are not susceptible to mechanical failure and therefore they do not reach dizzying speeds. As an avid road cycling enthusiast with fairly good physical form, I know that it is very hard to accelerate such bike to a speed exceeding 25 km/h ipso facto I have limited the dataset to rides which on average do not exceed 25 km/h.
+This procedure not only eliminates obvious errors in the bike sharing system, but also excludes rides that could have been done using other means of public transport (transporting a bicycle by bus or tram).
+As a result, the dataset has been reduced from 735 439 to 733 939 (difference = 1 500).
 
 ## Basic statistics <a id="statistics"></a>
 Based on the cleaned up dataset i have prepared a table with basic statistics concerning bike sharing system in Wroclaw.
 Readers can confront the data presented below with the official statistics available (in polish) on this [site](https://www.wroclaw.pl/wroclawski-rower-miejski-podsumowanie-sezonu-2015).
-Of course the numbers differ because bike sharing operator overstates statistics for marketing purposes by including all rentals (even invalid ones).
+Of course the numbers differ because bike sharing operator overstates its statistics (for marketing purposes) by including all rentals (even the invalid ones).
 
 
 - number of bikes
@@ -77,18 +77,18 @@ In this chapter i will analyze the rental patterns of users in order to answer s
 - how does usage change across the year, the week, and the day;
 - are people mostly using bike sharing system as a way to commute to work or to explore the city.
 
-The following analysis was performed using charts prepared using the plotly python library. Under each chart there is a link to an interactive version of the chart.
+The following analysis was performed using charts prepared in plotly python library. Under each image there is a link to an interactive version of the chart.
 
 ### Total and average bike rides by month
 First of all, the subject of the analysis is the total number of bicycle rentals per month and its average value.
 
-As you can see in the charts below, the most popular months (both in terms of total and average loans) were May and June. The next in order were the months during the holiday period (July and August). And the following months have seen a gradual decline in the popularity of the system (most likely due to worsening weather conditions).
+As you can see in the charts below, the most popular months (both in terms of total and average loans) were May and June. The next in order were the months during the holiday period (July and August). Finally, the following months have seen a gradual decline in the popularity of the system (most likely due to worsening weather conditions).
 
-In the case of April, the analysis is difficult because the system was launched on the 28th of this month, so it's difficult to draw conclusions as to how the system will be used by users.
+In the case of April, the analysis is difficult because the system was launched on the 28th of this month.
 
 From the analyst's point of view, the difference in the popularity of the system between typically summer months (July, August) and spring months (May, June) may be interesting. In my opinion, the fewer users in the summer months can be reduced to two main reasons:
-1. Summer months are holiday season in Poland, therefore some of the system's users are on holiday away from home.
-2. Wroclaw is one of the main academic cities in Poland. During the summer months, most students stay outside Wroclaw (in their hometowns), reducing the number of active system users. The correctness of the above statement is confirmed after analyzing the most popular user routes (see the chapter [Bike statnions analysis]((#stations)). The top ten most popular routes included, among others those leading from the dormitory (docking station: Wróblewskiego (Teki)) to the main building of the Wroclaw University of Technology (docking station: Norwid / Wyspiański (PWr) or to the station near the main campus (Łukasiewicza / Smoluchowski (PWr), Rondo Regana)
+1. Summer months are holiday season in Poland, therefore some of the system's users (employees commuting to work) are on holiday away from home.
+2. Wroclaw is one of the main academic cities in Poland. During the summer months, most students stay outside Wroclaw (in their hometowns), reducing the number of active system users. The correctness of the above statement is confirmed after analyzing the most popular user routes (see the chapter [Bike statnions analysis](#stations)). The top ten most popular routes included, among others, those leading from the dormitory (docking station: Wróblewskiego (Teki)) to the main building of the Wroclaw University of Technology (docking station: Norwid / Wyspiański (PWr) or to the stations near the main campus (Łukasiewicza / Smoluchowski (PWr), Rondo Regana).
 
 ![monthAggPlot](images/plots/monthAggPlot.png)
 [Interactive plot](https://nbviewer.jupyter.org/github/sebastian-konicz/WRM/blob/master/notebooks/reports/RidingPatternsPlots.ipynb#monthAggPlot)
