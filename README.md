@@ -105,9 +105,9 @@ In the case of the total daily number of rentals, the trend described in the pre
 In addition, the graph showing the average number of rentals per weekday shows that bicycles are more popular on business days than on weekends, which may suggest that residents use bicycles mainly as a means of communication on the way to work.
 
 In addition, the daily chart clearly shows 3 days in which the number of rentals clearly deviated from the norm. These are:
-a) May 20 (Wednesday);
-b) September 6 (Sunday);
-c) November 15 (Sunday).
+a. May 20 (Wednesday);
+b. September 6 (Sunday);
+c. November 15 (Sunday).
 It can be assumed that a clear deviation from the standard in terms of loans (2-3 times smaller than on neighboring days) may be due to a faulty data set for these days i.e. the system saved only a part of the loans that took place on those days.
 
 ![dayAggPlot](images/plots/dayAggPlot.png)
