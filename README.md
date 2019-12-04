@@ -90,7 +90,7 @@ From the analyst's point of view, the difference in the popularity of the system
 1. Summer months are holiday season in Poland, therefore some of the system's users (employees commuting to work) are on holiday away from home.
 2. Wroclaw is one of the main academic cities in Poland. During the summer months, most students stay outside Wroclaw (in their hometowns), reducing the number of active system users.
 
-The correctness of the second statement is confirmed after analyzing the most popular user routes (see the chapter [Bike statnions analysis](#stations)). The top ten most popular routes included, among others, those leading from the dormitory (docking station: Wróblewskiego (Teki)) to the main building of the Wroclaw University of Technology (docking station: Norwid / Wyspiański (PWr) or to the stations near the main campus (Łukasiewicza / Smoluchowski (PWr), Rondo Regana).
+The correctness of the second statement is confirmed after analyzing the most popular user routes (see the chapter [Bike stations analysis](#stations)). The top ten most popular routes included, among others, those leading from the dormitory (docking station: Wróblewskiego (Teki)) to the main building of the Wroclaw University of Technology (docking station: Norwid / Wyspiański (PWr) or to the stations near the main campus (Łukasiewicza / Smoluchowski (PWr), Rondo Regana).
 
 ![monthAggPlot](images/plots/monthAggPlot.png)
 [Interactive plot](https://nbviewer.jupyter.org/github/sebastian-konicz/WRM/blob/master/notebooks/reports/RidingPatternsPlots.ipynb#monthAggPlot)
@@ -128,9 +128,9 @@ In connection with the above facts, two conclusions can be drawn:
 2. on weekends people use the bicycle more for tourism.
 The above conclusions are confirmed in the next chart, which shows the use of bicycles on business days and on non-working days (weekends and holidays)
 
-Of course, the above conclusions on how to use bicycles should also be confronted with the routes that people choose (this will be the subject of the analysis in the next chapter - [Bike statnions analysis] (# stations)).
+Of course, the above conclusions on how to use bicycles should also be confronted with the routes that people choose (this will be the subject of the analysis in the next chapter - [Bike stations analysis](# stations)).
 
-The last graph shows the use of bicycles at specific times of the day, broken down by month. Local peaks can still be clearly seen in the hours when people move from and to work. Nevertheless, it can also be seen how with the following autumn months (September, October, November) these charts are gradually flattening. Most likely, weather conditions have a big impact on this. (this will be the subject of the analysis in the next chapter - [Weather conditions usage patterns (#weather)).
+The last graph shows the use of bicycles at specific times of the day, broken down by month. Local peaks can still be clearly seen in the hours when people move from and to work. Nevertheless, it can also be seen how with the following autumn months (September, October, November) these charts are gradually flattening. Most likely, weather conditions have a big impact on this. (this will be the subject of the analysis in the next chapter - [Weather conditions usage patterns](# weather)).
 
 ![hourAggPlot](images/plots/hourAggPlot.png)
 [Interactive plot](https://nbviewer.jupyter.org/github/sebastian-konicz/WRM/blob/master/notebooks/reports/RidingPatternsPlots.ipynb#hourAggPlot)
