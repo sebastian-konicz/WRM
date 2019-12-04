@@ -105,9 +105,9 @@ In the case of the total daily number of rentals, the trend described in the pre
 In addition, the graph showing the average number of rentals per weekday shows that bicycles are more popular on business days than on weekends, which may suggest that residents use bicycles mainly as a means of communication on the way to work.
 
 In addition, the daily chart clearly shows 3 days in which the number of rentals clearly deviated from the norm. These are:
-a. May 20 (Wednesday);
-b. September 6 (Sunday);
-c. November 15 (Sunday).
+1. May 20 (Wednesday);
+2. September 6 (Sunday);
+3. November 15 (Sunday).
 It can be assumed that a clear deviation from the standard in terms of loans (2-3 times smaller than on neighboring days) may be due to a faulty data set for these days i.e. the system saved only a part of the loans that took place on those days.
 
 ![dayAggPlot](images/plots/dayAggPlot.png)
@@ -118,6 +118,20 @@ It can be assumed that a clear deviation from the standard in terms of loans (2-
 [Interactive plot](https://nbviewer.jupyter.org/github/sebastian-konicz/WRM/blob/master/notebooks/reports/RidingPatternsPlots.ipynb#weekdayAvgPlot)
 
 ### Bike rides across time of the day
+The third type of charts shows how the number of rentals changes depending on the time of day.
+The first two charts show the total and average number of rentals broken down by day of the week. There are two clear tendencies here:
+1. on weekdays there are two clear peaks in the number of rents (at 7 and 16 respectively)
+2. at weekends the number of rentals is more extended in time and the peak of system reliability falls between 12 and 20.
+
+In connection with the above facts, two conclusions can be drawn:
+1. on weekdays, people use bicycles as a means of transport to and from work.
+2. on weekends people use the bicycle more for tourism.
+The above conclusions are confirmed in the next chart, which shows the use of bicycles on business days and on non-working days (weekends and holidays)
+
+Of course, the above conclusions on how to use bicycles should also be confronted with the routes that people choose (this will be the subject of the analysis in the next chapter - [Bike statnions analysis] (# stations)).
+
+The last graph shows the use of bicycles at specific times of the day, broken down by month. Local peaks can still be clearly seen in the hours when people move from and to work. Nevertheless, it can also be seen how with the following autumn months (September, October, November) these charts are gradually flattening. Most likely, weather conditions have a big impact on this. (this will be the subject of the analysis in the next chapter - [Weather conditions usage patterns (#weather)).
+
 ![hourAggPlot](images/plots/hourAggPlot.png)
 [Interactive plot](https://nbviewer.jupyter.org/github/sebastian-konicz/WRM/blob/master/notebooks/reports/RidingPatternsPlots.ipynb#hourAggPlot)
 
