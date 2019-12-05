@@ -24,7 +24,7 @@ def main(dir, dataYear):
     RentalData = pd.merge(left=RentalData, right=DockingStations[['number', 'lat', 'lng', 'name', 'name_old']], suffixes=("", "_e"),
                              left_on="Stacja zwrotu", right_on="name_old", how='left')
     RentalData = RentalData.reset_index(drop=True)
-    print("Po mergu")
+    print("No. of records after merge")
     print(RentalData.index.max())
 
     # Renaming columns
@@ -37,7 +37,7 @@ def main(dir, dataYear):
     RentalData = RentalData[RentalData['s_lat'] > 0]
     RentalData = RentalData[RentalData['e_lat'] > 0]
     RentalData = RentalData.reset_index(drop=True)
-    print("Po limicie geolokalizacyjnym")
+    print("No. of records after geolocation limit")
     print(RentalData.index.max())
 
     # Adding technical column count
@@ -52,14 +52,14 @@ def main(dir, dataYear):
     RentalData = RentalData.drop(RentalData[(RentalData['StartStation'] == RentalData['EndStation']) & (RentalData['Duration'] < 300)].index)
 
     RentalData = RentalData.reset_index(drop=True)
-    print("Po limicie czasowym")
+    print("No. of records after time limit")
     print(RentalData.index.max())
 
     # Limiting dataset to rides longer than 0 seconds (negative values are present due to time change on 2015-10-25)
     print("Limiting dataset to rides longer than 0 seconds")
     RentalData = RentalData[RentalData['Duration'] > 0]
     RentalData = RentalData.reset_index(drop=True)
-    print("Po limicie czasowym >0")
+    print("No. of records after time >0 limit")
     print(RentalData.index.max())
 
     # Calculating distance and speed
@@ -68,13 +68,13 @@ def main(dir, dataYear):
     print("Calculating speed")
     RentalData['Speed'] = RentalData.apply(lambda RentalData: round((RentalData['Distance']/RentalData['Duration']) * 3600, 2), axis=1)
     print(RentalData['Speed'])
-    print(RentalData['Distance'] )
+    print(RentalData['Distance'])
 
     # Limiting dataset to rentals with speed less than 25
     print("Limiting dataset to rentals with speed less than 25")
     RentalData = RentalData.drop(RentalData[RentalData['Speed'] > 25].index)
     RentalData = RentalData.reset_index(drop=True)
-    print("Po limicie prędkościowym max")
+    print("No. of records after speed limit")
     print(RentalData.index.max())
 
     # Limiting dataset

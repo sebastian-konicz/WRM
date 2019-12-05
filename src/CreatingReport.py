@@ -11,6 +11,6 @@ def main(dir, year):
     Plots.plots(dir)
 
 if __name__ == "__main__":
-    dataYear = input("Please chose year fo analysis (2015 or 2016)")
+    dataYear = input("Please chose year fo analysis (2015 or 2016) \n")
     project_dir = str(Path(__file__).resolve().parents[1])
     main(project_dir, dataYear)

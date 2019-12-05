@@ -10,6 +10,7 @@ import time
 # Plotly and cufflings standart impors
 import plotly.graph_objects as go
 import plotly.io as pio
+from plotly.subplots import make_subplots
 import cufflinks as cf
 cf.go_offline(connected=True)
 
@@ -141,8 +142,9 @@ def main(dir):
         xaxis=dict(tickmode="array", tickvals=hourVals, ticktext=hourText))
     hourAvgMonthPlot = dict(data=hourAvgMonthPlotData, layout=hourAvgMonthPlotLayout)
 
-    # Rental duration
+    # Rental duration (all)
     durationAggregated = pd.DataFrame(RentalData.groupby(["Duration"])['Count'].sum()).reset_index()
+    durationLimitedAll = durationAggregated['Count'].sum()
     durationAggregated = durationAggregated[(durationAggregated['Duration'] <= 5400)]
     durationAggregated['Total Duration'] = durationAggregated.apply(lambda durationAggregated: time.strftime("%H:%M:%S", time.gmtime(durationAggregated['Duration'])), axis=1)
 
@@ -154,34 +156,118 @@ def main(dir):
 
     durationAggPlot = dict(data=durationAggPlotData, layout=durationAggPlotLayout)
 
-    # # Rental duration average
-    # durationAggregated = pd.DataFrame(RentalData.groupby(["Duration"])['Count'].sum()).reset_index()
-    # durationAggregated = durationAggregated[(durationAggregated['Duration'] <= 5400)]
-    # durationAggregated['Total Duration'] = durationAggregated.apply(lambda durationAggregated: time.strftime("%H:%M:%S", time.gmtime(durationAggregated['Duration'])), axis=1)
-    #
-    # durationAggPlotData = go.Scatter(x=durationAggregated['Total Duration'], y=durationAggregated['Count'], mode="lines")
-    # durationAggPlotLayout = go.Layout(
-    #     title=go.layout.Title(text="Rental time", x=0.5, y=0.9, xanchor='center', yanchor='middle'),
-    #     template="plotly_dark", xaxis_title="time (hh:mm:ss)", yaxis_title="no. of rentals",
-    #     xaxis=dict(tickmode="array", tickvals=timeVals, ticktext=timeVals))
-    #
-    # durationAggPlot = dict(data=durationAggPlotData, layout=durationAggPlotLayout)
+    #Time limits
+    durationLimited90 = durationAggregated[(durationAggregated['Duration'] <= 5400)]
+    durationLimited90 = durationLimited90['Count'].sum()
+    durationLimited60 = durationAggregated[(durationAggregated['Duration'] <= 3600)]
+    durationLimited60 = durationLimited60['Count'].sum()
 
+    # Rental duration (limited)
+    durationLimited = pd.DataFrame(RentalData.groupby(["Duration"])['Count'].sum()).reset_index()
+    durationLimited = durationLimited[(durationLimited['Duration'] <= 1800)]
+    durationLimited['Total Duration'] = durationLimited.apply(lambda durationLimited: time.strftime("%H:%M:%S", time.gmtime(durationLimited['Duration'])), axis=1)
 
-    return monthAggPlot, monthAvgPlot, dayAggPlot, weekdayAvgPlot, hourAggPlot, hourAvgPlot, hourAvgWDPlot, hourAvgMonthPlot, durationAggPlot
+    durationLtdPlotData = go.Scatter(x=durationLimited['Total Duration'], y=durationLimited['Count'], mode="lines")
+    durationLtdPlotLayout = go.Layout(
+        title=go.layout.Title(text="Rental time", x=0.5, y=0.9, xanchor='center', yanchor='middle'),
+        template="plotly_dark", xaxis_title="time (hh:mm:ss)", yaxis_title="no. of rentals",
+        xaxis=dict(tickmode="array", tickvals=timeVals, ticktext=timeVals))
+
+    durationLtdPlot = dict(data=durationLtdPlotData, layout=durationLtdPlotLayout)
+
+    #Time limits
+    durationLimited30 = durationLimited[(durationLimited['Duration'] <= 1800)]
+    durationLimited30 = durationLimited30['Count'].sum()
+    durationLimited20 = durationLimited[(durationLimited['Duration'] <= 1200)]
+    durationLimited20 = durationLimited20['Count'].sum()
+
+    # Rental duration on working days
+    durationWorkingDay = RentalData[RentalData["WorkingDay"] == "WorkingDay"]
+    durationWorkingDay = pd.DataFrame(durationWorkingDay.groupby(["Duration"], sort=True)["Count"].count()).reset_index()
+    durationWorkingDay = pd.DataFrame(durationWorkingDay.groupby(["Duration"], sort=True)["Count"].mean()).reset_index()
+    durationWorkingDay = durationWorkingDay[(durationWorkingDay['Duration'] <= 3600)]
+    durationWorkingDay['Total Duration'] = durationWorkingDay.apply(
+        lambda durationWorkingDay: time.strftime("%H:%M:%S", time.gmtime(durationWorkingDay['Duration'])), axis=1)
+
+    durationWDPlotData = go.Scatter(x=durationWorkingDay['Total Duration'], y=durationWorkingDay['Count'], mode="lines")
+
+    # Rental duration on days off
+    durationDayOff = RentalData[RentalData["WorkingDay"] == "DayOff"]
+    durationDayOff = pd.DataFrame(durationDayOff.groupby(["Duration"], sort=True)["Count"].count()).reset_index()
+    durationDayOff = pd.DataFrame(durationDayOff.groupby(["Duration"], sort=True)["Count"].mean()).reset_index()
+    durationDayOff = durationDayOff[(durationDayOff['Duration'] <= 3600)]
+    durationDayOff['Total Duration'] = durationDayOff.apply(
+        lambda durationDayOff: time.strftime("%H:%M:%S", time.gmtime(durationDayOff['Duration'])), axis=1)
+
+    durationDOPlotData = go.Scatter(x=durationDayOff['Total Duration'], y=durationDayOff['Count'], mode="lines")
+
+    durationWDPlotLayout = go.Layout(
+        template="plotly_dark", showlegend=False,
+        xaxis1=dict(tickmode="array", tickvals=timeVals, ticktext=timeVals, title="time (hh:mm:ss)"), yaxis1=dict(title="no. of rentals"),
+        xaxis2=dict(tickmode="array", tickvals=timeVals, ticktext=timeVals, title="time (hh:mm:ss)"), yaxis2=dict(title="no. of rentals"),)
+
+    # Creating subplots duration on working days / days off
+    durationWDPlot = make_subplots(rows=2, cols=1, subplot_titles=("Rental time during week days", "Rental time during days off"))
+
+    durationWDPlot.add_trace(durationWDPlotData, row=1, col=1)
+    durationWDPlot.add_trace(durationDOPlotData, row=2, col=1)
+
+    durationWDPlot.update_layout(durationWDPlotLayout)
+
+    # Creating table concerning duration time and percent of total rides
+    durationPercent20 = str(round(((durationLimited20 / durationLimitedAll) * 100), 2)) + "%"
+    durationPercent30 = str(round(((durationLimited30 / durationLimitedAll) * 100), 2)) + "%"
+    durationPercent60 = str(round(((durationLimited60 / durationLimitedAll) * 100), 2)) + "%"
+    durationPercent90 = str(round(((durationLimited90 / durationLimitedAll) * 100), 2)) + "%"
+
+    headerColor = 'black'
+    rowEvenColor = 'lightgrey'
+    rowOddColor = 'white'
+
+    durationTable = go.Figure(data=[go.Table(
+        columnwidth=[60, 50, 50],
+        header=dict(
+            values=['<b>Time limit</b>', '<b>no. of rides</b>', '<b>% of total rides</b>'],
+            line_color='black',
+            fill_color=headerColor,
+            align=['left', 'center'],
+            font=dict(color='white', size=14),
+            height=30
+        ),
+        cells=dict(
+            values=[
+                ['Rides equal or shorter than 20 minutes', 'Rides equal or shorter than 30 minutes', 'Rides equal or shorter than 60 minutes', 'Rides equal or shorter than 90 minutes', '<b>No limit</b>'],
+                [durationLimited20, durationLimited30, durationLimited60, durationLimited90, "<b>{}</b>".format(durationLimitedAll)],
+                [durationPercent20, durationPercent30, durationPercent60, durationPercent90, "<b>100,00%</b>"]],
+            line_color='darkslategray',
+            fill_color=[[rowOddColor, rowEvenColor, rowOddColor, rowEvenColor, rowOddColor]],
+            align=['left', 'center'],
+            font=dict(color='black', size=14),
+            height=25
+        ))
+    ])
+
+    return monthAggPlot, monthAvgPlot, dayAggPlot, weekdayAvgPlot, hourAggPlot, hourAvgPlot, hourAvgWDPlot, hourAvgMonthPlot, durationAggPlot, durationLtdPlot, durationWDPlot, durationTable
 
 def plots(dir):
     # Unpacking return variables from main function
-    monthAggPlot, monthAvgPlot, dayAggPlot, weekdayAvgPlot, hourAggPlot, hourAvgPlot, hourAvgWDPlot, hourAvgMonthPlot, durationAggPlot = main(dir)
+    monthAggPlot, monthAvgPlot, dayAggPlot, weekdayAvgPlot, hourAggPlot, hourAvgPlot, hourAvgWDPlot, hourAvgMonthPlot, durationAggPlot, durationLtdPlot, durationWDPlot, durationTable = main(dir)
 
     plotsDictionary = {"monthAggPlot": monthAggPlot, "monthAvgPlot": monthAvgPlot, "dayAggPlot": dayAggPlot,
                        "weekdayAvgPlot": weekdayAvgPlot, "hourAggPlot": hourAggPlot,
                        "hourAvgPlot": hourAvgPlot, "hourAvgWDPlot": hourAvgWDPlot, "hourAvgMonthPlot": hourAvgMonthPlot,
-                       "durationAggPlot": durationAggPlot}
+                       "durationAggPlot": durationAggPlot, "durationLtdPlot": durationLtdPlot,
+                       "durationWDPlot": durationWDPlot}
 
-    for key, value in plotsDictionary.items():
+    tablesDictionary = {"durationTable": durationTable}
+
+    # for key, value in plotsDictionary.items():
+    #     plotly.offline.plot(value, filename=(dir + r'\images\sites\{}.html'.format(key)))
+    #     go.Figure(value).write_image(dir + r'\images\plots\{}.png'.format(key), width=1280, height=640)
+
+    for key, value in tablesDictionary.items():
         plotly.offline.plot(value, filename=(dir + r'\images\sites\{}.html'.format(key)))
-        go.Figure(value).write_image(dir + r'\images\plots\{}.png'.format(key), width=1280, height=640)
+        go.Figure(value).write_image(dir + r'\images\plots\{}.png'.format(key), width=1280)
 
 if __name__ == "__main__":
     project_dir = str(Path(__file__).resolve().parents[2])

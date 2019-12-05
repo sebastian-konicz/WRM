@@ -53,7 +53,7 @@ Due to change from summer time to winter time on 25 October 2015 i.e. retarding 
 #### Speed
 Usually the bike sharing system uses heavy and robust bikes which are not susceptible to mechanical failure and therefore they do not reach dizzying speeds. As an avid road cycling enthusiast with fairly good physical form, I know that it is very hard to accelerate such bike to a speed exceeding 25 km/h ipso facto I have limited the dataset to rides which on average do not exceed 25 km/h.
 This procedure not only eliminates obvious errors in the bike sharing system, but also excludes rides that could have been done using other means of public transport (transporting a bicycle by bus or tram).
-As a result, the dataset has been reduced from 735 439 to 733 939 (difference = 1 500).
+As a result, the dataset has been reduced from 735 439 to 733 429 (difference = 2 010).
 
 ## Basic statistics <a id="statistics"></a>
 Based on the cleaned up dataset i have prepared a table with basic statistics concerning bike sharing system in Wroclaw.
@@ -98,7 +98,7 @@ The correctness of the second statement is confirmed after analyzing the most po
 ![monthAvgPlot](images/plots/monthAvgPlot.png)
 [Interactive plot](https://nbviewer.jupyter.org/github/sebastian-konicz/WRM/blob/master/notebooks/reports/RidingPatternsPlots.ipynb#monthAvgPlot)
 
-### Total bike rides by day
+### Total bike rides by day / average bike rides by day of the week
 Secondly, the subject of the analysis is the total number of bike rentals on a given day and the average number of rentals per day of the week.
 
 In the case of the total daily number of rentals, the trend described in the previous paragraph can be clearly seen. The peak of the system's popularity falls on May and June, while in the following months a gradual decrease in the number of bicycle rentals is visible.
@@ -108,12 +108,12 @@ In addition, the daily chart clearly shows 3 days in which the number of rentals
 1. May 20 (Wednesday);
 2. September 6 (Sunday);
 3. November 15 (Sunday).
+
 It can be assumed that a clear deviation from the standard in terms of loans (2-3 times smaller than on neighboring days) may be due to a faulty data set for these days i.e. the system saved only a part of the loans that took place on those days.
 
 ![dayAggPlot](images/plots/dayAggPlot.png)
 [Interactive plot](https://nbviewer.jupyter.org/github/sebastian-konicz/WRM/blob/master/notebooks/reports/RidingPatternsPlots.ipynb#dayAggPlot)
 
-### Average bike rides by day of the week
 ![weekdayAvgPlot](images/plots/weekdayAvgPlot.png)
 [Interactive plot](https://nbviewer.jupyter.org/github/sebastian-konicz/WRM/blob/master/notebooks/reports/RidingPatternsPlots.ipynb#weekdayAvgPlot)
 
@@ -145,8 +145,12 @@ The last graph shows the use of bicycles at specific times of the day, broken do
 [Interactive plot](https://nbviewer.jupyter.org/github/sebastian-konicz/WRM/blob/master/notebooks/reports/RidingPatternsPlots.ipynb#hourAvgMonthPlot)
 
 ### Bike rides duration
+
+![durationTable](images/plots/durationTable.png)
+
 ![durationAggPlot](images/plots/durationAggPlot.png)
 [Interactive plot](https://nbviewer.jupyter.org/github/sebastian-konicz/WRM/blob/master/notebooks/reports/RidingPatternsPlots.ipynb#durationAggPlot)
+
 
 
 [Source / Inspiration](https://medium.com/analytics-vidhya/how-to-finish-top-10-percentile-in-bike-sharing-demand-competition-in-kaggle-part-1-c816ea9c51e1)
