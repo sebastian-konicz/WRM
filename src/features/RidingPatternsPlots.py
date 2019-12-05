@@ -225,7 +225,7 @@ def main(dir):
     rowOddColor = 'white'
 
     durationTable = go.Figure(data=[go.Table(
-        columnwidth=[60, 50, 50],
+        columnwidth=[50, 40, 40],
         header=dict(
             values=['<b>Time limit</b>', '<b>no. of rides</b>', '<b>% of total rides</b>'],
             line_color='black',
@@ -267,7 +267,7 @@ def plots(dir):
 
     for key, value in tablesDictionary.items():
         plotly.offline.plot(value, filename=(dir + r'\images\sites\{}.html'.format(key)))
-        go.Figure(value).write_image(dir + r'\images\plots\{}.png'.format(key), width=1280)
+        go.Figure(value).write_image(dir + r'\images\plots\{}.png'.format(key), width=1280, height=350)
 
 if __name__ == "__main__":
     project_dir = str(Path(__file__).resolve().parents[2])
