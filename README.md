@@ -145,9 +145,9 @@ The last graph shows the use of bicycles at specific times of the day, broken do
 [Interactive plot](https://nbviewer.jupyter.org/github/sebastian-konicz/WRM/blob/master/notebooks/reports/RidingPatternsPlots.ipynb#hourAvgMonthPlot)
 
 ### Bike rides duration
-
+aaa
 ![durationTable](images/plots/durationTable.png)
-
+aaa
 ![durationAggPlot](images/plots/durationAggPlot.png)
 [Interactive plot](https://nbviewer.jupyter.org/github/sebastian-konicz/WRM/blob/master/notebooks/reports/RidingPatternsPlots.ipynb#durationAggPlot)
 
