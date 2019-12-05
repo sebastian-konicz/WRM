@@ -183,8 +183,16 @@ def main(dir):
 
     # Rental duration on working days
     durationWorkingDay = RentalData[RentalData["WorkingDay"] == "WorkingDay"]
-    durationWorkingDay = pd.DataFrame(durationWorkingDay.groupby(["Duration"], sort=True)["Count"].count()).reset_index()
-    durationWorkingDay = pd.DataFrame(durationWorkingDay.groupby(["Duration"], sort=True)["Count"].mean()).reset_index()
+    durationWDAllRental = durationWorkingDay['Count'].sum()
+    durationWDLongRental = durationWorkingDay[(durationWorkingDay['Duration'] > 3600)]
+    durationWDLongRental = durationWDLongRental['Count'].sum()
+    durationWDShortRental = durationWorkingDay[(durationWorkingDay['Duration'] <= 3600)]
+    durationWDShortRental = durationWDShortRental['Count'].sum()
+    print(durationWDAllRental)
+    print(durationWDLongRental)
+    print(durationWDShortRental)
+
+    durationWorkingDay = pd.DataFrame(durationWorkingDay.groupby(["Duration"])["Count"].sum()).reset_index()
     durationWorkingDay = durationWorkingDay[(durationWorkingDay['Duration'] <= 3600)]
     durationWorkingDay['Total Duration'] = durationWorkingDay.apply(
         lambda durationWorkingDay: time.strftime("%H:%M:%S", time.gmtime(durationWorkingDay['Duration'])), axis=1)
@@ -193,8 +201,13 @@ def main(dir):
 
     # Rental duration on days off
     durationDayOff = RentalData[RentalData["WorkingDay"] == "DayOff"]
-    durationDayOff = pd.DataFrame(durationDayOff.groupby(["Duration"], sort=True)["Count"].count()).reset_index()
-    durationDayOff = pd.DataFrame(durationDayOff.groupby(["Duration"], sort=True)["Count"].mean()).reset_index()
+    durationDOAllRental = durationDayOff['Count'].sum()
+    durationDOLongRental = durationDayOff[(durationDayOff['Duration'] > 3600)]
+    durationDOLongRental = durationDOLongRental['Count'].sum()
+    durationDOShortRental = durationDayOff[(durationDayOff['Duration'] <= 3600)]
+    durationDOShortRental = durationDOShortRental['Count'].sum()
+
+    durationDayOff = pd.DataFrame(durationDayOff.groupby(["Duration"])["Count"].sum()).reset_index()
     durationDayOff = durationDayOff[(durationDayOff['Duration'] <= 3600)]
     durationDayOff['Total Duration'] = durationDayOff.apply(
         lambda durationDayOff: time.strftime("%H:%M:%S", time.gmtime(durationDayOff['Duration'])), axis=1)
@@ -246,6 +259,13 @@ def main(dir):
             height=25
         ))
     ])
+
+    # Calculating average rental time
+    AverageRentalTime = RentalData["Duration"].mean()
+    AverageRentalTimeWD = RentalData[RentalData["WorkingDay"] == "WorkingDay"]
+    AverageRentalTimeWD = AverageRentalTimeWD["Duration"].mean()
+    AverageRentalTimeDO = RentalData[RentalData["WorkingDay"] == "DayOff"]
+    AverageRentalTimeDO = AverageRentalTimeDO["Duration"].mean()
 
     return monthAggPlot, monthAvgPlot, dayAggPlot, weekdayAvgPlot, hourAggPlot, hourAvgPlot, hourAvgWDPlot, hourAvgMonthPlot, durationAggPlot, durationLtdPlot, durationWDPlot, durationTable
 
