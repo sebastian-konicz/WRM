@@ -145,7 +145,7 @@ def main(dir):
     # Rental duration (all)
     durationAggregated = pd.DataFrame(RentalData.groupby(["Duration"])['Count'].sum()).reset_index()
     durationLimitedAll = durationAggregated['Count'].sum()
-    durationAggregated = durationAggregated[(durationAggregated['Duration'] <= 5400)]
+    durationAggregated = durationAggregated[(durationAggregated['Duration'] <= 3600)]
     durationAggregated['Total Duration'] = durationAggregated.apply(lambda durationAggregated: time.strftime("%H:%M:%S", time.gmtime(durationAggregated['Duration'])), axis=1)
 
     durationAggPlotData = go.Scatter(x=durationAggregated['Total Duration'], y=durationAggregated['Count'], mode="lines")
@@ -164,7 +164,7 @@ def main(dir):
 
     # Rental duration (limited)
     durationLimited = pd.DataFrame(RentalData.groupby(["Duration"])['Count'].sum()).reset_index()
-    durationLimited = durationLimited[(durationLimited['Duration'] <= 1800)]
+    durationLimited = durationLimited[(durationLimited['Duration'] <= 3600)]
     durationLimited['Total Duration'] = durationLimited.apply(lambda durationLimited: time.strftime("%H:%M:%S", time.gmtime(durationLimited['Duration'])), axis=1)
 
     durationLtdPlotData = go.Scatter(x=durationLimited['Total Duration'], y=durationLimited['Count'], mode="lines")
@@ -183,15 +183,6 @@ def main(dir):
 
     # Rental duration on working days
     durationWorkingDay = RentalData[RentalData["WorkingDay"] == "WorkingDay"]
-    durationWDAllRental = durationWorkingDay['Count'].sum()
-    durationWDLongRental = durationWorkingDay[(durationWorkingDay['Duration'] > 3600)]
-    durationWDLongRental = durationWDLongRental['Count'].sum()
-    durationWDShortRental = durationWorkingDay[(durationWorkingDay['Duration'] <= 3600)]
-    durationWDShortRental = durationWDShortRental['Count'].sum()
-    print(durationWDAllRental)
-    print(durationWDLongRental)
-    print(durationWDShortRental)
-
     durationWorkingDay = pd.DataFrame(durationWorkingDay.groupby(["Duration"])["Count"].sum()).reset_index()
     durationWorkingDay = durationWorkingDay[(durationWorkingDay['Duration'] <= 3600)]
     durationWorkingDay['Total Duration'] = durationWorkingDay.apply(
@@ -201,12 +192,6 @@ def main(dir):
 
     # Rental duration on days off
     durationDayOff = RentalData[RentalData["WorkingDay"] == "DayOff"]
-    durationDOAllRental = durationDayOff['Count'].sum()
-    durationDOLongRental = durationDayOff[(durationDayOff['Duration'] > 3600)]
-    durationDOLongRental = durationDOLongRental['Count'].sum()
-    durationDOShortRental = durationDayOff[(durationDayOff['Duration'] <= 3600)]
-    durationDOShortRental = durationDOShortRental['Count'].sum()
-
     durationDayOff = pd.DataFrame(durationDayOff.groupby(["Duration"])["Count"].sum()).reset_index()
     durationDayOff = durationDayOff[(durationDayOff['Duration'] <= 3600)]
     durationDayOff['Total Duration'] = durationDayOff.apply(
@@ -240,7 +225,7 @@ def main(dir):
     durationTable = go.Figure(data=[go.Table(
         columnwidth=[50, 40, 40],
         header=dict(
-            values=['<b>Time limit</b>', '<b>no. of rides</b>', '<b>% of total rides</b>'],
+            values=['<b>time limit</b>', '<b>no. of rides</b>', '<b>% of total rides</b>'],
             line_color='black',
             fill_color=headerColor,
             align=['left', 'center'],
@@ -249,7 +234,7 @@ def main(dir):
         ),
         cells=dict(
             values=[
-                ['Rides equal or shorter than 20 minutes', 'Rides equal or shorter than 30 minutes', 'Rides equal or shorter than 60 minutes', 'Rides equal or shorter than 90 minutes', '<b>No limit</b>'],
+                ['rides equal or shorter than 20 minutes', 'rides equal or shorter than 30 minutes', 'rides equal or shorter than 60 minutes', 'rides equal or shorter than 90 minutes', '<b>no limit</b>'],
                 [durationLimited20, durationLimited30, durationLimited60, durationLimited90, "<b>{}</b>".format(durationLimitedAll)],
                 [durationPercent20, durationPercent30, durationPercent60, durationPercent90, "<b>100,00%</b>"]],
             line_color='darkslategray',
@@ -260,30 +245,127 @@ def main(dir):
         ))
     ])
 
-    # Calculating average rental time
+    # Creating table concerning average rental time
     AverageRentalTime = RentalData["Duration"].mean()
     AverageRentalTimeWD = RentalData[RentalData["WorkingDay"] == "WorkingDay"]
     AverageRentalTimeWD = AverageRentalTimeWD["Duration"].mean()
     AverageRentalTimeDO = RentalData[RentalData["WorkingDay"] == "DayOff"]
     AverageRentalTimeDO = AverageRentalTimeDO["Duration"].mean()
 
-    return monthAggPlot, monthAvgPlot, dayAggPlot, weekdayAvgPlot, hourAggPlot, hourAvgPlot, hourAvgWDPlot, hourAvgMonthPlot, durationAggPlot, durationLtdPlot, durationWDPlot, durationTable
+    AverageRentalTime = time.strftime("%H:%M:%S", time.gmtime(AverageRentalTime))
+    AverageRentalTimeWD = time.strftime("%H:%M:%S", time.gmtime(AverageRentalTimeWD))
+    AverageRentalTimeDO = time.strftime("%H:%M:%S", time.gmtime(AverageRentalTimeDO))
+
+    averageRentalTimeTable = go.Figure(data=[go.Table(
+        columnwidth=[50, 40],
+        header=dict(
+            values=['<b>Type of day</b>', '<b>average time</b>'],
+            line_color='black',
+            fill_color=headerColor,
+            align=['left', 'center'],
+            font=dict(color='white', size=14),
+            height=30
+        ),
+        cells=dict(
+            values=[
+                ['Week day', 'Day off', '<b>All days</b>'],
+                [AverageRentalTimeWD, AverageRentalTimeDO, "<b>{}</b>".format(AverageRentalTime)]],
+            line_color='darkslategray',
+            fill_color=[[rowOddColor, rowEvenColor, rowOddColor]],
+            align=['left', 'center'],
+            font=dict(color='black', size=14),
+            height=25
+        ))
+    ])
+
+    # Calculating rental time for working day
+    # Count
+    durationWD = RentalData[RentalData["WorkingDay"] == "WorkingDay"]
+    durationWDAllRental = durationWD['Count'].sum()
+    durationWDLongRental = durationWD[(durationWD['Duration'] > 3600)]
+    durationWDLongRental = durationWDLongRental['Count'].sum()
+    durationWDShortRental = durationWD[(durationWD['Duration'] <= 3600)]
+    durationWDShortRental = durationWDShortRental['Count'].sum()
+
+    # Total duration
+    durationWDAllRentalTotal = durationWD['Duration'].sum()
+    durationWDLongRentalTotal = durationWD[(durationWD['Duration'] > 3600)]
+    durationWDLongRentalTotal = durationWDLongRentalTotal['Duration'].sum()
+    durationWDShortRentalTotal = durationWD[(durationWD['Duration'] <= 3600)]
+    durationWDShortRentalTotal = durationWDShortRentalTotal['Duration'].sum()
+
+    # Calculating rental time for working day
+    # Count
+    durationDO = RentalData[RentalData["WorkingDay"] == "DayOff"]
+    durationDOAllRental = durationDO['Count'].sum()
+    durationDOLongRental = durationDO[(durationDO['Duration'] > 3600)]
+    durationDOLongRental = durationDOLongRental['Count'].sum()
+    durationDOShortRental = durationDO[(durationDO['Duration'] <= 3600)]
+    durationDOShortRental = durationDOShortRental['Count'].sum()
+    # Total duration
+    durationDOAllRentalTotal = durationDO['Duration'].sum()
+    durationDOLongRentalTotal = durationDO[(durationDO['Duration'] > 3600)]
+    durationDOLongRentalTotal = durationDOLongRentalTotal['Duration'].sum()
+    durationDOShortRentalTotal = durationDO[(durationDO['Duration'] <= 3600)]
+    durationDOShortRentalTotal = durationDOShortRentalTotal['Duration'].sum()
+
+    # Pie chart - duration count
+    durationWDCountLabels = ['Short Rental (<60 min)', 'Long Rental (>60 min)']
+    durationWDCountValues = [durationWDShortRental, durationWDLongRental]
+
+    durationDOCountLabels = ['Short Rental (<60 min)', 'Long Rental (>60 min)']
+    durationDOCountValues = [durationDOShortRental, durationDOLongRental]
+
+    durationWDCount = go.Pie(labels=durationWDCountLabels, values=durationWDCountValues, pull=[0, 0.2])
+    durationDOCount = go.Pie(labels=durationDOCountLabels, values=durationDOCountValues, pull=[0, 0.2])
+
+    durationCountPlotLayout = go.Layout(template="plotly_dark", title=go.layout.Title(text="Total no. of rentals", x=0.5, y=0.95, xanchor='center', yanchor='middle'))
+
+    # Creating subplots duration on working days / days off
+    durationCountPlot = make_subplots(rows=1, cols=2, specs=[[{'type':'domain'}, {'type':'domain'}]], subplot_titles=("week days", "days off"))
+
+    durationCountPlot.add_trace(durationWDCount, 1, 1)
+    durationCountPlot.add_trace(durationDOCount, 1, 2)
+
+    durationCountPlot.update_layout(durationCountPlotLayout)
+
+    # Pie chart - duration total time
+    durationWDTotalLabels = ['Short Rental (<60 min)', 'Long Rental (>60 min)']
+    durationWDTotalValues = [durationWDShortRentalTotal, durationWDLongRentalTotal]
+
+    durationDOTotalLabels = ['Short Rental (<60 min)', 'Long Rental (>60 min)']
+    durationDOTotalValues = [durationDOShortRentalTotal, durationDOLongRentalTotal]
+
+    durationWDTotal = go.Pie(labels=durationWDTotalLabels, values=durationWDTotalValues, pull=[0, 0.2])
+    durationDOTotal = go.Pie(labels=durationDOTotalLabels, values=durationDOTotalValues, pull=[0, 0.2])
+
+    durationTotalPlotLayout = go.Layout(template="plotly_dark", title=go.layout.Title(text="Total rental time", x=0.5, y=0.95, xanchor='center', yanchor='middle'))
+
+    # Creating subplots duration on working days / days off
+    durationTotalPlot = make_subplots(rows=1, cols=2, specs=[[{'type':'domain'}, {'type':'domain'}]], subplot_titles=("week days", "days off"))
+
+    durationTotalPlot.add_trace(durationWDTotal, 1, 1)
+    durationTotalPlot.add_trace(durationDOTotal, 1, 2)
+
+    durationTotalPlot.update_layout(durationTotalPlotLayout)
+
+    return monthAggPlot, monthAvgPlot, dayAggPlot, weekdayAvgPlot, hourAggPlot, hourAvgPlot, hourAvgWDPlot, hourAvgMonthPlot, durationAggPlot, durationLtdPlot, durationWDPlot, durationTable, durationCountPlot, durationTotalPlot, averageRentalTimeTable
 
 def plots(dir):
     # Unpacking return variables from main function
-    monthAggPlot, monthAvgPlot, dayAggPlot, weekdayAvgPlot, hourAggPlot, hourAvgPlot, hourAvgWDPlot, hourAvgMonthPlot, durationAggPlot, durationLtdPlot, durationWDPlot, durationTable = main(dir)
+    monthAggPlot, monthAvgPlot, dayAggPlot, weekdayAvgPlot, hourAggPlot, hourAvgPlot, hourAvgWDPlot, hourAvgMonthPlot, durationAggPlot, durationLtdPlot, durationWDPlot, durationTable, durationCountPlot, durationTotalPlot, averageRentalTimeTable = main(dir)
 
     plotsDictionary = {"monthAggPlot": monthAggPlot, "monthAvgPlot": monthAvgPlot, "dayAggPlot": dayAggPlot,
                        "weekdayAvgPlot": weekdayAvgPlot, "hourAggPlot": hourAggPlot,
                        "hourAvgPlot": hourAvgPlot, "hourAvgWDPlot": hourAvgWDPlot, "hourAvgMonthPlot": hourAvgMonthPlot,
-                       "durationAggPlot": durationAggPlot, "durationLtdPlot": durationLtdPlot,
-                       "durationWDPlot": durationWDPlot}
+                       "durationAggPlot": durationAggPlot, "durationLtdPlot": durationLtdPlot, "durationWDPlot": durationWDPlot,
+                       "durationCountPlot": durationCountPlot, "durationTotalPlot": durationTotalPlot}
 
-    tablesDictionary = {"durationTable": durationTable}
+    tablesDictionary = {"durationTable": durationTable, "averageRentalTimeTable": averageRentalTimeTable}
 
-    # for key, value in plotsDictionary.items():
-    #     plotly.offline.plot(value, filename=(dir + r'\images\sites\{}.html'.format(key)))
-    #     go.Figure(value).write_image(dir + r'\images\plots\{}.png'.format(key), width=1280, height=640)
+    for key, value in plotsDictionary.items():
+        plotly.offline.plot(value, filename=(dir + r'\images\sites\{}.html'.format(key)))
+        go.Figure(value).write_image(dir + r'\images\plots\{}.png'.format(key), width=1280, height=640)
 
     for key, value in tablesDictionary.items():
         plotly.offline.plot(value, filename=(dir + r'\images\sites\{}.html'.format(key)))

@@ -145,13 +145,22 @@ The last graph shows the use of bicycles at specific times of the day, broken do
 [Interactive plot](https://nbviewer.jupyter.org/github/sebastian-konicz/WRM/blob/master/notebooks/reports/RidingPatternsPlots.ipynb#hourAvgMonthPlot)
 
 ### Bike rides duration
-aaa
+
 ![durationTable](images/plots/durationTable.png)
-aaa
+
+![averageRentalTimeTable](images/plots/averageRentalTimeTable.png)
+
 ![durationAggPlot](images/plots/durationAggPlot.png)
 [Interactive plot](https://nbviewer.jupyter.org/github/sebastian-konicz/WRM/blob/master/notebooks/reports/RidingPatternsPlots.ipynb#durationAggPlot)
 
+![durationWDPlot](images/plots/durationWDPlot.png)
+[Interactive plot](https://nbviewer.jupyter.org/github/sebastian-konicz/WRM/blob/master/notebooks/reports/RidingPatternsPlots.ipynb#durationWDPlot)
 
+![durationCountPlot](images/plots/durationCountPlot.png)
+[Interactive plot](https://nbviewer.jupyter.org/github/sebastian-konicz/WRM/blob/master/notebooks/reports/RidingPatternsPlots.ipynb#durationCountPlot)
+
+![durationTotalPlot](images/plots/durationTotalPlot.png)
+[Interactive plot](https://nbviewer.jupyter.org/github/sebastian-konicz/WRM/blob/master/notebooks/reports/RidingPatternsPlots.ipynb#durationTotalPlot)
 
 [Source / Inspiration](https://medium.com/analytics-vidhya/how-to-finish-top-10-percentile-in-bike-sharing-demand-competition-in-kaggle-part-1-c816ea9c51e1)
 
@@ -167,6 +176,15 @@ Below I present to you a map of all the cycle hire stations across Wroclaw and s
 I've also generated an interactive version of this plot in folium - click [here](https://sebastian-konicz.github.io/WRM/images/sites/DockingStationsMap.html) to see it. You can zoom/scroll with this version, and it also tells you the name of each location.
 
 ### Analysis of flows between stations
+
+![outflowTable](images/final/outflowTable.png)
+
+![inflowTable](images/final/inflowTable.png)
+
+![totalflowTable](images/final/totalflowTable.png)
+
+![flowDiffTable](images/final/flowDiffTable.png)
+
 In the images below, orange represents a station with more bikes leaving than coming in (outflows > inflows), whilst blue represents the opposite. As expected, in the morning people commute in to the centre from the suburbs, whilst the opposite occurs in the evening.
 #### Net arivals/departures in the morning (working days)
 ![Net arrivals/departures - morning](images/final/NetArivalsDepartures-morning.png)
