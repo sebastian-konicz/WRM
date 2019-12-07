@@ -24,7 +24,6 @@ def main(dir):
     print("Loading data")
     RentalData = pd.read_csv(dir + r'\data\processed\RentalData2015Enriched.csv', delimiter=",", encoding="utf-8")
 
-    print(RentalData.columns)
     numberOfBikes = RentalData.groupby("BikeNumber").first()
     numberOfBikes = numberOfBikes['Count'].count()
 
@@ -51,7 +50,7 @@ def main(dir):
     mostPopularPath1 = mostPopularPath.iloc[0, 0]
     mostPopularPath2 = mostPopularPath.iloc[0, 1]
     mostPopularPath3 = mostPopularPath.iloc[0, 2]
-    mostPopularPath = mostPopularPath1 + " - " + mostPopularPath2 + " (" + str(mostPopularPath3) + " rides)"
+    mostPopularPath = mostPopularPath1 + " <-> " + mostPopularPath2 + " (" + str(mostPopularPath3) + " rides)"
     print(mostPopularPath)
 
     averageRentalTime = RentalData["Duration"].mean()
@@ -60,6 +59,7 @@ def main(dir):
 
     averageSpeed = RentalData[RentalData["StartStation"] != RentalData['EndStation']]
     averageSpeed = averageSpeed["Speed"].mean()
+    averageSpeed = round(averageSpeed, 2)
     print(averageSpeed)
 
     recordDay = RentalData[["Date", "Count"]]
@@ -67,8 +67,16 @@ def main(dir):
     recordDay.sort_values(by="Count", ascending=False, inplace=True)
     recordDay1 = recordDay.iloc[0, 0]
     recordDay2 = recordDay.iloc[0, 1]
-    recordDay = recordDay1 + " " + str(recordDay2) + " rides"
+    recordDay = recordDay1 + " (" + str(recordDay2) + " rides)"
     print(recordDay)
+
+    recordMonth = RentalData[["Month", "Count"]]
+    recordMonth = pd.DataFrame(recordMonth.groupby("Month")['Count'].sum()).reset_index()
+    recordMonth.sort_values(by="Count", ascending=False, inplace=True)
+    recordMonth1 = recordMonth.iloc[0, 0]
+    recordMonth2 = recordMonth.iloc[0, 1]
+    recordMonth = recordMonth1 + " (" + str(recordMonth2) + " rides)"
+    print(recordMonth)
 
     # Creating tables
     headerColor = 'black'
@@ -76,9 +84,9 @@ def main(dir):
     rowOddColor = 'white'
 
     statisticsTable = go.Figure(data=[go.Table(
-        columnwidth=[30, 10],
+        columnwidth=[30, 40],
         header=dict(
-            values=['<b>Rank</b>', '<b>Station</b>', '<b>Outflow</b>'],
+            values=['<b>Description</b>', '<b>Result</b>'],
             line_color='black',
             fill_color=headerColor,
             align=['center'],
@@ -86,17 +94,20 @@ def main(dir):
             height=30
         ),
         cells=dict(
-            values=[],
+            values=[['number of bikes', 'number of docking stations', 'total number of valid rentals', 'most popular bike',
+                     'most popular docking station', 'most popular path', 'average rental time', 'average speed',
+                     'record day', 'record month'],
+                    [numberOfBikes, numberOfDockingStations, validRentals, mostPopularBike, mostPopularStation,
+                     mostPopularPath, averageRentalTime, averageSpeed, recordDay, recordMonth]],
             line_color='darkslategray',
             fill_color=[[rowOddColor, rowEvenColor, rowOddColor, rowEvenColor] * 3],
-            align=['left', 'left', 'center'],
+            align=['left', 'center'],
             font=dict(color='black', size=14),
-            height=25
+            height=30
         ))
     ])
 
-
-    return statisticsTable,
+    return statisticsTable
 
 def plots(dir):
     # Unpacking return variables from main function

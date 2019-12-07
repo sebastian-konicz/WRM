@@ -60,17 +60,7 @@ Based on the cleaned up dataset i have prepared a table with basic statistics co
 Readers can confront the data presented below with the official statistics available (in polish) on this [site](https://www.wroclaw.pl/wroclawski-rower-miejski-podsumowanie-sezonu-2015).
 Of course the numbers differ because bike sharing operator overstates its statistics (for marketing purposes) by including all rentals (even the invalid ones).
 
-
-- number of bikes
-- number of docking stations
-- total number of valid rentals
-- most popular docking station
-- most popular bike
-- most popular path
-- average rental time
-- average speed
-- record day
-- record month
+![statisticsTable](images/plots/statisticsTable.png)
 
 ## Rental patterns <a id="rental_patterns"></a>
 In this chapter i will analyze the rental patterns of users in order to answer such questions as:
