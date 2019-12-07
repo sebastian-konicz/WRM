@@ -1,11 +1,5 @@
 import pandas as pd
 from pathlib import Path
-import geopy.distance as gd
-import re
-import numpy as np
-from datetime import datetime
-import datetime
-import time
 
 # Plotly and cufflings standart impors
 import plotly.graph_objects as go
@@ -136,14 +130,83 @@ def main(dir):
         ))
     ])
 
-    return outflowTable, inflowTable, totalflowTable, flowDiffTable
+    # Creating pie chart
+    # Total chart
+    dockingStationsSame = RentalData[RentalData['StartStation'] == RentalData['EndStation']]
+    dockingStationsSame = pd.DataFrame(dockingStationsSame.groupby("StartStation")['Count'].sum()).reset_index()
+    dockingStationsSame = dockingStationsSame['Count'].sum()
+    print(dockingStationsSame)
+
+    dockingStationsDiff = RentalData[RentalData['StartStation'] != RentalData['EndStation']]
+    dockingStationsDiff = pd.DataFrame(dockingStationsDiff.groupby("StartStation")['Count'].sum()).reset_index()
+    dockingStationsDiff = dockingStationsDiff['Count'].sum()
+    print(dockingStationsDiff)
+
+    dockingStationsLabels = ['Same Station', 'Different Station']
+    dockingStationsValues = [dockingStationsSame, dockingStationsDiff]
+
+    dockingStationsPlotData = go.Pie(labels=dockingStationsLabels, values=dockingStationsValues, pull=[0, 0.2])
+
+    dockingStationsPlotLayout = go.Layout(template="plotly_dark", title=go.layout.Title(text="Total no. of rentals", x=0.5, y=0.95, xanchor='center', yanchor='middle'))
+
+    dockingStationsPlot = dict(data=dockingStationsPlotData, layout=dockingStationsPlotLayout)
+
+    # Day off chart
+    dockingStationsDO = RentalData[RentalData["WorkingDay"] == "DayOff"]
+
+    dockingStationsDOSame = dockingStationsDO[dockingStationsDO['StartStation'] == dockingStationsDO['EndStation']]
+    dockingStationsDOSame = pd.DataFrame(dockingStationsDOSame.groupby("StartStation")['Count'].sum()).reset_index()
+    dockingStationsDOSame = dockingStationsDOSame['Count'].sum()
+    print(dockingStationsDOSame)
+
+    dockingStationsDODiff = dockingStationsDO[dockingStationsDO['StartStation'] != dockingStationsDO['EndStation']]
+    dockingStationsDODiff = pd.DataFrame(dockingStationsDODiff.groupby("StartStation")['Count'].sum()).reset_index()
+    dockingStationsDODiff = dockingStationsDODiff['Count'].sum()
+    print(dockingStationsDODiff)
+
+    dockingStationsDOLabels = ['Same Station', 'Different Station']
+    dockingStationsDOValues = [dockingStationsDOSame, dockingStationsDODiff]
+
+    dockingStationsDOPlot = go.Pie(labels=dockingStationsDOLabels, values=dockingStationsDOValues, pull=[0, 0.2])
+
+    # Working Day chart
+    dockingStationsWD = RentalData[RentalData["WorkingDay"] == "WorkingDay"]
+
+    dockingStationsWDSame = dockingStationsWD[dockingStationsWD['StartStation'] == dockingStationsWD['EndStation']]
+    dockingStationsWDSame = pd.DataFrame(dockingStationsWDSame.groupby("StartStation")['Count'].sum()).reset_index()
+    dockingStationsWDSame = dockingStationsWDSame['Count'].sum()
+    print(dockingStationsWDSame)
+
+    dockingStationsWDDiff = dockingStationsWD[dockingStationsWD['StartStation'] != dockingStationsWD['EndStation']]
+    dockingStationsWDDiff = pd.DataFrame(dockingStationsWDDiff.groupby("StartStation")['Count'].sum()).reset_index()
+    dockingStationsWDDiff = dockingStationsWDDiff['Count'].sum()
+    print(dockingStationsWDDiff)
+
+    dockingStationsWDLabels = ['Same Station', 'Different Station']
+    dockingStationsWDValues = [dockingStationsWDSame, dockingStationsWDDiff]
+
+    dockingStationsWDPlot = go.Pie(labels=dockingStationsWDLabels, values=dockingStationsWDValues, pull=[0, 0.2])
+
+    # Creating subplots duration on working days / days off
+    dockingStationsWDDOPlot = make_subplots(rows=1, cols=2, specs=[[{'type': 'domain'}, {'type': 'domain'}]], subplot_titles=("week days", "days off"))
+
+    dockingStationsWDDOPlot.add_trace(dockingStationsWDPlot, 1, 1)
+    dockingStationsWDDOPlot.add_trace(dockingStationsDOPlot, 1, 2)
+
+    dockingStationsWDDOPlotLayout = go.Layout(template="plotly_dark",
+                                          title=go.layout.Title(text="Types of trips (same station / differen station)", x=0.5, y=0.95,
+                                                                xanchor='center', yanchor='middle'))
+    dockingStationsWDDOPlot.update_layout(dockingStationsWDDOPlotLayout)
+
+    return outflowTable, inflowTable, totalflowTable, flowDiffTable, dockingStationsWDDOPlot, dockingStationsPlot
 
 def plots(dir):
     # Unpacking return variables from main function
-    outflowTable, inflowTable, totalflowTable, flowDiffTable = main(dir)
+    outflowTable, inflowTable, totalflowTable, flowDiffTable, dockingStationsWDDOPlot, dockingStationsPlot = main(dir)
 
     tablesDictionary = {"outflowTable": outflowTable, "inflowTable": inflowTable,
-                        "totalflowTable": totalflowTable, "flowDiffTable": flowDiffTable}
+                        "totalflowTable": totalflowTable, "flowDiffTable": flowDiffTable,
+                        "dockingStationsWDDOPlot": dockingStationsWDDOPlot, "dockingStationsPlot": dockingStationsPlot}
 
     for key, value in tablesDictionary.items():
         plotly.offline.plot(value, filename=(dir + r'\images\sites\{}.html'.format(key)))
