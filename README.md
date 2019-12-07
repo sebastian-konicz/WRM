@@ -164,12 +164,17 @@ I've also generated an interactive version of this plot in folium - click [here]
 
 ### Analysis of flows between stations
 
+### Ranking of bike stations
+#### Most and least popular bike stations (outflow)
 ![outflowTable](images/plots/outflowTable.png)
 
+#### Most and least popular bike stations (inflow)
 ![inflowTable](images/plots/inflowTable.png)
 
+#### Most and least popular bike stations (total flow)
 ![totalflowTable](images/plots/totalflowTable.png)
 
+#### Redistribution mismatch (outflow - inflow)
 ![flowDiffTable](images/plots/flowDiffTable.png)
 
 In the images below, orange represents a station with more bikes leaving than coming in (outflows > inflows), whilst blue represents the opposite. As expected, in the morning people commute in to the centre from the suburbs, whilst the opposite occurs in the evening.
@@ -188,10 +193,6 @@ In the images below, orange represents a station with more bikes leaving than co
 ![Intensity - afternoon](images/final/IntensityAfternoon.gif)
 
 [Source / Inspiration](https://github.com/charlie1347/TfL_bikes)
-
-### Ranking of bike stations
-#### Most and least popular bike stations
-#### Redistribution mismatch (outflow - inflow)
 
 ### Page rank algorithm
 
