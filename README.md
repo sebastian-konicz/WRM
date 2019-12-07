@@ -8,14 +8,14 @@ As part of the free transport data service, Wroclaw Bikesharing System (WRM) rel
 1. [WRM Dataset overview](#dataset)
 2. [Basic statistics](#statistics)
 3. [Rental patterns](#rental_patterns)
-4. [Weather conditions usage patterns](#weather)
-5. [Bike stations analysis](#stations)
+4. [Bike stations analysis](#stations)
+5. [Weather conditions usage patterns](#weather)
 6. [Route predictions](#route)
 7. [Conclusions](#conclusions")
 8. [Project organisation](#project)
 
 ## WRM datasets overview <a id="dataset"></a>
-Wroclaw host all of the raw cycle data on their [open data website](https://www.wroclaw.pl/open-data/dataset). There are two types of data availavle on the site
+Wroclaw host all of the raw cycle data on their [open data website](https://www.wroclaw.pl/open-data/dataset). There are two types of data available on the site
 1. [Actual data for bike rentals in 2019](https://www.wroclaw.pl/open-data/dataset/wrmprzejazdy_data/resource_history/65b5015e-070e-41da-8852-802a86442ac5)
 2. [Historical data for years 2015 - 2016](https://www.wroclaw.pl/open-data/dataset/przejazdy-wroclawskiego-roweru-miejskiego-archiwalne)
 
@@ -76,6 +76,7 @@ Of course the numbers differ because bike sharing operator overstates its statis
 In this chapter i will analyze the rental patterns of users in order to answer such questions as:
 - how does usage change across the year, the week, and the day;
 - are people mostly using bike sharing system as a way to commute to work or to explore the city.
+- how long are the rides (short as a way to comute, or long as a form of recreation)
 
 The following analysis was performed using charts prepared in plotly python library. Under each image there is a link to an interactive version of the chart.
 
@@ -164,16 +165,12 @@ The last graph shows the use of bicycles at specific times of the day, broken do
 
 [Source / Inspiration](https://medium.com/analytics-vidhya/how-to-finish-top-10-percentile-in-bike-sharing-demand-competition-in-kaggle-part-1-c816ea9c51e1)
 
-## Weather conditions usage patterns <a id="weather"></a>
-(How does the weather change the way people use Bike Share?)
-- correlation between weather conditions and bike usage (temp, percipitation, wind and humidity)
-[Source / Inspiration](https://towardsdatascience.com/exploring-toronto-bike-share-ridership-using-python-3dc87d35cb62)
-
 ## Bike stations analysis <a id="stations"></a>
 ### Map of all docking stations
-Below I present to you a map of all the cycle hire stations across Wroclaw and surrounding areas.
-![All docking stations](images/final/DockingStationsMap.png)
+First of all, below I present to you a map of all the cycle hire stations across Wroclaw and surrounding areas.
 I've also generated an interactive version of this plot in folium - click [here](https://sebastian-konicz.github.io/WRM/images/sites/DockingStationsMap.html) to see it. You can zoom/scroll with this version, and it also tells you the name of each location.
+
+![All docking stations](images/final/DockingStationsMap.png)
 
 ### Analysis of flows between stations
 
@@ -212,6 +209,11 @@ In the images below, orange represents a station with more bikes leaving than co
 #### Bike path in Wroclaw
 ![BikePaths](images/final/BikePaths.png)
 [Interactive map](https://sebastian-konicz.github.io/WRM/images/sites/BikePathsMapTreshold.html)
+
+## Weather conditions usage patterns <a id="weather"></a>
+(How does the weather change the way people use Bike Share?)
+- correlation between weather conditions and bike usage (temp, percipitation, wind and humidity)
+[Source / Inspiration](https://towardsdatascience.com/exploring-toronto-bike-share-ridership-using-python-3dc87d35cb62)
 
 ## Route predictions <a id="route"></a>
 #### Route prediction graph

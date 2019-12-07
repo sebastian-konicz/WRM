@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.5.1/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.5.1/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://rawcdn.githack.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/>
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_0c7a50ee9e8c448e9d45241e877fbc9e {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_0c7a50ee9e8c448e9d45241e877fbc9e" ></div>
+        
+</body>
+<script>    
+    
+            var map_0c7a50ee9e8c448e9d45241e877fbc9e = L.map(
+                "map_0c7a50ee9e8c448e9d45241e877fbc9e",
+                {
+                    center: [51.099783, 17.03082],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 13,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_aca807c5af1a44df89412db832d7efd3 = L.tileLayer(
+                "https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"http://cartodb.com/attributions\"\u003eCartoDB\u003c/a\u003e, CartoDB \u003ca href =\"http://cartodb.com/attributions\"\u003eattributions\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+            var circle_marker_f2045e5d010f49f28e6882aec0a5d252 = L.circleMarker(
+                [51.089315, 17.001501],
+                {"bubblingMouseEvents": true, "color": "#E37222", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E37222", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_c718bd9408d44f45a33744929a19a629 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_14f4037137b84eeaa3e5b87be46aee85 = $(`<div id="html_14f4037137b84eeaa3e5b87be46aee85" style="width: 100.0%; height: 100.0%;">Aleja Hallera / Mielecka<br> total departures: 656<br> total arrivals: 416<br> net departures: 240</div>`)[0];
+            popup_c718bd9408d44f45a33744929a19a629.setContent(html_14f4037137b84eeaa3e5b87be46aee85);
+        
+
+        circle_marker_f2045e5d010f49f28e6882aec0a5d252.bindPopup(popup_c718bd9408d44f45a33744929a19a629)
+        ;
+
+        
+    
+    
+            var circle_marker_079492404597434caa7b995549ca8073 = L.circleMarker(
+                [51.132259000000005, 17.065453],
+                {"bubblingMouseEvents": true, "color": "#0A8A9F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0A8A9F", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_dc85451db4424225bd0e898c9e26056f = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_d0917cbed08e4cbbb7c47ed042653146 = $(`<div id="html_d0917cbed08e4cbbb7c47ed042653146" style="width: 100.0%; height: 100.0%;">Aleja Kromera<br> total departures: 1195<br> total arrivals: 1399<br> net departures: -204</div>`)[0];
+            popup_dc85451db4424225bd0e898c9e26056f.setContent(html_d0917cbed08e4cbbb7c47ed042653146);
+        
+
+        circle_marker_079492404597434caa7b995549ca8073.bindPopup(popup_dc85451db4424225bd0e898c9e26056f)
+        ;
+
+        
+    
+    
+            var circle_marker_e997fd6f90ec4fb58e05492c492a6419 = L.circleMarker(
+                [51.117032, 17.033499],
+                {"bubblingMouseEvents": true, "color": "#E37222", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E37222", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_70f3859c1723440bade761e63c0699cb = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_c731b1186f444b01b72e94cd935c8ed3 = $(`<div id="html_c731b1186f444b01b72e94cd935c8ed3" style="width: 100.0%; height: 100.0%;">Drobnera / Dubois<br> total departures: 1373<br> total arrivals: 1069<br> net departures: 304</div>`)[0];
+            popup_70f3859c1723440bade761e63c0699cb.setContent(html_c731b1186f444b01b72e94cd935c8ed3);
+        
+
+        circle_marker_e997fd6f90ec4fb58e05492c492a6419.bindPopup(popup_70f3859c1723440bade761e63c0699cb)
+        ;
+
+        
+    
+    
+            var circle_marker_e55142551a7e4e2c95f3a08a0c971b0c = L.circleMarker(
+                [51.117557, 17.040967000000002],
+                {"bubblingMouseEvents": true, "color": "#0A8A9F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0A8A9F", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_dbe3fce0876a4bee9bebdc8d3309c434 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_4e225a2710b24adfba60620fc6cd2229 = $(`<div id="html_4e225a2710b24adfba60620fc6cd2229" style="width: 100.0%; height: 100.0%;">Drobnera / Plac Bema<br> total departures: 1903<br> total arrivals: 2505<br> net departures: -602</div>`)[0];
+            popup_dbe3fce0876a4bee9bebdc8d3309c434.setContent(html_4e225a2710b24adfba60620fc6cd2229);
+        
+
+        circle_marker_e55142551a7e4e2c95f3a08a0c971b0c.bindPopup(popup_dbe3fce0876a4bee9bebdc8d3309c434)
+        ;
+
+        
+    
+    
+            var circle_marker_33386982d3db4db1b61d47c95c8b1f6b = L.circleMarker(
+                [51.09975, 17.036228],
+                {"bubblingMouseEvents": true, "color": "#E37222", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E37222", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_233bcc2ef5454044819f904bff681e52 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_02d510eca89b44c3a3b9fd49162e68ca = $(`<div id="html_02d510eca89b44c3a3b9fd49162e68ca" style="width: 100.0%; height: 100.0%;">Dworzec Główny <br> total departures: 2520<br> total arrivals: 2315<br> net departures: 205</div>`)[0];
+            popup_233bcc2ef5454044819f904bff681e52.setContent(html_02d510eca89b44c3a3b9fd49162e68ca);
+        
+
+        circle_marker_33386982d3db4db1b61d47c95c8b1f6b.bindPopup(popup_233bcc2ef5454044819f904bff681e52)
+        ;
+
+        
+    
+    
+            var circle_marker_b6bf9f8cda564bbfb7126043951f470f = L.circleMarker(
+                [51.097108064432, 17.036109566689],
+                {"bubblingMouseEvents": true, "color": "#E37222", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E37222", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_e9ed76cdc265418488cc1436707d58ca = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_900c920dfab745be8309b06cf0989e87 = $(`<div id="html_900c920dfab745be8309b06cf0989e87" style="width: 100.0%; height: 100.0%;">Dworzec Główny, południe<br> total departures: 2121<br> total arrivals: 1823<br> net departures: 298</div>`)[0];
+            popup_e9ed76cdc265418488cc1436707d58ca.setContent(html_900c920dfab745be8309b06cf0989e87);
+        
+
+        circle_marker_b6bf9f8cda564bbfb7126043951f470f.bindPopup(popup_e9ed76cdc265418488cc1436707d58ca)
+        ;
+
+        
+    
+    
+            var circle_marker_0b0c7cd8f5fa4a249b35c07bdde4e3d7 = L.circleMarker(
+                [51.104163, 17.031115],
+                {"bubblingMouseEvents": true, "color": "#0A8A9F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0A8A9F", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_43c60b2fbe3c472b9004e92c5fadcc62 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_6555a7c3454d4d38970c3bde3d15ce28 = $(`<div id="html_6555a7c3454d4d38970c3bde3d15ce28" style="width: 100.0%; height: 100.0%;">Fosa Miejska <br> total departures: 1366<br> total arrivals: 3554<br> net departures: -2188</div>`)[0];
+            popup_43c60b2fbe3c472b9004e92c5fadcc62.setContent(html_6555a7c3454d4d38970c3bde3d15ce28);
+        
+
+        circle_marker_0b0c7cd8f5fa4a249b35c07bdde4e3d7.bindPopup(popup_43c60b2fbe3c472b9004e92c5fadcc62)
+        ;
+
+        
+    
+    
+            var circle_marker_24a1db2ef5264fd9ae766957ea2db547 = L.circleMarker(
+                [51.09152, 17.040329999999997],
+                {"bubblingMouseEvents": true, "color": "#E37222", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E37222", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_d80750daf92a42e3b1e3be61ee0141ba = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_b3eb46b6c32d437e8dc45802aded2845 = $(`<div id="html_b3eb46b6c32d437e8dc45802aded2845" style="width: 100.0%; height: 100.0%;">Gliniana / Gajowa<br> total departures: 1965<br> total arrivals: 917<br> net departures: 1048</div>`)[0];
+            popup_d80750daf92a42e3b1e3be61ee0141ba.setContent(html_b3eb46b6c32d437e8dc45802aded2845);
+        
+
+        circle_marker_24a1db2ef5264fd9ae766957ea2db547.bindPopup(popup_d80750daf92a42e3b1e3be61ee0141ba)
+        ;
+
+        
+    
+    
+            var circle_marker_7ab591ef8f8f4c37b30ed9cd96cae4f7 = L.circleMarker(
+                [51.094413, 16.980911],
+                {"bubblingMouseEvents": true, "color": "#0A8A9F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0A8A9F", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_a3bb04f94a5442548c898a7154ab282f = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_baf66051331b422bb26bc6c1ec281a1e = $(`<div id="html_baf66051331b422bb26bc6c1ec281a1e" style="width: 100.0%; height: 100.0%;">Grabiszyńska / Aleja Hallera<br> total departures: 571<br> total arrivals: 1376<br> net departures: -805</div>`)[0];
+            popup_a3bb04f94a5442548c898a7154ab282f.setContent(html_baf66051331b422bb26bc6c1ec281a1e);
+        
+
+        circle_marker_7ab591ef8f8f4c37b30ed9cd96cae4f7.bindPopup(popup_a3bb04f94a5442548c898a7154ab282f)
+        ;
+
+        
+    
+    
+            var circle_marker_0757597f73664cd3b95992feb5d194b8 = L.circleMarker(
+                [51.099354, 17.000697],
+                {"bubblingMouseEvents": true, "color": "#E37222", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E37222", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_929db27c5a344e34934f16c8a94a03c4 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_fea2367556bb46909ee37d1bfdfa1889 = $(`<div id="html_fea2367556bb46909ee37d1bfdfa1889" style="width: 100.0%; height: 100.0%;">Grabiszyńska / Stalowa<br> total departures: 1476<br> total arrivals: 427<br> net departures: 1049</div>`)[0];
+            popup_929db27c5a344e34934f16c8a94a03c4.setContent(html_fea2367556bb46909ee37d1bfdfa1889);
+        
+
+        circle_marker_0757597f73664cd3b95992feb5d194b8.bindPopup(popup_929db27c5a344e34934f16c8a94a03c4)
+        ;
+
+        
+    
+    
+            var circle_marker_88c45b42b86f4901b4b0fb6d2edcf4dd = L.circleMarker(
+                [51.095597, 17.008045000000003],
+                {"bubblingMouseEvents": true, "color": "#E37222", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E37222", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_e39af1df342b48da93a8477305a74d52 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_94054e75adb842aabc0bed6cd1cf2b84 = $(`<div id="html_94054e75adb842aabc0bed6cd1cf2b84" style="width: 100.0%; height: 100.0%;">Grochowa / Jemiołowa,<br> total departures: 732<br> total arrivals: 327<br> net departures: 405</div>`)[0];
+            popup_e39af1df342b48da93a8477305a74d52.setContent(html_94054e75adb842aabc0bed6cd1cf2b84);
+        
+
+        circle_marker_88c45b42b86f4901b4b0fb6d2edcf4dd.bindPopup(popup_e39af1df342b48da93a8477305a74d52)
+        ;
+
+        
+    
+    
+            var circle_marker_c12895792f87460fac3c44a6af36f2e0 = L.circleMarker(
+                [51.09126, 16.98581],
+                {"bubblingMouseEvents": true, "color": "#E37222", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E37222", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_7ce5ba9ab273487cb9671ce0f12d63cb = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_81acde09bfa144b9b584f36d6a95c277 = $(`<div id="html_81acde09bfa144b9b584f36d6a95c277" style="width: 100.0%; height: 100.0%;">Hallera / Odkrywców<br> total departures: 322<br> total arrivals: 270<br> net departures: 52</div>`)[0];
+            popup_7ce5ba9ab273487cb9671ce0f12d63cb.setContent(html_81acde09bfa144b9b584f36d6a95c277);
+        
+
+        circle_marker_c12895792f87460fac3c44a6af36f2e0.bindPopup(popup_7ce5ba9ab273487cb9671ce0f12d63cb)
+        ;
+
+        
+    
+    
+            var circle_marker_3d942d4a15ae40b6847cc8f552f36a0f = L.circleMarker(
+                [51.12814, 17.05477],
+                {"bubblingMouseEvents": true, "color": "#E37222", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E37222", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_1059e1a33bff404696b3a83f3db3ec77 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_344a090a54634f94bd09fd7864ca9a76 = $(`<div id="html_344a090a54634f94bd09fd7864ca9a76" style="width: 100.0%; height: 100.0%;">Jedności Narodowej / Wyszyńskiego<br> total departures: 1176<br> total arrivals: 461<br> net departures: 715</div>`)[0];
+            popup_1059e1a33bff404696b3a83f3db3ec77.setContent(html_344a090a54634f94bd09fd7864ca9a76);
+        
+
+        circle_marker_3d942d4a15ae40b6847cc8f552f36a0f.bindPopup(popup_1059e1a33bff404696b3a83f3db3ec77)
+        ;
+
+        
+    
+    
+            var circle_marker_0fe9a22db4e9480bb32cd6d5af7eb2e2 = L.circleMarker(
+                [51.110662, 17.052712],
+                {"bubblingMouseEvents": true, "color": "#0A8A9F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0A8A9F", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_2023db7036894e078826c3dba8d22b93 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_8bb65281a85d4ccb87f085e49f6884be = $(`<div id="html_8bb65281a85d4ccb87f085e49f6884be" style="width: 100.0%; height: 100.0%;">Joliot-Curie (Uwr)<br> total departures: 330<br> total arrivals: 1390<br> net departures: -1060</div>`)[0];
+            popup_2023db7036894e078826c3dba8d22b93.setContent(html_8bb65281a85d4ccb87f085e49f6884be);
+        
+
+        circle_marker_0fe9a22db4e9480bb32cd6d5af7eb2e2.bindPopup(popup_2023db7036894e078826c3dba8d22b93)
+        ;
+
+        
+    
+    
+            var circle_marker_6cded7d0059c491a919e459f13b715b8 = L.circleMarker(
+                [51.087764, 17.039317999999998],
+                {"bubblingMouseEvents": true, "color": "#E37222", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E37222", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_ce42f7f22f8e4335bf04b179523c7ab8 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_caea170523b24c4d9337bdc3a66ee150 = $(`<div id="html_caea170523b24c4d9337bdc3a66ee150" style="width: 100.0%; height: 100.0%;">Kamienna / Tomaszowska<br> total departures: 1639<br> total arrivals: 385<br> net departures: 1254</div>`)[0];
+            popup_ce42f7f22f8e4335bf04b179523c7ab8.setContent(html_caea170523b24c4d9337bdc3a66ee150);
+        
+
+        circle_marker_6cded7d0059c491a919e459f13b715b8.bindPopup(popup_ce42f7f22f8e4335bf04b179523c7ab8)
+        ;
+
+        
+    
+    
+            var circle_marker_b87b9f5613254e03bc7154801b3180bb = L.circleMarker(
+                [51.090090000000004, 17.0235],
+                {"bubblingMouseEvents": true, "color": "#E37222", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E37222", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_e8d097d28d60496fac58d70cc4becb8b = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_17dae7de0eeb4db288c9fa8f303b0491 = $(`<div id="html_17dae7de0eeb4db288c9fa8f303b0491" style="width: 100.0%; height: 100.0%;">Komandorska / Kamienna<br> total departures: 1117<br> total arrivals: 641<br> net departures: 476</div>`)[0];
+            popup_e8d097d28d60496fac58d70cc4becb8b.setContent(html_17dae7de0eeb4db288c9fa8f303b0491);
+        
+
+        circle_marker_b87b9f5613254e03bc7154801b3180bb.bindPopup(popup_e8d097d28d60496fac58d70cc4becb8b)
+        ;
+
+        
+    
+    
+            var circle_marker_9f5036d15a574d6ba16d43e9336b2e09 = L.circleMarker(
+                [51.094653, 17.026775],
+                {"bubblingMouseEvents": true, "color": "#E37222", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E37222", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_82847d12196748958c36b5d7a0328b0f = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_efde13969a774b2ca99ff108307d1410 = $(`<div id="html_efde13969a774b2ca99ff108307d1410" style="width: 100.0%; height: 100.0%;">Komandorska / Sanocka<br> total departures: 1029<br> total arrivals: 695<br> net departures: 334</div>`)[0];
+            popup_82847d12196748958c36b5d7a0328b0f.setContent(html_efde13969a774b2ca99ff108307d1410);
+        
+
+        circle_marker_9f5036d15a574d6ba16d43e9336b2e09.bindPopup(popup_82847d12196748958c36b5d7a0328b0f)
+        ;
+
+        
+    
+    
+            var circle_marker_0fc4557614a64a879f316a62d4bf32d0 = L.circleMarker(
+                [51.098959, 17.051519],
+                {"bubblingMouseEvents": true, "color": "#E37222", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E37222", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_d5a112f8b21a469baa358a2f383eba26 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_4eddcf1fc4e74cd498ef2d3af789096e = $(`<div id="html_4eddcf1fc4e74cd498ef2d3af789096e" style="width: 100.0%; height: 100.0%;">Kościuszki / Komuny Paryskiej / Zgodna<br> total departures: 2473<br> total arrivals: 738<br> net departures: 1735</div>`)[0];
+            popup_d5a112f8b21a469baa358a2f383eba26.setContent(html_4eddcf1fc4e74cd498ef2d3af789096e);
+        
+
+        circle_marker_0fc4557614a64a879f316a62d4bf32d0.bindPopup(popup_d5a112f8b21a469baa358a2f383eba26)
+        ;
+
+        
+    
+    
+            var circle_marker_34f66e3f5520481ab3e49ea901a6c10d = L.circleMarker(
+                [51.1004, 17.045082999999998],
+                {"bubblingMouseEvents": true, "color": "#E37222", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E37222", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_4cd45f7128b54a638a69027c239c4a1a = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_4c592ea69c9042a39b5715a3b44a8c6b = $(`<div id="html_4c592ea69c9042a39b5715a3b44a8c6b" style="width: 100.0%; height: 100.0%;">Kościuszki / Pułaskiego<br> total departures: 2417<br> total arrivals: 1031<br> net departures: 1386</div>`)[0];
+            popup_4cd45f7128b54a638a69027c239c4a1a.setContent(html_4c592ea69c9042a39b5715a3b44a8c6b);
+        
+
+        circle_marker_34f66e3f5520481ab3e49ea901a6c10d.bindPopup(popup_4cd45f7128b54a638a69027c239c4a1a)
+        ;
+
+        
+    
+    
+            var circle_marker_54b45206d8a841b8b8861148f002ec14 = L.circleMarker(
+                [51.093426, 17.002893],
+                {"bubblingMouseEvents": true, "color": "#E37222", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E37222", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_38a611f3327349dc89c631121f4e8bcb = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_b5a8d85ce6e24b608e9d5cd609405738 = $(`<div id="html_b5a8d85ce6e24b608e9d5cd609405738" style="width: 100.0%; height: 100.0%;">Krucza / Mielecka / Stalowa<br> total departures: 946<br> total arrivals: 176<br> net departures: 770</div>`)[0];
+            popup_38a611f3327349dc89c631121f4e8bcb.setContent(html_b5a8d85ce6e24b608e9d5cd609405738);
+        
+
+        circle_marker_54b45206d8a841b8b8861148f002ec14.bindPopup(popup_38a611f3327349dc89c631121f4e8bcb)
+        ;
+
+        
+    
+    
+            var circle_marker_d5410e2937524537b6079c0f1d6c75f1 = L.circleMarker(
+                [51.074992, 17.007057999999997],
+                {"bubblingMouseEvents": true, "color": "#0A8A9F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0A8A9F", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_5a35baddd28445138e10c9f96dd54f1b = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_92b0dfd9b8284174b489922f7d05be5a = $(`<div id="html_92b0dfd9b8284174b489922f7d05be5a" style="width: 100.0%; height: 100.0%;">Krzycka / Aleja Karkonoska (Park Południowy)<br> total departures: 662<br> total arrivals: 1051<br> net departures: -389</div>`)[0];
+            popup_5a35baddd28445138e10c9f96dd54f1b.setContent(html_92b0dfd9b8284174b489922f7d05be5a);
+        
+
+        circle_marker_d5410e2937524537b6079c0f1d6c75f1.bindPopup(popup_5a35baddd28445138e10c9f96dd54f1b)
+        ;
+
+        
+    
+    
+            var circle_marker_9bf035e3d9f64b98824e15f04f6c23fd = L.circleMarker(
+                [51.113141, 17.012175],
+                {"bubblingMouseEvents": true, "color": "#E37222", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E37222", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_e3598240800d4a6bb8c63a324afada77 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_74d5801b260a456e9a6a4b8102e9de91 = $(`<div id="html_74d5801b260a456e9a6a4b8102e9de91" style="width: 100.0%; height: 100.0%;">Legnicka / Młodych Techników<br> total departures: 1115<br> total arrivals: 367<br> net departures: 748</div>`)[0];
+            popup_e3598240800d4a6bb8c63a324afada77.setContent(html_74d5801b260a456e9a6a4b8102e9de91);
+        
+
+        circle_marker_9bf035e3d9f64b98824e15f04f6c23fd.bindPopup(popup_e3598240800d4a6bb8c63a324afada77)
+        ;
+
+        
+    
+    
+            var circle_marker_9bdd193ba1354d38b98d7f745b93fecb = L.circleMarker(
+                [51.125276, 16.984447],
+                {"bubblingMouseEvents": true, "color": "#E37222", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E37222", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_853f5fb5986b45cbbe5ad8adea561d97 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_3c664c6377c64b6f99ffe87d71cbfbae = $(`<div id="html_3c664c6377c64b6f99ffe87d71cbfbae" style="width: 100.0%; height: 100.0%;">Legnicka / Wejherowska<br> total departures: 677<br> total arrivals: 585<br> net departures: 92</div>`)[0];
+            popup_853f5fb5986b45cbbe5ad8adea561d97.setContent(html_3c664c6377c64b6f99ffe87d71cbfbae);
+        
+
+        circle_marker_9bdd193ba1354d38b98d7f745b93fecb.bindPopup(popup_853f5fb5986b45cbbe5ad8adea561d97)
+        ;
+
+        
+    
+    
+            var circle_marker_d397550327f04b24a68ae07da0f987c7 = L.circleMarker(
+                [51.13004, 16.96605],
+                {"bubblingMouseEvents": true, "color": "#E37222", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E37222", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_e0cf19bcb7174293b7598b8c797ce171 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_e146d778bb5843d0a0decd73c29820ac = $(`<div id="html_e146d778bb5843d0a0decd73c29820ac" style="width: 100.0%; height: 100.0%;">Lotnicza / Bajana<br> total departures: 677<br> total arrivals: 101<br> net departures: 576</div>`)[0];
+            popup_e0cf19bcb7174293b7598b8c797ce171.setContent(html_e146d778bb5843d0a0decd73c29820ac);
+        
+
+        circle_marker_d397550327f04b24a68ae07da0f987c7.bindPopup(popup_e0cf19bcb7174293b7598b8c797ce171)
+        ;
+
+        
+    
+    
+            var circle_marker_161bf58821a845628198b85b50baac52 = L.circleMarker(
+                [51.11397, 17.10395],
+                {"bubblingMouseEvents": true, "color": "#0A8A9F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0A8A9F", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_cb136c57fbd648038953d7f4904d3572 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_b0527cb6e1e44010bde73e42e4d1bca8 = $(`<div id="html_b0527cb6e1e44010bde73e42e4d1bca8" style="width: 100.0%; height: 100.0%;">Mickiewicza / pętla tramwajowa<br> total departures: 263<br> total arrivals: 267<br> net departures: -4</div>`)[0];
+            popup_cb136c57fbd648038953d7f4904d3572.setContent(html_b0527cb6e1e44010bde73e42e4d1bca8);
+        
+
+        circle_marker_161bf58821a845628198b85b50baac52.bindPopup(popup_cb136c57fbd648038953d7f4904d3572)
+        ;
+
+        
+    
+    
+            var circle_marker_0dd616a99a1044e6b00f76ff081c0852 = L.circleMarker(
+                [51.107234999999996, 17.060715],
+                {"bubblingMouseEvents": true, "color": "#0A8A9F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0A8A9F", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_1470732c79a04fdda412d7c9e517369e = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_003962840b3f4fcb9f8d6f30087c3cf8 = $(`<div id="html_003962840b3f4fcb9f8d6f30087c3cf8" style="width: 100.0%; height: 100.0%;">Norwida / Wyspiańskiego (PWr)<br> total departures: 571<br> total arrivals: 2105<br> net departures: -1534</div>`)[0];
+            popup_1470732c79a04fdda412d7c9e517369e.setContent(html_003962840b3f4fcb9f8d6f30087c3cf8);
+        
+
+        circle_marker_0dd616a99a1044e6b00f76ff081c0852.bindPopup(popup_1470732c79a04fdda412d7c9e517369e)
+        ;
+
+        
+    
+    
+            var circle_marker_c5ca8f86fc964a6394b1d3602c7f64c1 = L.circleMarker(
+                [51.119310999999996, 17.056784],
+                {"bubblingMouseEvents": true, "color": "#E37222", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E37222", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_dd91f4de2d7c451fb14b912395c1364b = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_3ab3568b7b374fe7a5bde6647c2e41c1 = $(`<div id="html_3ab3568b7b374fe7a5bde6647c2e41c1" style="width: 100.0%; height: 100.0%;">Nowowiejska / Górnickiego<br> total departures: 1551<br> total arrivals: 464<br> net departures: 1087</div>`)[0];
+            popup_dd91f4de2d7c451fb14b912395c1364b.setContent(html_3ab3568b7b374fe7a5bde6647c2e41c1);
+        
+
+        circle_marker_c5ca8f86fc964a6394b1d3602c7f64c1.bindPopup(popup_dd91f4de2d7c451fb14b912395c1364b)
+        ;
+
+        
+    
+    
+            var circle_marker_4a72955e5ae74c89be26fb2e98bf723f = L.circleMarker(
+                [51.124879, 17.045844],
+                {"bubblingMouseEvents": true, "color": "#E37222", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E37222", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_9636ae359c654d619c0ae97539cc3806 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_4001869bcfa845e5814afb8aa9232ab5 = $(`<div id="html_4001869bcfa845e5814afb8aa9232ab5" style="width: 100.0%; height: 100.0%;">Nowowiejska / Jedności Narodowej<br> total departures: 1140<br> total arrivals: 305<br> net departures: 835</div>`)[0];
+            popup_9636ae359c654d619c0ae97539cc3806.setContent(html_4001869bcfa845e5814afb8aa9232ab5);
+        
+
+        circle_marker_4a72955e5ae74c89be26fb2e98bf723f.bindPopup(popup_9636ae359c654d619c0ae97539cc3806)
+        ;
+
+        
+    
+    
+            var circle_marker_1c675928ecc3450c99cf564daa77c9b8 = L.circleMarker(
+                [51.122424, 17.052013],
+                {"bubblingMouseEvents": true, "color": "#E37222", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E37222", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_b5d218a8f0dc48e89d44c902eb9d3779 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_b6caafe0c489475083e048c477c1813e = $(`<div id="html_b6caafe0c489475083e048c477c1813e" style="width: 100.0%; height: 100.0%;">Nowowiejska / Wyszyńskiego<br> total departures: 1736<br> total arrivals: 561<br> net departures: 1175</div>`)[0];
+            popup_b5d218a8f0dc48e89d44c902eb9d3779.setContent(html_b6caafe0c489475083e048c477c1813e);
+        
+
+        circle_marker_1c675928ecc3450c99cf564daa77c9b8.bindPopup(popup_b5d218a8f0dc48e89d44c902eb9d3779)
+        ;
+
+        
+    
+    
+            var circle_marker_4c7fa8ee0daf4d08ad4faced7b3e8ccb = L.circleMarker(
+                [51.102090000000004, 17.101679999999998],
+                {"bubblingMouseEvents": true, "color": "#E37222", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E37222", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_e968abedb9f14410894084900fd20107 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_4ad00cfd26ac4602a021277194b31cea = $(`<div id="html_4ad00cfd26ac4602a021277194b31cea" style="width: 100.0%; height: 100.0%;">Olszewskiego / Spółdzielcza<br> total departures: 486<br> total arrivals: 369<br> net departures: 117</div>`)[0];
+            popup_e968abedb9f14410894084900fd20107.setContent(html_4ad00cfd26ac4602a021277194b31cea);
+        
+
+        circle_marker_4c7fa8ee0daf4d08ad4faced7b3e8ccb.bindPopup(popup_e968abedb9f14410894084900fd20107)
+        ;
+
+        
+    
+    
+            var circle_marker_c7edd2a20d09437e99ab8bca4bf5b540 = L.circleMarker(
+                [51.100862, 17.008224],
+                {"bubblingMouseEvents": true, "color": "#E37222", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E37222", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_7d5b723a4c544ed6927d39420831ac82 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_8453f0db9a32422cbf9141990eee620e = $(`<div id="html_8453f0db9a32422cbf9141990eee620e" style="width: 100.0%; height: 100.0%;">Pereca / Grabiszyńska<br> total departures: 1308<br> total arrivals: 364<br> net departures: 944</div>`)[0];
+            popup_7d5b723a4c544ed6927d39420831ac82.setContent(html_8453f0db9a32422cbf9141990eee620e);
+        
+
+        circle_marker_c7edd2a20d09437e99ab8bca4bf5b540.bindPopup(popup_7d5b723a4c544ed6927d39420831ac82)
+        ;
+
+        
+    
+    
+            var circle_marker_3f01bce3aae74286908bc96f314497e9 = L.circleMarker(
+                [51.11289, 17.03971],
+                {"bubblingMouseEvents": true, "color": "#0A8A9F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0A8A9F", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_2a88c75b244a4bdea5940dbed00e1585 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_bdcf7892d45a472fb35a6a41c3700859 = $(`<div id="html_bdcf7892d45a472fb35a6a41c3700859" style="width: 100.0%; height: 100.0%;">Piaskowa / św. Ducha<br> total departures: 785<br> total arrivals: 1008<br> net departures: -223</div>`)[0];
+            popup_2a88c75b244a4bdea5940dbed00e1585.setContent(html_bdcf7892d45a472fb35a6a41c3700859);
+        
+
+        circle_marker_3f01bce3aae74286908bc96f314497e9.bindPopup(popup_2a88c75b244a4bdea5940dbed00e1585)
+        ;
+
+        
+    
+    
+            var circle_marker_b502cbf4ce6045be8c282e87349ffeaa = L.circleMarker(
+                [51.113912, 17.067207],
+                {"bubblingMouseEvents": true, "color": "#E37222", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E37222", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_f51273bac4da49e7be2ff4995c72be27 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_941ab9d976fe475d9090553773653027 = $(`<div id="html_941ab9d976fe475d9090553773653027" style="width: 100.0%; height: 100.0%;">Plac Grunwaldzki (DS Ołówek)<br> total departures: 1207<br> total arrivals: 962<br> net departures: 245</div>`)[0];
+            popup_f51273bac4da49e7be2ff4995c72be27.setContent(html_941ab9d976fe475d9090553773653027);
+        
+
+        circle_marker_b502cbf4ce6045be8c282e87349ffeaa.bindPopup(popup_f51273bac4da49e7be2ff4995c72be27)
+        ;
+
+        
+    
+    
+            var circle_marker_095d461718aa4882b36a2a96cb26dd9d = L.circleMarker(
+                [51.110415, 17.055591],
+                {"bubblingMouseEvents": true, "color": "#0A8A9F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0A8A9F", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_cc9a1cd894dd4e3da6c55c906b4044fa = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_69905fd4a1a2491caec88c271e52f199 = $(`<div id="html_69905fd4a1a2491caec88c271e52f199" style="width: 100.0%; height: 100.0%;">Plac Grunwaldzki / Polaka<br> total departures: 1037<br> total arrivals: 1995<br> net departures: -958</div>`)[0];
+            popup_cc9a1cd894dd4e3da6c55c906b4044fa.setContent(html_69905fd4a1a2491caec88c271e52f199);
+        
+
+        circle_marker_095d461718aa4882b36a2a96cb26dd9d.bindPopup(popup_cc9a1cd894dd4e3da6c55c906b4044fa)
+        ;
+
+        
+    
+    
+            var circle_marker_99559d16dbf44e7cb803df2900240fab = L.circleMarker(
+                [51.111489, 17.020981],
+                {"bubblingMouseEvents": true, "color": "#0A8A9F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0A8A9F", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_35a88574ed734df68403ccf254acad76 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_12918e86a4a04aa1a30588ca6dd0c8b8 = $(`<div id="html_12918e86a4a04aa1a30588ca6dd0c8b8" style="width: 100.0%; height: 100.0%;">Plac Jana Pawła II (Akademia Muzyczna)<br> total departures: 1406<br> total arrivals: 2298<br> net departures: -892</div>`)[0];
+            popup_35a88574ed734df68403ccf254acad76.setContent(html_12918e86a4a04aa1a30588ca6dd0c8b8);
+        
+
+        circle_marker_99559d16dbf44e7cb803df2900240fab.bindPopup(popup_35a88574ed734df68403ccf254acad76)
+        ;
+
+        
+    
+    
+            var circle_marker_a530eeb717fa430d97bad26baa62bb11 = L.circleMarker(
+                [51.104413, 17.022536],
+                {"bubblingMouseEvents": true, "color": "#0A8A9F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0A8A9F", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_ed50b0becc3c48679547d188910189a7 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_5512cbfbc4644462b49277efe396f9dd = $(`<div id="html_5512cbfbc4644462b49277efe396f9dd" style="width: 100.0%; height: 100.0%;">Plac Legionów<br> total departures: 1843<br> total arrivals: 1969<br> net departures: -126</div>`)[0];
+            popup_ed50b0becc3c48679547d188910189a7.setContent(html_5512cbfbc4644462b49277efe396f9dd);
+        
+
+        circle_marker_a530eeb717fa430d97bad26baa62bb11.bindPopup(popup_ed50b0becc3c48679547d188910189a7)
+        ;
+
+        
+    
+    
+            var circle_marker_15d1f6ef3472468f9bb026ed0b47ebef = L.circleMarker(
+                [51.110822, 17.038439999999998],
+                {"bubblingMouseEvents": true, "color": "#0A8A9F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0A8A9F", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_d64027d5c8514693a4eb63f223e686a4 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_29887a36bd9c486b858d4d369da2ce8e = $(`<div id="html_29887a36bd9c486b858d4d369da2ce8e" style="width: 100.0%; height: 100.0%;">Plac Nowy Targ<br> total departures: 830<br> total arrivals: 1771<br> net departures: -941</div>`)[0];
+            popup_d64027d5c8514693a4eb63f223e686a4.setContent(html_29887a36bd9c486b858d4d369da2ce8e);
+        
+
+        circle_marker_15d1f6ef3472468f9bb026ed0b47ebef.bindPopup(popup_d64027d5c8514693a4eb63f223e686a4)
+        ;
+
+        
+    
+    
+            var circle_marker_01de7bd86a2d443da800f8423f6f629e = L.circleMarker(
+                [51.110001000000004, 17.047735999999997],
+                {"bubblingMouseEvents": true, "color": "#0A8A9F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0A8A9F", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_5395eaca14d14ad5a54d0785c79ce05b = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_a5e7626f9b6b4ebaa6bff9c873f1a8cc = $(`<div id="html_a5e7626f9b6b4ebaa6bff9c873f1a8cc" style="width: 100.0%; height: 100.0%;">Plac Powstańców Warszawy (Muzeum Narodowe)<br> total departures: 957<br> total arrivals: 1915<br> net departures: -958</div>`)[0];
+            popup_5395eaca14d14ad5a54d0785c79ce05b.setContent(html_a5e7626f9b6b4ebaa6bff9c873f1a8cc);
+        
+
+        circle_marker_01de7bd86a2d443da800f8423f6f629e.bindPopup(popup_5395eaca14d14ad5a54d0785c79ce05b)
+        ;
+
+        
+    
+    
+            var circle_marker_36c04a69826c49238e447d958f4c0bd1 = L.circleMarker(
+                [51.12274, 17.03061],
+                {"bubblingMouseEvents": true, "color": "#E37222", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E37222", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_bc173939b1724d1bbb3a6230002530c1 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_f882ab2fd0bd4e78a004d387361d93cb = $(`<div id="html_f882ab2fd0bd4e78a004d387361d93cb" style="width: 100.0%; height: 100.0%;">Plac Staszica<br> total departures: 967<br> total arrivals: 756<br> net departures: 211</div>`)[0];
+            popup_bc173939b1724d1bbb3a6230002530c1.setContent(html_f882ab2fd0bd4e78a004d387361d93cb);
+        
+
+        circle_marker_36c04a69826c49238e447d958f4c0bd1.bindPopup(popup_bc173939b1724d1bbb3a6230002530c1)
+        ;
+
+        
+    
+    
+            var circle_marker_d16e9cf3af0743c693bd498065576ac0 = L.circleMarker(
+                [51.113703, 17.006287],
+                {"bubblingMouseEvents": true, "color": "#0A8A9F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0A8A9F", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_2af4efd1b19e404ab3bfd878f6925df2 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_fbeac0b2fd2841aba092e0de9b522376 = $(`<div id="html_fbeac0b2fd2841aba092e0de9b522376" style="width: 100.0%; height: 100.0%;">Plac Strzegomski / Poznańska<br> total departures: 834<br> total arrivals: 2546<br> net departures: -1712</div>`)[0];
+            popup_2af4efd1b19e404ab3bfd878f6925df2.setContent(html_fbeac0b2fd2841aba092e0de9b522376);
+        
+
+        circle_marker_d16e9cf3af0743c693bd498065576ac0.bindPopup(popup_2af4efd1b19e404ab3bfd878f6925df2)
+        ;
+
+        
+    
+    
+            var circle_marker_e7f01cc6f9d343d1bf0e7597cac3618c = L.circleMarker(
+                [51.113871, 17.034484],
+                {"bubblingMouseEvents": true, "color": "#0A8A9F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0A8A9F", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_8a337f7388ce48d9bb21e7405b53a053 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_2a2522b05387418cb30584f7070f834b = $(`<div id="html_2a2522b05387418cb30584f7070f834b" style="width: 100.0%; height: 100.0%;">Plac Uniwersytecki (UWr)<br> total departures: 613<br> total arrivals: 1119<br> net departures: -506</div>`)[0];
+            popup_8a337f7388ce48d9bb21e7405b53a053.setContent(html_2a2522b05387418cb30584f7070f834b);
+        
+
+        circle_marker_e7f01cc6f9d343d1bf0e7597cac3618c.bindPopup(popup_8a337f7388ce48d9bb21e7405b53a053)
+        ;
+
+        
+    
+    
+            var circle_marker_47191eb39f4746ca8848342226975b93 = L.circleMarker(
+                [51.121308, 17.043077],
+                {"bubblingMouseEvents": true, "color": "#E37222", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E37222", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_68cc1d75b82b4b1c8ce9476ad944e174 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_cc5bbbb2aa894f2c968e7f86442706e6 = $(`<div id="html_cc5bbbb2aa894f2c968e7f86442706e6" style="width: 100.0%; height: 100.0%;">Poniatowskiego / Oleśnicka<br> total departures: 1298<br> total arrivals: 341<br> net departures: 957</div>`)[0];
+            popup_68cc1d75b82b4b1c8ce9476ad944e174.setContent(html_cc5bbbb2aa894f2c968e7f86442706e6);
+        
+
+        circle_marker_47191eb39f4746ca8848342226975b93.bindPopup(popup_68cc1d75b82b4b1c8ce9476ad944e174)
+        ;
+
+        
+    
+    
+            var circle_marker_155111c6bb29497ab205fda5ed2a7b6d = L.circleMarker(
+                [51.086689, 17.01248],
+                {"bubblingMouseEvents": true, "color": "#0A8A9F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0A8A9F", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_82b319b8e2b548d9afe7c84e0c835a7a = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_16193b4524e846dca55644235c80011c = $(`<div id="html_16193b4524e846dca55644235c80011c" style="width: 100.0%; height: 100.0%;">Powstańcow Śląskich / Aleja Hallera<br> total departures: 1912<br> total arrivals: 2011<br> net departures: -99</div>`)[0];
+            popup_82b319b8e2b548d9afe7c84e0c835a7a.setContent(html_16193b4524e846dca55644235c80011c);
+        
+
+        circle_marker_155111c6bb29497ab205fda5ed2a7b6d.bindPopup(popup_82b319b8e2b548d9afe7c84e0c835a7a)
+        ;
+
+        
+    
+    
+            var circle_marker_29548b2fb55c4643bdce9d4164216f96 = L.circleMarker(
+                [51.099713, 17.027905],
+                {"bubblingMouseEvents": true, "color": "#0A8A9F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0A8A9F", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_a1f781199b0b4659a0ec37258764e048 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_f99278a3c0f34dfcb9fcd946d0987c7a = $(`<div id="html_f99278a3c0f34dfcb9fcd946d0987c7a" style="width: 100.0%; height: 100.0%;">Powstańców Śląskich (Arkady Wrocławskie)<br> total departures: 1406<br> total arrivals: 3043<br> net departures: -1637</div>`)[0];
+            popup_a1f781199b0b4659a0ec37258764e048.setContent(html_f99278a3c0f34dfcb9fcd946d0987c7a);
+        
+
+        circle_marker_29548b2fb55c4643bdce9d4164216f96.bindPopup(popup_a1f781199b0b4659a0ec37258764e048)
+        ;
+
+        
+    
+    
+            var circle_marker_9bad3fddba2b492091b63209f4579906 = L.circleMarker(
+                [51.12887567, 17.04499841],
+                {"bubblingMouseEvents": true, "color": "#E37222", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E37222", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_fede74f3f9d44a49866f6dfee7ef72bc = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_e64d7281b8a34a5d8b9953476858b0fe = $(`<div id="html_e64d7281b8a34a5d8b9953476858b0fe" style="width: 100.0%; height: 100.0%;">Promenady Wrocławskie<br> total departures: 785<br> total arrivals: 523<br> net departures: 262</div>`)[0];
+            popup_fede74f3f9d44a49866f6dfee7ef72bc.setContent(html_e64d7281b8a34a5d8b9953476858b0fe);
+        
+
+        circle_marker_9bad3fddba2b492091b63209f4579906.bindPopup(popup_fede74f3f9d44a49866f6dfee7ef72bc)
+        ;
+
+        
+    
+    
+            var circle_marker_a7ab1271ae9940d4af5223db68d9e860 = L.circleMarker(
+                [51.080220000000004, 16.994670000000003],
+                {"bubblingMouseEvents": true, "color": "#E37222", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E37222", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_4776acd5133343559cb6a591d4e21be9 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_d5fc543e176147d69f3da6b917f10714 = $(`<div id="html_d5fc543e176147d69f3da6b917f10714" style="width: 100.0%; height: 100.0%;">Racławicka / Rymarska<br> total departures: 931<br> total arrivals: 140<br> net departures: 791</div>`)[0];
+            popup_4776acd5133343559cb6a591d4e21be9.setContent(html_d5fc543e176147d69f3da6b917f10714);
+        
+
+        circle_marker_a7ab1271ae9940d4af5223db68d9e860.bindPopup(popup_4776acd5133343559cb6a591d4e21be9)
+        ;
+
+        
+    
+    
+            var circle_marker_5e705e592dfd4fe4bc56b13509102cc7 = L.circleMarker(
+                [51.112154, 17.060451],
+                {"bubblingMouseEvents": true, "color": "#0A8A9F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0A8A9F", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_059ed2c63ee946898bab3da1a5eed4ea = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_a83b6b5996f1428ebb70cd4b3418f4b1 = $(`<div id="html_a83b6b5996f1428ebb70cd4b3418f4b1" style="width: 100.0%; height: 100.0%;">Rondo Reagana<br> total departures: 1548<br> total arrivals: 4104<br> net departures: -2556</div>`)[0];
+            popup_059ed2c63ee946898bab3da1a5eed4ea.setContent(html_a83b6b5996f1428ebb70cd4b3418f4b1);
+        
+
+        circle_marker_5e705e592dfd4fe4bc56b13509102cc7.bindPopup(popup_059ed2c63ee946898bab3da1a5eed4ea)
+        ;
+
+        
+    
+    
+            var circle_marker_4ce2e80cf7074a12a588c0d0aeeeb986 = L.circleMarker(
+                [51.109782, 17.030175],
+                {"bubblingMouseEvents": true, "color": "#0A8A9F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0A8A9F", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_d54361db96ef49a7b54ee11888139e2e = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_1ad364e832dc40a9b961f3464b313c37 = $(`<div id="html_1ad364e832dc40a9b961f3464b313c37" style="width: 100.0%; height: 100.0%;">Rynek<br> total departures: 1016<br> total arrivals: 5881<br> net departures: -4865</div>`)[0];
+            popup_d54361db96ef49a7b54ee11888139e2e.setContent(html_1ad364e832dc40a9b961f3464b313c37);
+        
+
+        circle_marker_4ce2e80cf7074a12a588c0d0aeeeb986.bindPopup(popup_d54361db96ef49a7b54ee11888139e2e)
+        ;
+
+        
+    
+    
+            var circle_marker_fc61bf963c8243ab99df538bbf28e9e3 = L.circleMarker(
+                [51.115564, 17.060704],
+                {"bubblingMouseEvents": true, "color": "#E37222", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E37222", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_b3380489861d489880e1606737119008 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_aa78eabf81ac4f7089aa09b2b5e3ea5f = $(`<div id="html_aa78eabf81ac4f7089aa09b2b5e3ea5f" style="width: 100.0%; height: 100.0%;">Sienkiewicza / Piastowska<br> total departures: 943<br> total arrivals: 740<br> net departures: 203</div>`)[0];
+            popup_b3380489861d489880e1606737119008.setContent(html_aa78eabf81ac4f7089aa09b2b5e3ea5f);
+        
+
+        circle_marker_fc61bf963c8243ab99df538bbf28e9e3.bindPopup(popup_b3380489861d489880e1606737119008)
+        ;
+
+        
+    
+    
+            var circle_marker_17f13fe0dc914f4cb6821a00faf067fb = L.circleMarker(
+                [51.116822, 17.051845],
+                {"bubblingMouseEvents": true, "color": "#E37222", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E37222", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_3cfe6c3339d94832914ba15a138a42de = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_ad8905aef934473586ed09974b506cf5 = $(`<div id="html_ad8905aef934473586ed09974b506cf5" style="width: 100.0%; height: 100.0%;">Sienkiewicza / Wyszyńskiego<br> total departures: 1939<br> total arrivals: 1482<br> net departures: 457</div>`)[0];
+            popup_3cfe6c3339d94832914ba15a138a42de.setContent(html_ad8905aef934473586ed09974b506cf5);
+        
+
+        circle_marker_17f13fe0dc914f4cb6821a00faf067fb.bindPopup(popup_3cfe6c3339d94832914ba15a138a42de)
+        ;
+
+        
+    
+    
+            var circle_marker_43739988767f41dda921498478b1ba99 = L.circleMarker(
+                [51.07329, 16.99485],
+                {"bubblingMouseEvents": true, "color": "#E37222", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E37222", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_910fc3159d3f4fe7b207ca8291c7d457 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_7b8cf96c0c7b44058fd00ed3f7648832 = $(`<div id="html_7b8cf96c0c7b44058fd00ed3f7648832" style="width: 100.0%; height: 100.0%;">Skarbowców / Wietrzna<br> total departures: 1051<br> total arrivals: 248<br> net departures: 803</div>`)[0];
+            popup_910fc3159d3f4fe7b207ca8291c7d457.setContent(html_7b8cf96c0c7b44058fd00ed3f7648832);
+        
+
+        circle_marker_43739988767f41dda921498478b1ba99.bindPopup(popup_910fc3159d3f4fe7b207ca8291c7d457)
+        ;
+
+        
+    
+    
+            var circle_marker_00ff72cd0f2a4d5da5139a24577637ac = L.circleMarker(
+                [51.115353999999996, 16.998732],
+                {"bubblingMouseEvents": true, "color": "#0A8A9F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0A8A9F", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_35e6209d582840a5a76f4cb80c351c05 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_746d346ae3a64547acb057f505180de1 = $(`<div id="html_746d346ae3a64547acb057f505180de1" style="width: 100.0%; height: 100.0%;">Stacyjna (Dworzec Mikołajów)<br> total departures: 858<br> total arrivals: 1309<br> net departures: -451</div>`)[0];
+            popup_35e6209d582840a5a76f4cb80c351c05.setContent(html_746d346ae3a64547acb057f505180de1);
+        
+
+        circle_marker_00ff72cd0f2a4d5da5139a24577637ac.bindPopup(popup_35e6209d582840a5a76f4cb80c351c05)
+        ;
+
+        
+    
+    
+            var circle_marker_ebc7fe4f681f4beaa1f12a4aeccf7cec = L.circleMarker(
+                [51.111874, 16.960692],
+                {"bubblingMouseEvents": true, "color": "#E37222", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E37222", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_ddc3c5ea9893411c9460dc2b903b80a7 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_782ec0dea0bb4e5b9db3b100795cda41 = $(`<div id="html_782ec0dea0bb4e5b9db3b100795cda41" style="width: 100.0%; height: 100.0%;">Strzegomska / Estońska<br> total departures: 517<br> total arrivals: 316<br> net departures: 201</div>`)[0];
+            popup_ddc3c5ea9893411c9460dc2b903b80a7.setContent(html_782ec0dea0bb4e5b9db3b100795cda41);
+        
+
+        circle_marker_ebc7fe4f681f4beaa1f12a4aeccf7cec.bindPopup(popup_ddc3c5ea9893411c9460dc2b903b80a7)
+        ;
+
+        
+    
+    
+            var circle_marker_12792c7cf83f497ab82362a69f1004f0 = L.circleMarker(
+                [51.094521, 17.020876],
+                {"bubblingMouseEvents": true, "color": "#0A8A9F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0A8A9F", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_43c3054fb97a4397b8c1d7261142bc69 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_b7b0507bebc44a8193d000312543e111 = $(`<div id="html_b7b0507bebc44a8193d000312543e111" style="width: 100.0%; height: 100.0%;">Szczęśliwa (Sky Tower)<br> total departures: 2121<br> total arrivals: 3126<br> net departures: -1005</div>`)[0];
+            popup_43c3054fb97a4397b8c1d7261142bc69.setContent(html_b7b0507bebc44a8193d000312543e111);
+        
+
+        circle_marker_12792c7cf83f497ab82362a69f1004f0.bindPopup(popup_43c3054fb97a4397b8c1d7261142bc69)
+        ;
+
+        
+    
+    
+            var circle_marker_5934471b2f19432da59fa390f52bf6b2 = L.circleMarker(
+                [51.105059999999995, 17.03751],
+                {"bubblingMouseEvents": true, "color": "#0A8A9F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0A8A9F", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_2cb943afbfbc4730b88dcdf7ab414017 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_5e89f688f03944aea07cafcf2f611b49 = $(`<div id="html_5e89f688f03944aea07cafcf2f611b49" style="width: 100.0%; height: 100.0%;">Teatralna - Piotra Skargi<br> total departures: 1253<br> total arrivals: 1793<br> net departures: -540</div>`)[0];
+            popup_2cb943afbfbc4730b88dcdf7ab414017.setContent(html_5e89f688f03944aea07cafcf2f611b49);
+        
+
+        circle_marker_5934471b2f19432da59fa390f52bf6b2.bindPopup(popup_2cb943afbfbc4730b88dcdf7ab414017)
+        ;
+
+        
+    
+    
+            var circle_marker_302e390388044b79951d79ec799aec34 = L.circleMarker(
+                [51.097147, 17.056251],
+                {"bubblingMouseEvents": true, "color": "#E37222", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E37222", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_b356d049786043b0acdf18f4e4f06123 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_b4b4b8f9ffa84037aace8f85bd667e0b = $(`<div id="html_b4b4b8f9ffa84037aace8f85bd667e0b" style="width: 100.0%; height: 100.0%;">Traugutta / Kościuszki<br> total departures: 1587<br> total arrivals: 1392<br> net departures: 195</div>`)[0];
+            popup_b356d049786043b0acdf18f4e4f06123.setContent(html_b4b4b8f9ffa84037aace8f85bd667e0b);
+        
+
+        circle_marker_302e390388044b79951d79ec799aec34.bindPopup(popup_b356d049786043b0acdf18f4e4f06123)
+        ;
+
+        
+    
+    
+            var circle_marker_9dc11e75e6904450bb45e2fa020a5afe = L.circleMarker(
+                [51.104571, 17.048102],
+                {"bubblingMouseEvents": true, "color": "#E37222", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E37222", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_1aeec78aea38489c9c92fcf7cdf6e136 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_8dd1764c190f44a1801b350741a8c891 = $(`<div id="html_8dd1764c190f44a1801b350741a8c891" style="width: 100.0%; height: 100.0%;">Traugutta / Pułaskiego<br> total departures: 2101<br> total arrivals: 1773<br> net departures: 328</div>`)[0];
+            popup_1aeec78aea38489c9c92fcf7cdf6e136.setContent(html_8dd1764c190f44a1801b350741a8c891);
+        
+
+        circle_marker_9dc11e75e6904450bb45e2fa020a5afe.bindPopup(popup_1aeec78aea38489c9c92fcf7cdf6e136)
+        ;
+
+        
+    
+    
+            var circle_marker_3b033e1ff80841e68ae805a8e59dac96 = L.circleMarker(
+                [51.110274, 17.034912],
+                {"bubblingMouseEvents": true, "color": "#0A8A9F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0A8A9F", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_4d36560b5d654283a5201bafa5e9a336 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_f1ae71c5cc8a4b0fbcd62a261dd73103 = $(`<div id="html_f1ae71c5cc8a4b0fbcd62a261dd73103" style="width: 100.0%; height: 100.0%;">Wita Stwosza / Szewska<br> total departures: 1542<br> total arrivals: 4109<br> net departures: -2567</div>`)[0];
+            popup_4d36560b5d654283a5201bafa5e9a336.setContent(html_f1ae71c5cc8a4b0fbcd62a261dd73103);
+        
+
+        circle_marker_3b033e1ff80841e68ae805a8e59dac96.bindPopup(popup_4d36560b5d654283a5201bafa5e9a336)
+        ;
+
+        
+    
+    
+            var circle_marker_6d88aacaa1b941a58a041e5f14bbae23 = L.circleMarker(
+                [51.10411, 17.084711],
+                {"bubblingMouseEvents": true, "color": "#E37222", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E37222", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_6cf199a34417418d9a202160196ea238 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_401b7784721747f781e55053194b57ed = $(`<div id="html_401b7784721747f781e55053194b57ed" style="width: 100.0%; height: 100.0%;">Wróblewskiego (Teki)<br> total departures: 1218<br> total arrivals: 606<br> net departures: 612</div>`)[0];
+            popup_6cf199a34417418d9a202160196ea238.setContent(html_401b7784721747f781e55053194b57ed);
+        
+
+        circle_marker_6d88aacaa1b941a58a041e5f14bbae23.bindPopup(popup_6cf199a34417418d9a202160196ea238)
+        ;
+
+        
+    
+    
+            var circle_marker_975707f875c84f819e7c6e78e2ff7ec9 = L.circleMarker(
+                [51.11956, 17.0514],
+                {"bubblingMouseEvents": true, "color": "#E37222", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E37222", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_93d9676704a349e89a68774c3b0e8ccc = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_3b22fca4150546e28bf1c9301276fd9d = $(`<div id="html_3b22fca4150546e28bf1c9301276fd9d" style="width: 100.0%; height: 100.0%;">Wyszyńskiego - Prusa<br> total departures: 1103<br> total arrivals: 531<br> net departures: 572</div>`)[0];
+            popup_93d9676704a349e89a68774c3b0e8ccc.setContent(html_3b22fca4150546e28bf1c9301276fd9d);
+        
+
+        circle_marker_975707f875c84f819e7c6e78e2ff7ec9.bindPopup(popup_93d9676704a349e89a68774c3b0e8ccc)
+        ;
+
+        
+    
+    
+            var circle_marker_ea37d046c75146e7b240716d2f8fc7bd = L.circleMarker(
+                [51.117668, 17.007137],
+                {"bubblingMouseEvents": true, "color": "#E37222", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E37222", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_05c2ad48b93d4d9abdd7122336a998fe = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_975cdd13cfd5483f911f18db1bb7f974 = $(`<div id="html_975cdd13cfd5483f911f18db1bb7f974" style="width: 100.0%; height: 100.0%;">Zachodnia / Poznańska<br> total departures: 958<br> total arrivals: 261<br> net departures: 697</div>`)[0];
+            popup_05c2ad48b93d4d9abdd7122336a998fe.setContent(html_975cdd13cfd5483f911f18db1bb7f974);
+        
+
+        circle_marker_ea37d046c75146e7b240716d2f8fc7bd.bindPopup(popup_05c2ad48b93d4d9abdd7122336a998fe)
+        ;
+
+        
+    
+    
+            var circle_marker_a7946eb2b66a4d00960cce9b46850c55 = L.circleMarker(
+                [51.097209, 17.013967],
+                {"bubblingMouseEvents": true, "color": "#E37222", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E37222", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_d8049fc1670c422eb562d7d1404bba34 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_b66122f948924a81980fe9351a0dec6a = $(`<div id="html_b66122f948924a81980fe9351a0dec6a" style="width: 100.0%; height: 100.0%;">Zaporoska / Gajowicka<br> total departures: 1431<br> total arrivals: 393<br> net departures: 1038</div>`)[0];
+            popup_d8049fc1670c422eb562d7d1404bba34.setContent(html_b66122f948924a81980fe9351a0dec6a);
+        
+
+        circle_marker_a7946eb2b66a4d00960cce9b46850c55.bindPopup(popup_d8049fc1670c422eb562d7d1404bba34)
+        ;
+
+        
+    
+    
+            var circle_marker_c2b6baa2224a4445baae758f6f020477 = L.circleMarker(
+                [51.102117, 17.013683],
+                {"bubblingMouseEvents": true, "color": "#E37222", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E37222", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_2a92fe5e5d2c4da6815a2a7c10f60d1e = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_fbc7a7170f3c4caf8f9ade95cdc73fc3 = $(`<div id="html_fbc7a7170f3c4caf8f9ade95cdc73fc3" style="width: 100.0%; height: 100.0%;">Zaporoska / Grabiszyńska<br> total departures: 1471<br> total arrivals: 735<br> net departures: 736</div>`)[0];
+            popup_2a92fe5e5d2c4da6815a2a7c10f60d1e.setContent(html_fbc7a7170f3c4caf8f9ade95cdc73fc3);
+        
+
+        circle_marker_c2b6baa2224a4445baae758f6f020477.bindPopup(popup_2a92fe5e5d2c4da6815a2a7c10f60d1e)
+        ;
+
+        
+    
+    
+            var circle_marker_f775b2f6a1b848b993768002c9e405c0 = L.circleMarker(
+                [51.09431, 17.014789999999998],
+                {"bubblingMouseEvents": true, "color": "#E37222", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E37222", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_8fddda71a09a478aa352611f05eb6361 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_d9fbe550f85b4755ab3f13eb71c12553 = $(`<div id="html_d9fbe550f85b4755ab3f13eb71c12553" style="width: 100.0%; height: 100.0%;">Zaporoska / Wielka / Krucza<br> total departures: 691<br> total arrivals: 444<br> net departures: 247</div>`)[0];
+            popup_8fddda71a09a478aa352611f05eb6361.setContent(html_d9fbe550f85b4755ab3f13eb71c12553);
+        
+
+        circle_marker_f775b2f6a1b848b993768002c9e405c0.bindPopup(popup_8fddda71a09a478aa352611f05eb6361)
+        ;
+
+        
+    
+    
+            var circle_marker_041c036050e8413193ab2040beefdd39 = L.circleMarker(
+                [51.08361, 17.03523],
+                {"bubblingMouseEvents": true, "color": "#E37222", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E37222", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_a5509bb89f0040c88976b11f91838fc6 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_1e6cccb5ed5643f787f923d7fd38633c = $(`<div id="html_1e6cccb5ed5643f787f923d7fd38633c" style="width: 100.0%; height: 100.0%;">al. Armii Krajowej / Borowska<br> total departures: 1562<br> total arrivals: 1064<br> net departures: 498</div>`)[0];
+            popup_a5509bb89f0040c88976b11f91838fc6.setContent(html_1e6cccb5ed5643f787f923d7fd38633c);
+        
+
+        circle_marker_041c036050e8413193ab2040beefdd39.bindPopup(popup_a5509bb89f0040c88976b11f91838fc6)
+        ;
+
+        
+    
+    
+            var circle_marker_7e3cbffd093b4f20a4961fad3681f62a = L.circleMarker(
+                [51.12469, 17.034879999999998],
+                {"bubblingMouseEvents": true, "color": "#E37222", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E37222", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_d38956852b72447b9ca14d36149fa90f = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_96d8a7cd265e46fb81fde5fda171f3b1 = $(`<div id="html_96d8a7cd265e46fb81fde5fda171f3b1" style="width: 100.0%; height: 100.0%;">pl. Powstańców Wielkopolskich<br> total departures: 1791<br> total arrivals: 734<br> net departures: 1057</div>`)[0];
+            popup_d38956852b72447b9ca14d36149fa90f.setContent(html_96d8a7cd265e46fb81fde5fda171f3b1);
+        
+
+        circle_marker_7e3cbffd093b4f20a4961fad3681f62a.bindPopup(popup_d38956852b72447b9ca14d36149fa90f)
+        ;
+
+        
+    
+    
+            var circle_marker_11684ac8b5bc4eb2af652601103b94e8 = L.circleMarker(
+                [51.108288, 17.064884],
+                {"bubblingMouseEvents": true, "color": "#0A8A9F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0A8A9F", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_a0913bad05d64f38b431379444d2f212 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_6d631ff5a28b48809c5e9d0a230b5cfc = $(`<div id="html_6d631ff5a28b48809c5e9d0a230b5cfc" style="width: 100.0%; height: 100.0%;">Łukasiewicza / Smoluchowskiego (PWr)<br> total departures: 677<br> total arrivals: 1842<br> net departures: -1165</div>`)[0];
+            popup_a0913bad05d64f38b431379444d2f212.setContent(html_6d631ff5a28b48809c5e9d0a230b5cfc);
+        
+
+        circle_marker_11684ac8b5bc4eb2af652601103b94e8.bindPopup(popup_a0913bad05d64f38b431379444d2f212)
+        ;
+
+        
+    
+    
+            var circle_marker_8d3f3ef4ee5a4504917cb608f403b2db = L.circleMarker(
+                [51.089842, 17.028225],
+                {"bubblingMouseEvents": true, "color": "#0A8A9F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0A8A9F", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_659d6067265c457084a4acf9c34a1ed7 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_48f7b0779c8542cabbad846fce884ba6 = $(`<div id="html_48f7b0779c8542cabbad846fce884ba6" style="width: 100.0%; height: 100.0%;">Ślężna / Kamienna (Uniw. Ekonomiczny)<br> total departures: 814<br> total arrivals: 911<br> net departures: -97</div>`)[0];
+            popup_659d6067265c457084a4acf9c34a1ed7.setContent(html_48f7b0779c8542cabbad846fce884ba6);
+        
+
+        circle_marker_8d3f3ef4ee5a4504917cb608f403b2db.bindPopup(popup_659d6067265c457084a4acf9c34a1ed7)
+        ;
+
+        
+    
+    
+            var circle_marker_ce63a04af33c4b5495e5e84517d76e17 = L.circleMarker(
+                [51.101321999999996, 17.028528],
+                {"bubblingMouseEvents": true, "color": "#0A8A9F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0A8A9F", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_84e5bff87f4b4ab782892b309493d4f8 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_80356cefdade4d38b555a7cebb9b8ffb = $(`<div id="html_80356cefdade4d38b555a7cebb9b8ffb" style="width: 100.0%; height: 100.0%;">Świdnicka / Piłsudskiego (Hotel Scandic)<br> total departures: 1024<br> total arrivals: 2025<br> net departures: -1001</div>`)[0];
+            popup_84e5bff87f4b4ab782892b309493d4f8.setContent(html_80356cefdade4d38b555a7cebb9b8ffb);
+        
+
+        circle_marker_ce63a04af33c4b5495e5e84517d76e17.bindPopup(popup_84e5bff87f4b4ab782892b309493d4f8)
+        ;
+
+        
+    
+    
+            var circle_marker_e49b949005cf41f88a20cc6ba918b67a = L.circleMarker(
+                [51.077147, 17.046785],
+                {"bubblingMouseEvents": true, "color": "#E37222", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E37222", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_298e417a6e234d5eb7b3388d4e676e6c = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_09b7c0f430eb4cf78d95b0f09e12335f = $(`<div id="html_09b7c0f430eb4cf78d95b0f09e12335f" style="width: 100.0%; height: 100.0%;">Świeradowska / Krynicka<br> total departures: 837<br> total arrivals: 281<br> net departures: 556</div>`)[0];
+            popup_298e417a6e234d5eb7b3388d4e676e6c.setContent(html_09b7c0f430eb4cf78d95b0f09e12335f);
+        
+
+        circle_marker_e49b949005cf41f88a20cc6ba918b67a.bindPopup(popup_298e417a6e234d5eb7b3388d4e676e6c)
+        ;
+
+        
+    
+    
+            var circle_marker_fd0d4da36e394d50946c859e4ece5d0d = L.circleMarker(
+                [51.098027, 17.006977],
+                {"bubblingMouseEvents": true, "color": "#E37222", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E37222", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_a23cbc59659f419ead785ec22438c14b = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_90c13a9db78242a2974b198d421ca14f = $(`<div id="html_90c13a9db78242a2974b198d421ca14f" style="width: 100.0%; height: 100.0%;">Żelazna / Pereca<br> total departures: 1081<br> total arrivals: 152<br> net departures: 929</div>`)[0];
+            popup_a23cbc59659f419ead785ec22438c14b.setContent(html_90c13a9db78242a2974b198d421ca14f);
+        
+
+        circle_marker_fd0d4da36e394d50946c859e4ece5d0d.bindPopup(popup_a23cbc59659f419ead785ec22438c14b)
+        ;
+
+        
+    
+    
+            var circle_marker_98d2462823894c2b9337e3af55f91c74 = L.circleMarker(
+                [51.125659999999996, 17.050463],
+                {"bubblingMouseEvents": true, "color": "#E37222", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E37222", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_1a544cdfe5c74738b1cdf754fd89c4ae = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_988646f880984c1e913a2ce27796617e = $(`<div id="html_988646f880984c1e913a2ce27796617e" style="width: 100.0%; height: 100.0%;">Żeromskiego / Daszyńskiego<br> total departures: 1225<br> total arrivals: 403<br> net departures: 822</div>`)[0];
+            popup_1a544cdfe5c74738b1cdf754fd89c4ae.setContent(html_988646f880984c1e913a2ce27796617e);
+        
+
+        circle_marker_98d2462823894c2b9337e3af55f91c74.bindPopup(popup_1a544cdfe5c74738b1cdf754fd89c4ae)
+        ;
+
+        
+    
+    
+            var circle_marker_eb3aec485c684bc1953898460871293e = L.circleMarker(
+                [51.122313, 17.047515],
+                {"bubblingMouseEvents": true, "color": "#E37222", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E37222", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0c7a50ee9e8c448e9d45241e877fbc9e);
+        
+    
+        var popup_67c4df8b20af4e6981db01d8f9b29393 = L.popup({"maxWidth": 250, "minWidth": 150});
+
+        
+            var html_4652b3e9c115495c8bb04d27490b8288 = $(`<div id="html_4652b3e9c115495c8bb04d27490b8288" style="width: 100.0%; height: 100.0%;">Żeromskiego / Kluczborska<br> total departures: 1022<br> total arrivals: 199<br> net departures: 823</div>`)[0];
+            popup_67c4df8b20af4e6981db01d8f9b29393.setContent(html_4652b3e9c115495c8bb04d27490b8288);
+        
+
+        circle_marker_eb3aec485c684bc1953898460871293e.bindPopup(popup_67c4df8b20af4e6981db01d8f9b29393)
+        ;
+
+        
+    
+</script>
