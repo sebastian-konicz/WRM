@@ -177,13 +177,13 @@ I've also generated an interactive version of this plot in folium - click [here]
 
 ### Analysis of flows between stations
 
-![outflowTable](images/final/outflowTable.png)
+![outflowTable](images/plots/outflowTable.png)
 
-![inflowTable](images/final/inflowTable.png)
+![inflowTable](images/plots/inflowTable.png)
 
-![totalflowTable](images/final/totalflowTable.png)
+![totalflowTable](images/plots/totalflowTable.png)
 
-![flowDiffTable](images/final/flowDiffTable.png)
+![flowDiffTable](images/plots/flowDiffTable.png)
 
 In the images below, orange represents a station with more bikes leaving than coming in (outflows > inflows), whilst blue represents the opposite. As expected, in the morning people commute in to the centre from the suburbs, whilst the opposite occurs in the evening.
 #### Net arivals/departures in the morning (working days)
