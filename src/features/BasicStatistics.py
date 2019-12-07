@@ -117,7 +117,7 @@ def plots(dir):
 
     for key, value in tablesDictionary.items():
         plotly.offline.plot(value, filename=(dir + r'\images\sites\{}.html'.format(key)))
-        go.Figure(value).write_image(dir + r'\images\plots\{}.png'.format(key), width=1280, height=550)
+        go.Figure(value).write_image(dir + r'\images\plots\{}.png'.format(key), width=1280, height=500)
 
 if __name__ == "__main__":
     project_dir = str(Path(__file__).resolve().parents[2])
