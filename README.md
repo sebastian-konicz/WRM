@@ -203,6 +203,15 @@ In the images below, orange represents a station with more bikes leaving than co
 
 ## Weather conditions usage patterns <a id="weather"></a>
 (How does the weather change the way people use Bike Share?)
+
+![heatmapDaily](images/plots/heatmapDaily.png)
+
+![plotCorrTemp](images/plots/plotCorrTemp.png)
+
+![plotCorrHum](images/plots/plotCorrHum.png)
+
+![plotCorrWind](images/plots/plotCorrWind.png)
+
 - correlation between weather conditions and bike usage (temp, percipitation, wind and humidity)
 [Source / Inspiration](https://towardsdatascience.com/exploring-toronto-bike-share-ridership-using-python-3dc87d35cb62)
 

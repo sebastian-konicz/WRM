@@ -21,43 +21,80 @@ def main(dir):
     print("Loading data")
     RentalData = pd.read_csv(dir + r'\data\processed\RentalData2015Enriched.csv', delimiter=",", encoding="utf-8")
     WeatherDataHour = pd.read_csv(dir + r'\data\processed\WeatherConditionsHourly2015.csv', delimiter=",", encoding="utf-8")
-    WeatherDataDaily = pd.read_csv(dir + r'\data\processed\WeatherConditionsHourly2015.csv', delimiter=",",
-                                  encoding="utf-8")
+    WeatherDataDaily = pd.read_csv(dir + r'\data\processed\WeatherConditionsDaily2015.csv', delimiter=",", encoding="utf-8")
 
-    RentalDataHour = pd.DataFrame(RentalData.groupby(["DataHour", "Hour"])['Count'].sum()).reset_index()
-    RentalDataHour = pd.DataFrame(RentalData.groupby(["DataHour", "Hour"])['Count'].sum()).reset_index()
+    RentalDataHour = pd.DataFrame(RentalData.groupby(["DateHour", "Hour"])['Count'].sum()).reset_index()
+    RentalDataDaily = pd.DataFrame(RentalData.groupby(["Date"])['Count'].sum()).reset_index()
 
-    # Merging dataframes
-    MergedDataHour = pd.merge(left=RentalDataHour, right=WeatherDataHour, left_on="DataHour", right_on="Date", how='left')
+    # Merging dataframes - hourly
+    MergedDataHour = pd.merge(left=RentalDataHour, right=WeatherDataHour, left_on="DateHour", right_on="Date", how='left')
 
+    # Reshaping merged dataframe - hourly
     MergedDataHour = MergedDataHour.drop(columns=["Hour", "Unnamed: 0", "Date", "OnlyDate"])
-    MergedDataHour.columns = ["DataHour", "count", "temp", "atemp", "precipitation",  "humidity",  "windspeed"]
-    MergedDataHour = MergedDataHour[["DataHour", "temp", "atemp", "precipitation",  "humidity",  "windspeed", "count"]]
-    print(MergedDataHour)
+    MergedDataHour.columns = ["dateHour", "count", "temp", "atemp", "precipitation",  "humidity",  "windspeed"]
+    MergedDataHour["humidity"] = MergedDataHour.apply(lambda MergedDataHour: MergedDataHour["humidity"] * 100, axis=1)
+    MergedDataHour = MergedDataHour[["dateHour", "temp", "atemp", "precipitation",  "humidity",  "windspeed", "count"]]
 
+    # Merging dataframes - daily
+    MergedDataDaily = pd.merge(left=RentalDataDaily, right=WeatherDataDaily, left_on="Date", right_on="Date", how='left')
+
+    # Reshaping merged dataframe - daily
+    MergedDataDaily = MergedDataDaily.drop(columns="Unnamed: 0")
+    MergedDataDaily.columns = ["date", "count", "tempMin", "tempMax", "atempMin", "atempMax", "precipitation",  "humidity",  "windspeed", "visipbility"]
+    MergedDataDaily = MergedDataDaily[["date", "tempMax", "atempMax", "precipitation",  "humidity",  "windspeed", "count"]]
+
+
+    # ploting correlation - weather hourly
     corrMatrixHour = MergedDataHour[["temp", "atemp", "precipitation",  "humidity",  "windspeed", "count"]].corr()
-    print(corrMatrixHour)
 
     mask = np.array(corrMatrixHour)
     mask[np.tril_indices_from(mask)] = False
-    fig,ax = plt.subplots()
-    fig.set_size_inches(10, 10)
-    sn.heatmap(corrMatrixHour, mask=mask, vmin=-1, vmax=1, square=True, annot=True, linewidths=.5)
+    figHour, ax = plt.subplots()
+    plt.title("A Title")
+    plt.ylabel("")
+    plt.xlabel("")
+    figHour.set_size_inches(12.8, 6.4)
+    heatmapDaily = sn.heatmap(corrMatrixHour, mask=mask, vmin=-1, vmax=1, square=True, annot=True, linewidths=.5)
+    heatmapDaily = heatmapDaily.get_figure()
+
+    # # Regression plots
+    # figReg, (ax1, ax2, ax3) = plt.subplots(ncols=3)
+    # figReg.set_size_inches(20, 5)
+    # sn.regplot(x="temp", y="count", data=MergedDataHour, ax=ax1)
+    # sn.regplot(x="windspeed", y="count", data=MergedDataHour, ax=ax2)
+    # sn.regplot(x="humidity", y="count", data=MergedDataHour, ax=ax3)
+    # plt.show()
+
+    figCorrTemp, ax1 = plt.subplots()
+    figCorrTemp.set_size_inches(12.8, 6.4)
+    plotCorrTemp = sn.regplot(x="temp", y="count", data=MergedDataHour, ax=ax1, color="g")
+    plotCorrTemp = plotCorrTemp.get_figure()
+
+    figCorrHum, ax1 = plt.subplots()
+    figCorrHum.set_size_inches(12.8, 6.4)
+    plotCorrHum = sn.regplot(x="temp", y="humidity", data=MergedDataHour, ax=ax1, color="y")
+    plotCorrHum = plotCorrHum.get_figure()
+
+    figCorrWind, ax1 = plt.subplots()
+    figCorrWind.set_size_inches(12.8, 6.4)
+    plotCorrWind = sn.regplot(x="temp", y="windspeed", data=MergedDataHour, ax=ax1)
+    plotCorrWind = plotCorrWind.get_figure()
+
     plt.show()
 
     # MergedData.to_csv(dir + r'\data\processed\MergedData.csv', encoding='utf-8', index=False)
 
-    return corrPlot
+    return heatmapDaily, plotCorrTemp, plotCorrHum, plotCorrWind
 
 def plots(dir):
     # Unpacking return variables from main function
-    corrPlot = main(dir)
+    heatmapDaily, plotCorrTemp, plotCorrHum, plotCorrWind = main(dir)
 
-    tablesDictionary = {"corrPlot": corrPlot}
+    tablesDictionary = {"heatmapDaily": heatmapDaily, "plotCorrTemp": plotCorrTemp, "plotCorrHum": plotCorrHum,
+                        "plotCorrWind": plotCorrWind}
 
     for key, value in tablesDictionary.items():
-        plotly.offline.plot(value, filename=(dir + r'\images\sites\{}.html'.format(key)))
-        go.Figure(value).write_image(dir + r'\images\plots\{}.png'.format(key), width=1280)
+        value.savefig(dir + r'\images\plots\{}.png'.format(key))
 
 if __name__ == "__main__":
     project_dir = str(Path(__file__).resolve().parents[2])
