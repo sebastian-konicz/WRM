@@ -1,6 +1,8 @@
 import pandas as pd
 from pathlib import Path
-import matplotlib
+import seaborn as sn
+import matplotlib.pyplot as plt
+import numpy as np
 
 # Plotly and cufflings standart impors
 import plotly.graph_objects as go
@@ -18,23 +20,40 @@ pd.options.display.max_columns = 50
 def main(dir):
     print("Loading data")
     RentalData = pd.read_csv(dir + r'\data\processed\RentalData2015Enriched.csv', delimiter=",", encoding="utf-8")
-    WeatherData = pd.read_csv(dir + r'\data\processed\WeatherConditionsHourly2015.csv', delimiter=",", encoding="utf-8")
+    WeatherDataHour = pd.read_csv(dir + r'\data\processed\WeatherConditionsHourly2015.csv', delimiter=",", encoding="utf-8")
+    WeatherDataDaily = pd.read_csv(dir + r'\data\processed\WeatherConditionsHourly2015.csv', delimiter=",",
+                                  encoding="utf-8")
 
-    RentalData = pd.DataFrame(RentalData.groupby(["DataHour", "Hour"])['Count'].sum()).reset_index()
+    RentalDataHour = pd.DataFrame(RentalData.groupby(["DataHour", "Hour"])['Count'].sum()).reset_index()
+    RentalDataHour = pd.DataFrame(RentalData.groupby(["DataHour", "Hour"])['Count'].sum()).reset_index()
 
-    MergedData = pd.merge(left=RentalData, right=WeatherData, left_on="DataHour", right_on="Date", how='right')
-    print(MergedData)
+    # Merging dataframes
+    MergedDataHour = pd.merge(left=RentalDataHour, right=WeatherDataHour, left_on="DataHour", right_on="Date", how='left')
 
-    MergedData.to_csv(dir + r'\data\processed\MergedData.csv', encoding='utf-8', index=False)
-    RentalData.to_csv(dir + r'\data\processed\RentalDataMerged.csv', encoding='utf-8', index=False)
+    MergedDataHour = MergedDataHour.drop(columns=["Hour", "Unnamed: 0", "Date", "OnlyDate"])
+    MergedDataHour.columns = ["DataHour", "count", "temp", "atemp", "precipitation",  "humidity",  "windspeed"]
+    MergedDataHour = MergedDataHour[["DataHour", "temp", "atemp", "precipitation",  "humidity",  "windspeed", "count"]]
+    print(MergedDataHour)
 
-    return
+    corrMatrixHour = MergedDataHour[["temp", "atemp", "precipitation",  "humidity",  "windspeed", "count"]].corr()
+    print(corrMatrixHour)
+
+    mask = np.array(corrMatrixHour)
+    mask[np.tril_indices_from(mask)] = False
+    fig,ax = plt.subplots()
+    fig.set_size_inches(10, 10)
+    sn.heatmap(corrMatrixHour, mask=mask, vmin=-1, vmax=1, square=True, annot=True, linewidths=.5)
+    plt.show()
+
+    # MergedData.to_csv(dir + r'\data\processed\MergedData.csv', encoding='utf-8', index=False)
+
+    return corrPlot
 
 def plots(dir):
     # Unpacking return variables from main function
-    dockingStationsPlot = main(dir)
+    corrPlot = main(dir)
 
-    tablesDictionary = {"dockingStationsPlot": dockingStationsPlot}
+    tablesDictionary = {"corrPlot": corrPlot}
 
     for key, value in tablesDictionary.items():
         plotly.offline.plot(value, filename=(dir + r'\images\sites\{}.html'.format(key)))

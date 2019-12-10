@@ -19,12 +19,21 @@ def main(dir, dataYear):
 
         APIKEY = "3c7e3a27611cb8f6c1812270bcf762b9"
 
+        timechange = "2015-10-26"
+        timechange = pd.to_datetime(timechange).date()
+        print(timechange)
+
         weather = []
         for index, row in Dates.iterrows():
             # Getting UNIX timestamp
             date = pd.to_datetime(row["StartDate"]).date()
             print(date)
-            unixtime = round(time.mktime(date.timetuple())) + 7200 # Added 10800 to set correct time zone and time to 1 AM
+            if date >= timechange:
+                unixtime = round(time.mktime(date.timetuple())) + 3600  # Added 10800 to set correct time zone and time to 1 AM
+                print("after time change")
+            else:
+                unixtime = round(time.mktime(date.timetuple())) + 7200 # Added 10800 to set correct time zone and time to 1 AM
+                print("before time change")
             print(unixtime)
 
             # Getting API response for given date

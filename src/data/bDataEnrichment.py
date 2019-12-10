@@ -1,5 +1,6 @@
 import pandas as pd
 from pathlib import Path
+import time
 
 pd.options.display.max_columns = 50
 
@@ -26,7 +27,8 @@ def main(dir, dataYear):
     RentalData["Holiday"] = RentalData["Date"].isin(holidays)
     RentalData['Holiday'] = RentalData.apply(lambda RentalData: 1 if (RentalData["Holiday"] is True) else 0, axis=1)
     RentalData["WorkingDay"] = RentalData.apply(lambda RentalData: 1 if ((RentalData['Weekday'] >= 0) & (RentalData['Weekday'] < 5) & (RentalData['Holiday'] != 1)) else 0, axis=1)
-    RentalData["DataHour"] = RentalData.apply(lambda RentalData: RentalData["Date"].strftime('%Y-%m-%d') + " " + str(RentalData["Hour"]) + ":00:00", axis=1)
+    # RentalData["DataHour"] = RentalData.apply(lambda RentalData: RentalData["Date"].strftime('%Y-%m-%d') + " " + str(RentalData["Hour"]) + ":00:00", axis=1)
+    RentalData["DataHour"] = RentalData.apply(lambda RentalData: RentalData["Date"].strftime('%Y-%m-%d') + " " + time.strftime('%H:%M:%S', (1, 1, 1, RentalData["Hour"], 0, 0, 0, 0, 0)), axis=1)
 
     # Changing numeric values to text values
     RentalData["Weekday"] = RentalData["Weekday"].map({0: "Monday", 1: "Tuesday", 2: "Wednesday",

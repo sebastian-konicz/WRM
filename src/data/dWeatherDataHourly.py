@@ -28,10 +28,10 @@ def main(dir, dataYear):
             print(date)
             if date >= timechange:
                 unixtime = round(time.mktime(date.timetuple())) + 3600  # Added 10800 to set correct time zone and time to 1 AM
-                print("po zmianie czasu")
+                print("after time change")
             else:
                 unixtime = round(time.mktime(date.timetuple())) + 7200 # Added 10800 to set correct time zone and time to 1 AM
-                print("przed zmianą czasu")
+                print("before time change")
             print(unixtime)
 
             # Getting API response for given date
