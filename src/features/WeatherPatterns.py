@@ -50,10 +50,8 @@ def main(dir):
     mask = np.array(corrMatrixHour)
     mask[np.tril_indices_from(mask)] = False
     figHour, ax = plt.subplots()
-    plt.title("A Title")
-    plt.ylabel("")
-    plt.xlabel("")
-    figHour.set_size_inches(12.8, 6.4)
+    plt.title("Coreelation heatmap")
+    figHour.set_size_inches(10, 10)
     heatmapDaily = sn.heatmap(corrMatrixHour, mask=mask, vmin=-1, vmax=1, square=True, annot=True, linewidths=.5)
     heatmapDaily = heatmapDaily.get_figure()
 
@@ -67,17 +65,20 @@ def main(dir):
 
     figCorrTemp, ax1 = plt.subplots()
     figCorrTemp.set_size_inches(12.8, 6.4)
+    plt.title("Coreelation between temperature and count of trips")
     plotCorrTemp = sn.regplot(x="temp", y="count", data=MergedDataHour, ax=ax1, color="g")
     plotCorrTemp = plotCorrTemp.get_figure()
 
     figCorrHum, ax1 = plt.subplots()
     figCorrHum.set_size_inches(12.8, 6.4)
-    plotCorrHum = sn.regplot(x="temp", y="humidity", data=MergedDataHour, ax=ax1, color="y")
+    plt.title("Coreelation between humidity and count of trips")
+    plotCorrHum = sn.regplot(x="humidity", y="count", data=MergedDataHour, ax=ax1, color="y")
     plotCorrHum = plotCorrHum.get_figure()
 
     figCorrWind, ax1 = plt.subplots()
     figCorrWind.set_size_inches(12.8, 6.4)
-    plotCorrWind = sn.regplot(x="temp", y="windspeed", data=MergedDataHour, ax=ax1)
+    plt.title("Coreelation between windspeed and count of trips")
+    plotCorrWind = sn.regplot(x="windspeed", y="count", data=MergedDataHour, ax=ax1)
     plotCorrWind = plotCorrWind.get_figure()
 
     plt.show()
