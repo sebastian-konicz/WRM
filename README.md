@@ -197,7 +197,7 @@ In the images below, orange represents a station with more bikes leaving than co
 ### Page rank algorithm
 
 ### Network analysis of bike stations
-#### Bike path in Wroclaw
+#### Bike paths in Wroclaw
 ![BikePaths](images/final/BikePaths.png)
 [Interactive map](https://sebastian-konicz.github.io/WRM/images/sites/BikePathsMapTreshold.html)
 
@@ -212,7 +212,7 @@ In the images below, orange represents a station with more bikes leaving than co
 
 ![plotCorrWind](images/plots/plotCorrWind.png)
 
-- correlation between weather conditions and bike usage (temp, percipitation, wind and humidity)
+- correlation between weather conditions and bike usage (temp, precipitation, wind and humidity)
 [Source / Inspiration](https://towardsdatascience.com/exploring-toronto-bike-share-ridership-using-python-3dc87d35cb62)
 
 ## Route predictions <a id="route"></a>
