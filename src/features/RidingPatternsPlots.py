@@ -120,7 +120,7 @@ def main(dir):
         hourAvgWDPlotData.append(plotLine)
 
     hourAvgWDPlotLayout = go.Layout(
-        title=go.layout.Title(text="Average rentals by hour and kind of day (working day or weekend/holiday)", x=0.5, y=0.9, xanchor='center', yanchor='middle'),
+        title=go.layout.Title(text="Average rentals by hour and type of day (working day or weekend/holiday)", x=0.5, y=0.9, xanchor='center', yanchor='middle'),
         template="plotly_dark", xaxis_title="hour of day", yaxis_title="no. of rentals",
         xaxis=dict(tickmode="array", tickvals=hourVals, ticktext=hourText))
     hourAvgWDPlot = dict(data=hourAvgWDPlotData, layout=hourAvgWDPlotLayout)
@@ -145,6 +145,8 @@ def main(dir):
     # Rental duration (all)
     durationAggregated = pd.DataFrame(RentalData.groupby(["Duration"])['Count'].sum()).reset_index()
     durationLimitedAll = durationAggregated['Count'].sum()
+    durationLimited120 = durationAggregated[(durationAggregated['Duration'] <= 7200)]
+    durationLimited120 = durationLimited120['Count'].sum()
     durationAggregated = durationAggregated[(durationAggregated['Duration'] <= 3600)]
     durationAggregated['Total Duration'] = durationAggregated.apply(lambda durationAggregated: time.strftime("%H:%M:%S", time.gmtime(durationAggregated['Duration'])), axis=1)
 
@@ -157,8 +159,6 @@ def main(dir):
     durationAggPlot = dict(data=durationAggPlotData, layout=durationAggPlotLayout)
 
     #Time limits
-    durationLimited90 = durationAggregated[(durationAggregated['Duration'] <= 5400)]
-    durationLimited90 = durationLimited90['Count'].sum()
     durationLimited60 = durationAggregated[(durationAggregated['Duration'] <= 3600)]
     durationLimited60 = durationLimited60['Count'].sum()
 
@@ -216,7 +216,7 @@ def main(dir):
     durationPercent20 = str(round(((durationLimited20 / durationLimitedAll) * 100), 2)) + "%"
     durationPercent30 = str(round(((durationLimited30 / durationLimitedAll) * 100), 2)) + "%"
     durationPercent60 = str(round(((durationLimited60 / durationLimitedAll) * 100), 2)) + "%"
-    durationPercent90 = str(round(((durationLimited90 / durationLimitedAll) * 100), 2)) + "%"
+    durationPercent120 = str(round(((durationLimited120 / durationLimitedAll) * 100), 2)) + "%"
 
     headerColor = 'black'
     rowEvenColor = 'lightgrey'
@@ -234,9 +234,9 @@ def main(dir):
         ),
         cells=dict(
             values=[
-                ['rides equal or shorter than 20 minutes', 'rides equal or shorter than 30 minutes', 'rides equal or shorter than 60 minutes', 'rides equal or shorter than 90 minutes', '<b>no limit</b>'],
-                [durationLimited20, durationLimited30, durationLimited60, durationLimited90, "<b>{}</b>".format(durationLimitedAll)],
-                [durationPercent20, durationPercent30, durationPercent60, durationPercent90, "<b>100,00%</b>"]],
+                ['rides shorter than 20 minutes', 'rides shorter than 60 minutes', 'rides shorter than 120 minutes', '<b>no limit</b>'],
+                [durationLimited20, durationLimited60, durationLimited120, "<b>{}</b>".format(durationLimitedAll)],
+                [durationPercent20, durationPercent60, durationPercent120, "<b>100,00%</b>"]],
             line_color='darkslategray',
             fill_color=[[rowOddColor, rowEvenColor, rowOddColor, rowEvenColor, rowOddColor]],
             align=['left', 'center'],

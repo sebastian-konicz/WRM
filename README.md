@@ -58,7 +58,7 @@ As a result, the dataset has been reduced from 735 439 to 733 429 (difference = 
 ## Basic statistics <a id="statistics"></a>
 Based on the cleaned up dataset i have prepared a table with basic statistics concerning bike sharing system in Wroclaw.
 Readers can confront the data presented below with the official statistics available (in polish) on this [site](https://www.wroclaw.pl/wroclawski-rower-miejski-podsumowanie-sezonu-2015).
-Of course the numbers differ because bike sharing operator overstates its statistics (for marketing purposes) by including all rentals (even the invalid ones).
+Of course the numbers differ, mainly because bike sharing operator overstates its statistics (probably for marketing purposes) by including all rentals (even the invalid ones).
 
 ![statisticsTable](images/plots/statisticsTable.png)
 
@@ -83,13 +83,15 @@ From the analyst's point of view, the difference in the popularity of the system
 
 The correctness of the second statement is confirmed after analyzing the most popular user routes (see the chapter [Bike stations analysis](#stations)). The top ten most popular routes included, among others, those leading from the dormitory (docking station: Wróblewskiego (Teki)) to the main building of the Wroclaw University of Technology (docking station: Norwid / Wyspiański (PWr) or to the stations near the main campus (Łukasiewicza / Smoluchowski (PWr), Rondo Regana).
 
+#### Total bike rides by month
 ![monthAggPlot](images/plots/monthAggPlot.png)
 [Interactive plot](https://nbviewer.jupyter.org/github/sebastian-konicz/WRM/blob/master/notebooks/reports/RidingPatternsPlots.ipynb#monthAggPlot)
 
+#### Average bike rides by month
 ![monthAvgPlot](images/plots/monthAvgPlot.png)
 [Interactive plot](https://nbviewer.jupyter.org/github/sebastian-konicz/WRM/blob/master/notebooks/reports/RidingPatternsPlots.ipynb#monthAvgPlot)
 
-### Total bike rides by day / average bike rides by day of the week
+### Total / average bike rides by day of the week
 Secondly, the subject of the analysis is the total number of bike rentals on a given day and the average number of rentals per day of the week.
 
 In the case of the total daily number of rentals, the trend described in the previous paragraph can be clearly seen. The peak of the system's popularity falls on May and June, while in the following months a gradual decrease in the number of bicycle rentals is visible.
@@ -102,9 +104,11 @@ In addition, the daily chart clearly shows 3 days in which the number of rentals
 
 It can be assumed that a clear deviation from the standard in terms of loans (2-3 times smaller than on neighboring days) may be due to a faulty data set for these days i.e. the system saved only a part of the loans that took place on those days.
 
+#### Total bike rides by day of the week
 ![dayAggPlot](images/plots/dayAggPlot.png)
 [Interactive plot](https://nbviewer.jupyter.org/github/sebastian-konicz/WRM/blob/master/notebooks/reports/RidingPatternsPlots.ipynb#dayAggPlot)
 
+#### Average bike rides by day of the week
 ![weekdayAvgPlot](images/plots/weekdayAvgPlot.png)
 [Interactive plot](https://nbviewer.jupyter.org/github/sebastian-konicz/WRM/blob/master/notebooks/reports/RidingPatternsPlots.ipynb#weekdayAvgPlot)
 
@@ -123,29 +127,49 @@ Of course, the above conclusions on how to use bicycles should also be confronte
 
 The last graph shows the use of bicycles at specific times of the day, broken down by month. Local peaks can still be clearly seen in the hours when people move from and to work. Nevertheless, it can also be seen how with the following autumn months (September, October, November) these charts are gradually flattening. Most likely, weather conditions have a big impact on this. (this will be the subject of the analysis in the next chapter - [Weather conditions usage patterns](# weather)).
 
+#### Total rentals by hour and weekday
 ![hourAggPlot](images/plots/hourAggPlot.png)
 [Interactive plot](https://nbviewer.jupyter.org/github/sebastian-konicz/WRM/blob/master/notebooks/reports/RidingPatternsPlots.ipynb#hourAggPlot)
 
+#### Average rentals by hour and weekday
 ![hourAvgPlot](images/plots/hourAvgPlot.png)
 [Interactive plot](https://nbviewer.jupyter.org/github/sebastian-konicz/WRM/blob/master/notebooks/reports/RidingPatternsPlots.ipynb#hourAvgPlot)
 
+#### Average rentals by hour and type of day (working day or weekend/holiday)
 ![hourAvgWDPlot](images/plots/hourAvgWDPlot.png)
 [Interactive plot](https://nbviewer.jupyter.org/github/sebastian-konicz/WRM/blob/master/notebooks/reports/RidingPatternsPlots.ipynb#hourAvgWDPlot)
 
+#### Average rentals by hour and month
 ![hourAvgMonthPlot](images/plots/hourAvgMonthPlot.png)
 [Interactive plot](https://nbviewer.jupyter.org/github/sebastian-konicz/WRM/blob/master/notebooks/reports/RidingPatternsPlots.ipynb#hourAvgMonthPlot)
 
 ### Bike rides duration
+Another factor in the analysis of system users' behavior is the length of trips they make. As you can see in the table below, almost 83.5% of the journey is shorter than 20 minutes, which, according to the terms of service, means that the user does not incur any fees for using the bike. In addition, almost 96% of the journey is less than 60 minutes, while only 1.59% of the rentals last longer than 2 hours.
+
+Given the above, for further analysis I will limit the data set only to travels that were shorter than 60 minutes.
 
 ![durationTable](images/plots/durationTable.png)
 
-![averageRentalTimeTable](images/plots/averageRentalTimeTable.png)
+The chart below shows the rental time distribution. It clearly shows that the overwhelming number of trips is not more than 30 minutes and reaches its peak between 8 and 12 minutes. Therefore, it should be assumed that the users use the system as a supplement to other means of public transport, i.e. a way to reach or from the main communication node (bus or train station, bus or tram loop). The accuracy of the above statement can be confronted with the analysis of the most popular docking stations (chapter Docking stations) and the most popular routes.
 
 ![durationAggPlot](images/plots/durationAggPlot.png)
 [Interactive plot](https://nbviewer.jupyter.org/github/sebastian-konicz/WRM/blob/master/notebooks/reports/RidingPatternsPlots.ipynb#durationAggPlot)
 
+The next graph presents a breakdown of the time distribution of loans divided into working days and non-working days (weekends and holidays).
+
 ![durationWDPlot](images/plots/durationWDPlot.png)
 [Interactive plot](https://nbviewer.jupyter.org/github/sebastian-konicz/WRM/blob/master/notebooks/reports/RidingPatternsPlots.ipynb#durationWDPlot)
+
+As you can see, both charts do not differ significantly from each other, i.e. short trips dominate in both cases. Nevertheless, it is worth deepening the analysis here and looking at how average travel times for particular types of days.
+
+![averageRentalTimeTable](images/plots/averageRentalTimeTable.png)
+
+The table above clearly shows that the average duration of rentals on weekends is almost 9 minutes longer than on business days. The above results from two facts shown in the charts below, i.e.
+
+1. the number of trips over 60 minutes on weekends is almost 3 times higher than on business days.
+2.total travel time over 60 minutes is almost 2 times greater than on a business day.
+
+Thus, it is clearly visible that on days off, bikes are not only used as a means of public transport, but as a form of recreation.
 
 ![durationCountPlot](images/plots/durationCountPlot.png)
 [Interactive plot](https://nbviewer.jupyter.org/github/sebastian-konicz/WRM/blob/master/notebooks/reports/RidingPatternsPlots.ipynb#durationCountPlot)
