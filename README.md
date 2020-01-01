@@ -167,7 +167,7 @@ As you can see, both charts do not differ significantly from each other, i.e. sh
 The table above clearly shows that the average duration of rentals on weekends is almost 9 minutes longer than on business days. The above results from two facts shown in the charts below, i.e.
 
 1. the number of trips over 60 minutes on weekends is almost 3 times higher than on business days.
-2.total travel time over 60 minutes is almost 2 times greater than on a business day.
+2. total travel time over 60 minutes is almost 2 times greater than on a business day.
 
 Thus, it is clearly visible that on days off, bikes are not only used as a means of public transport, but as a form of recreation.
 
@@ -187,6 +187,21 @@ I've also generated an interactive version of this plot in folium - click [here]
 ![All docking stations](images/final/DockingStationsMap.png)
 
 ### Analysis of flows between stations
+
+Rynek,
+Wita Stwosza - centurm
+Fosa Miejska
+
+Rondo Regana
+Dworzec Główny
+Powstańców Śląskich (Aleja Hallera)
+Powstańców Śląskich (Arkady Wrocławskie)
+Plac Jana Pawła II (Akademia Muzyczna)
+Drobnera / Plac Bema - węzły komunikacyjne
+
+
+Szczęśliwicka - wieżowiec
+
 
 ### Ranking of bike stations
 #### Most and least popular bike stations (outflow)
