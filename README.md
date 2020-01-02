@@ -245,6 +245,7 @@ The animated gifs below show the dynamic change of flows between docking station
 The below images shows all the bike paths that were taken by the system users. As the image is hard to read for a better understanding of bike paths please use the interactive version of the map. The interactive map has multiple layers showing the number of journeys for a given route. Furthermore, below I present the table with the top 10 most frequently used routes.
 
 It is worth noting (and was already mentioned before) that the top ten most popular routes included, among others, those leading from the dormitory (docking station: Wróblewskiego (Teki)) to the main building of the Wroclaw University of Technology (docking station: Norwid / Wyspiański (PWr) or to the stations near the main campus (Łukasiewicza / Smoluchowski (PWr), Rondo Regana).
+
 The second most popular bike paths are those leading to and from the biggest scyscrapper in Wrocław.
 
 ![BikePaths](images/final/BikePaths.png)
@@ -254,7 +255,7 @@ The second most popular bike paths are those leading to and from the biggest scy
 In this chapter, I will try to answer the question of how atmospheric conditions affect the popularity of the system. To do that first I have to calculate the correlation coefficient between the number of rides and individual weather factors like temperature, sensed temperature (atemp), precipitation, humidity, and wind speed. The values of individual coefficients are visible in the graph below in the bottom row.
 
 From the table below its visible that only two weather factors have a fairly significant influence (greater than 0,5) on the number of rides:
-- temperature / sensed temperature has a positive influence - i.e the higher temperature the more rented bikes
+- temperature / sensed temperature has a positive influence - i.e the higher temperature the more rented bikes;
 - humidity has a negative influence - i.e the higher humidity the less rented bikes.
 
 ![heatmapDaily](images/plots/heatmapDaily.png)
@@ -271,7 +272,11 @@ From the table below its visible that only two weather factors have a fairly sig
 [Source / Inspiration](https://github.com/charlie1347/TfL_bikes)
 
 ## Conclusions <a id="conclusions"></a>
-( to be added in the future)
+Bearing the above analisys in mind, the following conclusions can be drawn:
+- during weekdays people use bike-sharing system as a supplementary means of transport in commuting to and from work/school during the morning and afternoon rush hours
+- during weekends and holidays, in addition to the commute, people use bikes as a form of recreation
+- the most popular routes and docking stations focus around important communication nodes (train, tram and bus stations)  as well as places with a high concentration of people (universities, scyscrapers and office districts)
+- the demand on the bikes is fairly strongly correlated with the atmospheric condition (temerature and humidity) and season of the year
 
 ## Project Organization <a id="project"></a>
 ------------
