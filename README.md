@@ -242,14 +242,17 @@ The animated gifs below show the dynamic change of flows between docking station
 
 ### Network analysis of bike stations
 #### Bike paths in Wroclaw
-The below images shows all the bike paths that were taken by the system users. As the image is hard to read for a better understanding of bike paths please use the interactive version of the map. The interactive map has multiple layers showing the number of journeys for a given route. Furthermore, below I present the table with the top 10 most frequently used routes.
-
-It is worth noting (and was already mentioned before) that the top ten most popular routes included, among others, those leading from the dormitory (docking station: Wróblewskiego (Teki)) to the main building of the Wroclaw University of Technology (docking station: Norwid / Wyspiański (PWr) or to the stations near the main campus (Łukasiewicza / Smoluchowski (PWr), Rondo Regana).
-
-The second most popular bike paths are those leading to and from the biggest scyscrapper in Wrocław.
-
+The below images shows all the bike paths that were taken by the system users. As the image is hard to read for a better understanding of bike paths please use the interactive version of the map. The interactive map has multiple layers showing the number of journeys for a given route.
 ![BikePaths](images/final/BikePaths.png)
 [Interactive map](https://sebastian-konicz.github.io/WRM/images/sites/BikePathsMapTreshold.html)
+
+#### Most popular bike paths (outflow)
+Furthermore, below I present the table with the top 10 most frequently used routes.
+![mostPopTable](images/plots/mostPopTable.png)
+
+It is worth noting (and was already mentioned before) that the top ten most popular routes included, among others, those leading from the dormitories (docking station: Wróblewskiego (Teki) and Plac Grunwaldzki (DS Ołówek)) to the main building of the Wroclaw University of Technology (docking station: Norwid / Wyspiański (PWr) or to the stations near the main campus (Rondo Regana).
+
+The second most popular bike paths are those leading to and from the biggest scyscrapper in Wrocław.
 
 ## Weather conditions usage patterns <a id="weather"></a>
 In this chapter, I will try to answer the question of how atmospheric conditions affect the popularity of the system. To do that first I have to calculate the correlation coefficient between the number of rides and individual weather factors like temperature, sensed temperature (atemp), precipitation, humidity, and wind speed. The values of individual coefficients are visible in the graph below in the bottom row.

@@ -36,14 +36,21 @@ def main(dir):
     flowDiff["InflowsOutflows"] = flowDiff.apply(lambda totalFlow: totalFlow['Outflow'] - totalFlow['Inflow'], axis=1)
     flowDiff.sort_values(by="InflowsOutflows", ascending=True, inplace=True)
 
+    mostPopular = RentalData[["StartStation", "EndStation", "Count"]]
+    mostPopular = mostPopular[mostPopular["StartStation"] != mostPopular["EndStation"]]
+    mostPopular = pd.DataFrame(mostPopular.groupby(["StartStation", "EndStation"])['Count'].sum()).reset_index()
+    mostPopular.columns = ["StartStation", "EndStation", "Outflow"]
+    mostPopular.sort_values(by=["Outflow"], ascending=False, inplace=True)
+
     rankData = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     rank = pd.DataFrame(rankData, columns=["Rank"])
 
-    # REstring data to top 10 values
+    # Restring data to top 10 values
     outflow = outflow.head(10)
     inflow = inflow.head(10)
     totalFlow = totalFlow.head(10)
     flowDiff = flowDiff.head(10)
+    mostPopular = mostPopular.head(10)
 
     # Creating tables
     headerColor = 'black'
@@ -130,6 +137,26 @@ def main(dir):
         ))
     ])
 
+    mostPopTable = go.Figure(data=[go.Table(
+        columnwidth=[2, 30, 30, 10],
+        header=dict(
+            values=['<b>Rank</b>', '<b>Start Station</b>', '<b>End Station</b>', '<b>Outflows</b>'],
+            line_color='black',
+            fill_color=headerColor,
+            align=['center'],
+            font=dict(color='white', size=14),
+            height=30
+        ),
+        cells=dict(
+            values=[rank.Rank, mostPopular.StartStation, mostPopular.EndStation, mostPopular.Outflow],
+            line_color='darkslategray',
+            fill_color=[[rowOddColor, rowEvenColor, rowOddColor, rowEvenColor] * 3],
+            align=['left', 'left', 'center'],
+            font=dict(color='black', size=14),
+            height=25
+        ))
+    ])
+
     # Creating pie chart
     # Total chart
     dockingStationsSame = RentalData[RentalData['StartStation'] == RentalData['EndStation']]
@@ -198,14 +225,14 @@ def main(dir):
                                                                 xanchor='center', yanchor='middle'))
     dockingStationsWDDOPlot.update_layout(dockingStationsWDDOPlotLayout)
 
-    return outflowTable, inflowTable, totalflowTable, flowDiffTable, dockingStationsWDDOPlot, dockingStationsPlot
+    return outflowTable, inflowTable, totalflowTable, flowDiffTable, mostPopTable, dockingStationsWDDOPlot, dockingStationsPlot
 
 def plots(dir):
     # Unpacking return variables from main function
-    outflowTable, inflowTable, totalflowTable, flowDiffTable, dockingStationsWDDOPlot, dockingStationsPlot = main(dir)
+    outflowTable, inflowTable, totalflowTable, flowDiffTable, mostPopTable, dockingStationsWDDOPlot, dockingStationsPlot = main(dir)
 
     tablesDictionary = {"outflowTable": outflowTable, "inflowTable": inflowTable,
-                        "totalflowTable": totalflowTable, "flowDiffTable": flowDiffTable,
+                        "totalflowTable": totalflowTable, "flowDiffTable": flowDiffTable, "mostPopTable": mostPopTable,
                         "dockingStationsWDDOPlot": dockingStationsWDDOPlot, "dockingStationsPlot": dockingStationsPlot}
 
     for key, value in tablesDictionary.items():
