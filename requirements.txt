@@ -16,7 +16,7 @@ chart-studio==1.0.0
 Click==7.0
 colorama==0.4.1
 colorlover==0.3.0
-cookiecutter==1.6.0
+cookiecutter==2.1.1
 coverage==4.5.4
 cufflinks==0.17.0
 cycler==0.10.0
